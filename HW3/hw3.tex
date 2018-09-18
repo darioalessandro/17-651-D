@@ -32,13 +32,17 @@ deduction:
  \item $(p \land q)\land r\vdash p \land (q \land r)$ \\
  \item $p \land q,p\implies s,q\implies t\vdash s\land t$ \\
  \item $q \implies \neg p,p\land q\vdash r$ \\
-   \begin{tabular}{l ll lll}
+   \begin{tabular}{l ll lll llll}
      1. & $q \implies \neg p$ & premise \\
-     2. & $p\land q$          & premise \\
-     3.	& $q$         & $\land-elim$,1\\
-     4. & $r$ &  \\
+     2. & $p \land q$         & premise \\
+     3. & $q$                 & $\land -elim, 2$ \\
+     4. & $\neg p$            & modus ponens, 1 \\  
+     5, & $\p$                & $\land -elim, 2$ \\
+     6.	& $\neg r$            & assumption  & l\\
+     7. & $\neg p$            & Copy from 4 & l\\
+     8. & $p$                 & Copy from 5 & l\\
+     4. & $r$                 & $\neg -elim$, 6-8 \\
    \end{tabular} \\
-   
  \item $p \land q \vdash p \implies q$ \\
    \begin{tabular}{l ll lll}
      1. & $p \land q$ & premise \\
