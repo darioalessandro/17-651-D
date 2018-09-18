@@ -31,6 +31,16 @@ deduction:
 \begin{enumerate}[a.]
  \item $(p \land q)\land r\vdash p \land (q \land r)$ \\
  \item $p \land q,p\implies s,q\implies t\vdash s\land t$ \\
+   \begin{tabular}{l ll lll}
+     1. & $p \land q$ & premise \\
+     2. & $p \implies s$ & premise \\
+     3. & $q \implies t$ & premise \\
+     4. & $p$            & $\land$-elim, 1 \\
+     5. & $s$            & modus ponens, 2,4 \\
+     6. & $q$            & $\land$-elim, 1 \\
+     7. & $t$            & modus ponens, 3,6 \\
+     8. & $s\land r$     & $\land$-intro, 5,7 \\
+   \end{tabular} \\
  \item $q \implies \neg p,p\land q\vdash r$ \\
    \begin{tabular}{l ll lll llll}
      1. & $q \implies \neg p$ & premise \\
