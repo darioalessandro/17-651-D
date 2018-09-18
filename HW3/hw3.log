@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 SEP 2018 03:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 SEP 2018 05:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -454,26 +454,21 @@ File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
-LaTeX Font Info:    Try loading font information for U+msa on input line 32.
+LaTeX Font Info:    Try loading font information for U+msa on input line 33.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 32.
+LaTeX Font Info:    Try loading font information for U+msb on input line 33.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 32.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 33.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 33--44
 
  []
@@ -496,7 +491,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 63--70
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 70--79
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 98--106
 
  []
 
@@ -504,7 +509,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 70--71
 Here is how much of TeX's memory you used:
  2583 strings out of 492649
  29873 string characters out of 6129622
- 105450 words of memory out of 5000000
+ 104450 words of memory out of 5000000
  6457 multiletter control sequences out of 15000+600000
  7915 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -517,7 +522,7 @@ cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mti10.pfb>
-Output written on hw3.pdf (2 pages, 82202 bytes).
+Output written on hw3.pdf (2 pages, 82324 bytes).
 PDF statistics:
  39 PDF objects out of 1000 (max. 8388607)
  27 compressed objects within 1 object stream

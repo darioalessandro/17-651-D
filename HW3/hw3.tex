@@ -7,7 +7,7 @@
 \input{handout}
 \begin{document}
 
-\homework{}{12 September 2016}{Homework \#3:
+\homework{}{17 September 2018}{Homework \#3:
 Proof}
 
 \noindent {\bf INSTRUCTIONS}: before completing your homework,  make sure you have considered the following:
@@ -29,7 +29,7 @@ propositional calculus.
 \item Provide derivations for each of the following, using natural
 deduction:
 \begin{enumerate}[a.]
- \item $(p \land q)\land r\vdash p \land (q \land r)$ \\
+ %\item $(p \land q)\land r\vdash p \land (q \land r)$ \\
  \item $p \land q,p\implies s,q\implies t\vdash s\land t$ \\
    \begin{tabular}{l ll lll}
      1. & $p \land q$ & premise \\
@@ -68,6 +68,14 @@ deduction:
     4. & $q \lor r$ & $\lor-intro, 3$\\
    \end{tabular} \\
  \item $p \implies (q \land r), \neg p \implies r, p \lor \neg p \vdash r$ \\
+   \begin{tabular}{l ll lll llll }
+    1. & $p \implies (q \land r) $ & premise \\
+    2. & $\neg p \implies r$       & premise \\
+    3. & $p \lor \neg p$           & premise \\
+    4. & $p$                       & assumption & l \\
+    5. & $q \land r$               & $\implies$-elim, 1, 4 & l\\
+    6. & $r$                       & $\land-elim$, 5 \\
+   \end{tabular} \\
 \end{enumerate}
 \end{enumerate}
 
@@ -80,9 +88,21 @@ calculus.
 \item Show using natural deduction:
 \begin{enumerate}[a.]
 \item $\forall x:T\bullet P(x)\land Q(x)\dashv
-\vdash (\forall x:T\bullet P(x))\land (\forall y:T\bullet Q(y))$
+  \vdash (\forall x:T\bullet P(x))\land (\forall y:T\bullet Q(y))$ \\
+  \begin{tabular}{l ll}
+    1. & & \\
+    2. & & \\
+    3. & & \\
+    4. & & \\
+   \end{tabular} \\
 \item $\exists x:T\bullet P(x) \lor Q(x) \dashv \vdash
-(\exists x:T \bullet P(x)) \lor (\exists x:T \bullet Q(x))$
+  (\exists x:T \bullet P(x)) \lor (\exists x:T \bullet Q(x))$ \\
+  \begin{tabular}{l ll}
+    1. &  & \\
+    2. &  & \\
+    3. &  & \\
+    4. &  & \\
+   \end{tabular} \\
 \end{enumerate}
 (\textsc{Note}: $p \dashv\vdash q$ is a shorthand for ``$p \vdash q$
 and $q \vdash p$." That is, for $p \dashv \vdash q$ you need to show
