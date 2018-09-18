@@ -1,0 +1,81 @@
+\documentclass{article}
+\usepackage{verbatim,indentfirst,amsmath,amsthm,amssymb,latexsym,zed-csp}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\newcommand{\revise}[1] {\textcolor{red} {#1}} 				% Text to revise
+
+
+\input{handout}
+
+\begin{document}
+
+
+\homework{}{August 31, 2016}{Homework \#1: Formal Models and Formal Systems}{}
+
+\noindent\textsc{Note 1}: This homework must be completed using a
+LaTex document compiler. So first you will need to install LaTeX and
+an editor for it. The course web site has instructions on how to do
+this. It also has a template that you should use to create your
+answers, as well as examples of LaTex usage
+that you might find useful when creating your answers. \vspace {3pt}
+
+\noindent\textsc{Note 2}: For some of these problems (and in general
+for the homework in this class), there may be more than one correct
+answer.\vspace {3pt}
+
+
+\begin{enumerate}
+% Exercise 1
+ \item Consider the game described in Chapter 2 of GWC10. Suppose that
+    the container starts out with $N$ balls.
+    \begin{enumerate}
+        \item List five aspects of the real world that were \emph{not}
+        represented in our formal model.
+        \item How many ``turns" will it take for the game to stop? Briefly explain why. (Hint: use the $\lfloor$ $\rfloor$ notation to express your solution, if required.)
+        \item What is the largest number of extra black balls
+        needed, and what configuration of the container causes this number to be required?
+        Assume that when two black balls are taken out of the container one is put back into the container and the other into the stock of extra balls.
+        \item Argue (informally) that the game stops.
+    \end{enumerate}
+
+% Exercise 2
+ \item
+Consider a language with alphabet $\{ \lambda, \bullet, (, ), x, y, z \}$ and syntax
+
+ \begin{syntax}
+     expression  & =  & variable~name | expression, expression\\
+     & | & $``$ \lambda $''$, variable~name, $``$ \bullet $''$, expression\\
+     & | & ``($"$, expression, ``)$"$;
+     \also
+     variable~name & = & $``$x$''$ | $``$y$''$ | $``$z$''$;
+ \end{syntax}
+
+Are the following wffs of the language? For those that are not briefly explain why.
+ \begin{enumerate}
+ \item $\lambda x \bullet yz$
+ \item $\lambda \bullet x \lambda \bullet y$
+ \item $\lambda y \bullet x \bullet z$
+ \item $\lambda x \bullet x(yz)$
+ \item $\lambda x \bullet \lambda y \bullet xyz$
+ \end{enumerate}
+
+% Exercise 3
+ \item
+Using the {\em Stars} formal system of Example 3.4 from Chapter~3 of GWC10 formally show that\\
+ \\
+ ${\star}{\diamond}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}\ {\vdash}\ {\star}{\diamond}{\star}{\star}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}{\star}{\star}$
+
+% Exercise 4
+ \item
+ In Chapter~3 of GWC10 the {\em Stars} formal system of Example 3.4 was interpreted as a system for adding certain positive integers. For example, $1 + 3 = 4$ could be proved a theorem of {\em Stars}.
+
+ \begin{enumerate}
+ \item Augment {\em Stars} so that you can prove statements such as $3+4=7$ and $15 + 2 = 17$.
+ You need to handle only expressions involving the addition of positive integers.
+
+ \textsc{Note:} Your answer should include the alphabet, syntax, inference system, and interpretation.
+ \item Show that that $3 + 4 = 7$ is a theorem of the augmented system. (Note: do not forget to provide an interpretation of your result at the end of the derivation process.)
+ \end{enumerate}
+
+\end{enumerate}
+\end{document}

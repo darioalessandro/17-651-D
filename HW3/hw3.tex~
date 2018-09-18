@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{verbatim,indentfirst,amsmath,amsthm,amssymb,latexsym,enumerate,zed-csp}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\newcommand{\revise}[1] {\textcolor{red} {#1}} 				% Text to revise
+
+\input{handout}
+\begin{document}
+
+\homework{}{12 September 2016}{Homework \#3:
+Proof}
+
+\noindent {\bf INSTRUCTIONS}: before completing your homework,  make sure you have considered the following:
+\begin{itemize}
+\item You are allowed to use only primitive inference rules.
+\item Remember to include vertical lines to represent the scope any assumptions.
+\item Remember that all assumptions in your proofs must be discharged.
+\item Double-check that your line references are correct when applying inference rules.
+\end{itemize}
+
+\bigskip
+
+\begin{enumerate}[\bf I.]
+
+\item \textbf{Proof: Propositional Logic} \\[6pt]
+In this section {\em use only the primitive inference rules} of
+propositional calculus.
+\begin{enumerate}[1.] \setcounter{enumii}{0}
+\item Provide derivations for each of the following, using natural
+deduction:
+\begin{enumerate}[a.]
+%\item $(p \land q)\land r\vdash p \land (q \land r)$
+ \item $p \land q,p\implies s,q\implies t\vdash s\land t$
+ \item $q \implies \neg p,p\land q\vdash r$
+ \item $p \land q \vdash p \implies q$
+ \item $\neg\neg q \vdash q \lor r$
+ \item $p \implies (q \land r), \neg p \implies r, p \lor \neg p \vdash r$
+\end{enumerate}
+\end{enumerate}
+
+\vspace{12pt}
+
+\item \textbf{Proof: Predicate Logic}\\[6pt]
+In this section {\em use only the primitive inference rules} of predicate
+calculus.
+\begin{enumerate}[1.] \setcounter{enumii}{1}
+\item Show using natural deduction:
+\begin{enumerate}[a.]
+\item $\forall x:T\bullet P(x)\land Q(x)\dashv
+\vdash (\forall x:T\bullet P(x))\land (\forall y:T\bullet Q(y))$
+\item $\exists x:T\bullet P(x) \lor Q(x) \dashv \vdash
+(\exists x:T \bullet P(x)) \lor (\exists x:T \bullet Q(x))$
+\end{enumerate}
+(\textsc{Note}: $p \dashv\vdash q$ is a shorthand for ``$p \vdash q$
+and $q \vdash p$." That is, for $p \dashv \vdash q$ you need to show
+two separate derivations: one for $p \vdash q$ and another for $q
+\vdash p$.)
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

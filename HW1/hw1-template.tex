@@ -1,0 +1,164 @@
+%---------------------------------------------------------------------------
+%
+% :File:       hwtemplate.tex
+% :Purpose:    Homework for 17-651
+%
+%---------------------------------------------------------------------------
+
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amsfonts,enumerate}
+\usepackage{zed-csp}
+
+% Define admin constants
+\def\name{Dario A Lencina Talarico}
+\def\course{Models of SW Systems}
+\def\due{Monday, September 3, 2018}
+\def\title{Assignment 1}
+
+\begin{document}
+
+    %----------------------------
+    % BEGIN HEADER PORTION
+    %----------------------------
+    \hspace*{-10mm} \framebox{
+    \begin{minipage}[t]{\textwidth}
+        \vspace{1ex}
+
+        {\large\bf  \course} \hfill {\large\bf Name: \name}\\[1ex]
+
+        {\bf \title \hfill   Due: \due}
+
+        \vspace{1ex}
+
+    \end{minipage}
+    }%% end framebox
+    \vskip 0.1in
+    %----------------------------
+    % END HEADER PORTION
+    %----------------------------
+
+    \section{
+    Exercise 1}
+    Consider the game described in Chapter 2 of GWC10. Suppose that
+    the container starts out with $N$ balls.
+    \begin{enumerate}[(a)]
+        \item List five aspects of the real world that were \emph{not}
+        represented in our formal model.
+        \begin{enumerate}
+            \item Size of the container.
+            \item Weight of the balls, if the balls were too heavy, and the container too weak, at some point the balls at the bottom of the container will be crushed by the ones at the top or the container could break.
+            \item Material that the balls are made off.
+            \item Temperature of location where the game takes place.
+            \item The time that it takes to physically take two balls, evaluate which ball to put back and actually the motion of putting the ball back in the container.
+        \end{enumerate}
+        \item How many ``turns" will it take for the game to stop? Briefly explain why. (Hint: use the $\lfloor$ $\rfloor$ notation to express your solution, if required.)
+
+        \textit{N} - 1 turns, where \textit{N} is the initial number of balls in the container.
+
+        Because on each turn, a ball is taken from the container, example:
+        Assume that we start a game with 4 balls, regardless of color and \textit{W} is the number of balls in the container, then:
+        \begin{enumerate}
+            \item Turn 1: player removes 2 balls, and puts 1 back \textit{W} = 3
+            \item Turn 2: player removes 2 balls, and puts 1 back \textit{W} = 2
+            \item Turn 3: player removes 2 balls, and puts 1 back \textit{W} = 1
+        \end{enumerate}
+
+        \textit{W} = \textit{N} - 1
+
+        \item What is the largest number of extra black balls
+        needed, and what configuration of the container causes this number to be required?
+        Assume that when two black balls are taken out of the container one is put back into the container and the other into the stock of extra balls.
+
+        (Answer here)
+
+        \item Argue that the game stops.
+
+        Assuming that the container has a non infinite number of balls and no balls are not added to the container faster they are removed, yes, the game stops, The book
+        provides specific rules of which ball has to be put back given each combination of white and black balls.
+
+    \end{enumerate}
+    \section{Lambda Language}
+    Consider a language with alphabet $\{ \lambda, \bullet, (, ), x, y, z \}$ and syntax
+
+    \begin{syntax}
+        expression  & =  & variable~name | expression, expression\\
+        & | & $``$ \lambda $''$, variable~name, $``$ \bullet $''$, expression\\
+        & | & ``($"$, expression, ``)$"$;
+        \also
+        variable~name & = & $``$x$''$ | $``$y$''$ | $``$z$''$;
+    \end{syntax}
+
+    Are the following wffs of the language? For those that are not briefly explain why.
+
+    \begin{enumerate}[(a)]
+        \item $\lambda x \bullet yz$\\
+        Valid wff.
+
+        \item $\lambda \bullet x \lambda \bullet y$ \\
+        No, the language does not define an expression that allows $\lambda $ to be followed by $ \bullet $. Instead, a variable~name must be used.
+
+        \item $\lambda y \bullet x \bullet z$ \\
+        Not a valid wff because the only way to use $ \bullet $ is if it part of the following expression:
+        \begin{syntax}
+            $\lambda $, variable~name, $``$ \bullet $''$, expression\\
+        \end{syntax}
+        which is not the case in the presented wff.
+
+        \item $\lambda x \bullet x(yz)$\\
+        Valid wff
+
+        \item $\lambda x \bullet \lambda y \bullet xyz$\\
+        Valid wff
+
+    \end{enumerate}
+
+    \section{Stars, Derivation}
+    Using the {\em Stars} formal system of Example 3.4 from Chapter~3 of GWC09 formally show that\\
+    \\
+    ${\star}{\diamond}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}\ {\vdash}\ {\star}{\diamond}{\star}{\star}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}{\star}{\star}$\\
+    \\
+    Given the Axiom A: ${\star}{\diamond}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}$\\
+    And the Rule R: ${\star}{\diamond}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}$\\
+    \\
+    ${\star}{\diamond}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}$ Premise \\
+    ${\star}{\diamond}{\star}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}{\star}$ Rule(R,1) \\
+    ${\star}{\diamond}{\star}{\star}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}{\star}{\star}$ Rule(R,2) \\
+    \\
+    As it can be seen, we were able to derive ${\star}{\diamond}{\star}{\star}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}{\star}{\star}$
+    by assuming that ${\star}{\diamond}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}$ was correct and applying the Rule R 2 times. \\
+    \\
+    \section{Stars, Incompleteness}
+    In Chapter~3 of GWC09 the {\em Stars} formal system of Example 3.4 was interpreted as a system for adding certain positive integers. For example, $1 + 3 = 4$ could be proved a theorem of {\em Stars}.
+
+    \begin{enumerate}[(a)]
+        \item Augment {\em Stars} so that you can prove statements such as $3+4=7$ and $15 + 2 = 17$ to be theorems.
+        You need to handle only expressions involving the addition of positive integers.
+        \textsc{Note:} Your answer should include the alphabet, syntax, inference system,
+        and interpretation.
+
+        We propose the creation of another rule that allows the addition of ${\star}$ before the ${\diamond}$
+        \\
+        ${\star}{\diamond}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\star}$ \\
+        \\
+        $\frac{m{\diamond}n{\circ}r}{m{\spadesuit}{\diamond}n{\circ}{\star}r{\star}{\spadesuit}} = RuleB$\\
+        \\
+        \item Prove that $3 + 4 = 7$ is a theorem of the augmented system. (Note: do not forget to provide an interpretation of your result at the end of the derivation process.)
+
+
+        ${\spadesuit}{\diamond}{\star}{\circ}{\star}{\spadesuit}$ Premise\\
+        ${\spadesuit}{\spadesuit}{\diamond}{\star}{\star}{\circ}{\star}{\star}{\spadesuit}{\spadesuit}$ Rule(RuleB,1) \\
+        ${\spadesuit}{\spadesuit}{\spadesuit}{\diamond}{\star}{\star}{\star}{\circ}{\star}{\star}{\star}{\spadesuit}{\spadesuit}{\spadesuit}$ Rule(RuleB,2) \\
+        ${\spadesuit}{\spadesuit}{\spadesuit}{\diamond}{\star}{\star}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\spadesuit}{\spadesuit}{\spadesuit}$ Rule(R,3) \\
+        \\
+        If we define that: \\
+        $\star \rightarrow \spadesuit$ \\
+        $\circ \rightarrow =$ \\
+        $\diamond \rightarrow +$ \\
+        Then we can transform the expression: \\
+        ${\spadesuit}{\spadesuit}{\spadesuit}{\diamond}{\star}{\star}{\star}{\star}{\circ}{\star}{\star}{\star}{\star}{\spadesuit}{\spadesuit}{\spadesuit} \rightarrow 3 + 4 = 7 $\\
+
+    \end{enumerate}
+
+
+\end{document}

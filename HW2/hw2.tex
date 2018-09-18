@@ -1,0 +1,237 @@
+\documentclass{article}
+\usepackage{verbatim,indentfirst,amsmath,amsthm,amssymb,latexsym,enumerate,zed-csp}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\newcommand{\revise}[1] {\textcolor{red} {#1}} 				% Text to revise
+
+\input{handout}
+\begin{document}
+
+    \homework{}{10 September 2018}{Homework \#2: Logic}{}
+
+    \begin{enumerate}[\bf I.]
+        \item \textbf{Propositional Logic}
+
+        \begin{enumerate}[1.]
+            \item Construct a truth table for each of the following. Include in your tables intermediate expressions needed to construct the final truth tables column.
+
+            \begin{enumerate}[a.]
+                \item $p \land (p \lor q)$
+                \begin{center}
+                    \begin{tabular}{ |c|c|c|c| }
+                        \hline
+                        p & q & $(p \lor q)$ & $p \land (p \lor q)$ \\
+                        false & false & false & false \\
+                        true & false & true & true \\
+                        false & true & true & false \\
+                        true & true & true & true \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+
+                \item $\neg p \land (p \lor (q\implies p))$
+                \begin{center}
+                    \begin{tabular}{ |c|c|c|c|c| }
+                        \hline
+                        p & q & $(q\implies p)$ & $(p \lor (q\implies p))$ & $\neg p \land (p \lor (q\implies p))$ \\
+                        false & false & true & true & true \\
+                        true & false & true & true & false \\
+                        false & true & false & false & false \\
+                        true & true & true & true & false \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+                \item $(p \implies q)\implies(\neg p \lor q)$
+                \begin{center}
+                    \begin{tabular}{ |c|c|c|c|c| }
+                        \hline
+                        p & q & $(p \implies q)$ & $(\neg p \lor q)$ & $(p \implies q)\implies(\neg p \lor q)$ \\
+                        false & false & true & true & true \\
+                        true & false & false & false & true \\
+                        false & true & true & true & true \\
+                        true & true & true & true & true \\
+                        \hline
+                    \end{tabular}
+                \end{center}
+            \end{enumerate}
+            \item Which of the above sentences are:
+            \begin{enumerate}
+                \item valid?: c \\
+                Because c is true for all values of p and q.
+                \item satisfiable?: a, b, c \\
+                Because are true under at least one interpretation of atomic propositions.
+                \item contingent?: a, b \\
+                Because they are neither tautologies nor contradictions.
+                \item inconsistent?: none \\
+                Because we have no sentences that are false for all propositions of q and p.
+            \end{enumerate}
+            Briefly explain why.
+            \item Demonstrate using truth tables that the following sentences have the same meaning. Include intermediate expressions, as above.
+
+            %(5 points)
+            \begin{itemize}
+                \item $p \implies q$
+                \item $\neg (p \land \neg q)$
+            \end{itemize}
+        \end{enumerate}
+
+        \begin{center}
+            \begin{tabular}{ |c|c|c|c|c| }
+                \hline
+                col1 & col2 & col3 & col4 & col5 \\
+                p & q & $(p \land \neg q)$ & $\neg (p \land \neg q)$ & $p \implies q$ \\
+                false & false & false & true & true \\
+                true & false & true & false & false \\
+                false & true & false & true & true \\
+                true & true & false & true & true \\
+                \hline
+            \end{tabular}
+        \end{center}
+        The truth table for col4 and col5 are equal, hence, we demonstrated that $\neg (p \land \neg q)$ has the same meaning than $p \implies q$ for all values of $p$ and $q$.
+        \item \textbf{Predicate Logic}
+        %(19 points)
+        \begin{enumerate}[1.]\setcounter{enumii}{3}
+        \item Which occurrences of the variables $x$ and $y$ are free and
+        which are bound in each of the following? Briefly explain why.\\
+        %(2 points each)
+        \textsc{Note}: Recall that a variable may be both
+        bound and free in the same sentence. In such cases, explain where in the sentence the variable is bound, and where it is free.
+        \begin{enumerate}[a.]
+            \item $(\exists y:N\bullet y>2)\wedge(\forall x:N\bullet x+1>x)$ \\
+            Both y and x are bounded, y by $\exists y:N$ and x by $\forall x:N$
+            \item $x=2\ast y$ \\
+            x and y are free because there are no quantifiers.
+            \item $(\exists y:N\bullet y>2)\wedge(\forall x:N\bullet x>y)$ \\
+            y is bounded in  $(\exists y:N\bullet y>2)$ but is not in $(\forall x:N\bullet x>y)$. \\
+            x is bounded where it appears.
+            \item $\forall x:N\bullet((\exists y:N\bullet y>x)\wedge x=2\ast y)$ \\
+            x is bounded by the initial $\forall x:N$ for the whole expression, but y is free in $x=2\ast y$.
+        \end{enumerate}
+        \item Translate the following sentences into predicate logic (with equality), using the translation key provided.
+
+        \textsc{Note}: You may only use the standard universal and
+        existential quantifiers ($\forall$ and $\exists$). Do \emph{not} use the unique existential quantifier ($\exists !$).
+        \begin{center}
+            \begin{tabular}{rl}
+                $E$: & the set of elephants\\
+                $A$: & the set of animals\\
+                $G(x)$: & $x$ is green\\
+                $E(x)$: & $x$ is an elephant\\
+                $N(x,y)$: & the name of $x$ is $y$
+            \end{tabular}
+        \end{center}
+        \begin{enumerate}[a.]
+            \item Some elephants are green. \\ %(2 points)
+            $\exists x:E\bullet G(x)$
+            \item All elephants are green. \\%(2 points)
+            $\forall x:E\bullet G(x)$
+            \item If an animal is green, it is an elephant. \\%(2 points)
+            $\forall x:A\bullet G(x) \implies E(x) $
+            \item No green animal is an elephant. \\%(2 points)
+            $\forall x:A\bullet G(x) \implies \neg E(x) $
+            \item There is exactly one green elephant. \\%(2 points)
+            $\exists x:E\bullet G(x) \land \forall y:E\bullet G(y) \implies x = y $
+            \item There is \emph{exactly one} green elephant, and his name is James. \\%(3 points)
+            $\exists x:E\bullet G(x) \land \forall y:E\bullet G(y) \implies x = y \land N(x,James) $
+            \label{james}
+        \end{enumerate}
+
+        %%%%% Important note: In years when proof techniques are included with the above problems remove the next problem and cover completely in class and recitation.
+
+        \item Translate the following sentences into predicate logic (with equality), using the translation key provided.
+
+        \textsc{Note}: You may only use the standard universal and existential quantifiers ($\forall$ and $\exists$). Do \emph{not} use the unique existential quantifier ($\exists !$).
+
+        \begin{center}
+            \begin{tabular}{rl}
+                $S$:            & the set of students\\
+                $T$:            & the set of topics, which has $logic$ and $models$ as elements\\
+                $MSE(s)$:       & $s$ is an MSE student\\
+                $Likes(s,t)$:   & student $s$ likes topic $t$\\
+            \end{tabular}
+        \end{center}
+
+        \begin{enumerate}[a.]
+            \item Some MSE students like logic. \\
+            $\exists s:S\bullet MSE(s) \land Likes(s,logic)$
+            \item MSE students like logic. \\
+            $\forall s:S\bullet MSE(s) \implies Likes(s,logic)$
+            \item MSE students like logic, and only logic. \\
+            $\forall s:S\bullet (MSE(s) \implies (Likes(s,logic))) \land (\forall t:T \bullet (t \neq logic \implies \neg Likes(s,t)))$
+            \item No MSE student likes logic. \\
+            $\forall s:S\bullet MSE(s) \implies \neg Likes(s,logic)$
+            \item If an MSE student likes logic then he/she likes Models. \\
+            $\exists s:S\bullet (MSE(s) \land Likes(s,logic)) \implies Likes(s,Models)$
+            \item Exactly one MSE student likes Models. \\
+            $\exists s:S\bullet MSE(x) \land \forall y:S\bullet (MSE(y) \land Likes(y,Models))  \implies s = y $
+        \end{enumerate}
+
+
+        \item In this class we will be creating various models of an infusion pump. An infusion pump is a
+        device used in hospitals to feed fluids intravenously to patients through one of several ``infusion
+        lines." Each line is a physical tube connected to a patient.
+
+        Consider the following excerpt from a description of a typical pump provided to us by the Food and
+        Drug Administration:
+
+        \begin{enumerate}[A.]
+            \item An infusion line may become pinched causing the flow to be blocked.  This will be recognized
+            by the pump as an occlusion and will cause the pump to alarm.
+
+            \begin{enumerate}[i.]
+                \item The mitigation is to straighten the line and re-start the pump.
+                \item Caregiver may silence the alarm during the procedure.
+            \end{enumerate}
+
+            \item The infusion line may become plugged.  The pump will recognize an occlusion and alarm.
+
+            \begin{enumerate}[i.]
+                \item The mitigation is to clear the line and re-start the pump.
+                \item Caregiver may silence the alarm during the procedure.
+            \end{enumerate}
+
+            \item Electrical failure may occur causing the pump to switch to battery operation.
+
+            \begin{enumerate}[i.]
+                \item Pump will switch over to battery power and notify the caregiver visually.
+                \item Switch may not occur if the battery is not properly charged.
+            \end{enumerate}
+
+        \end{enumerate}
+
+        Questions:
+
+        \begin{enumerate}[a.]
+            \item Define some sets and predicates appropriate to this domain
+            (similar to the elephant problem above). \\
+            $P$:  the set of pumps .\\
+            $Pinched(x)$: & $x$ is pinched. \\
+            $Plugged(x)$: & $x$ is plugged. \\
+            $BatteryCharged(x)$: & $x$ battery is charged. \\
+            $AlarmOn(x)$: & $x$ is alarm on. \\
+            $PoweredByGrid(x)$: & $x$ is the device being powered by the electrical grid. \\
+            $AlarmSilenced(x)$: & $x$ if the nurse overrides the alarm manually. \\
+            $On(x)$: & $x$ is the device is powered or not. \\
+
+            \item
+            Using the sets and predicates you defined express the following
+            statements in predicate logic:
+            \begin{enumerate}[i..]
+                \item An alarm will sound whenever the line is ``pinched" or  ``plugged." \\
+                $\forall p:P \bullet (Pinched(p) \lor Plugged(p)) \implies AlarmOn(p)$
+                \item If there is an electrical failure the battery power will be on unless the battery is not
+                properly charged. \\
+                $\forall p:P \bullet (PoweredByGrid(p) \lor BatteryCharged(p)) \implies On(p)$
+            \end{enumerate}
+            \item Does your collection of predicates allow you to say ``The alarm
+            will continue to sound until the care giver turns it off." Why or why
+            not? \\
+            Yes because I added the $AlarmSilenced(x)$ predicate to express if the care giver has turned the alarm off: \\
+            $\forall p:P \bullet ((Pinched(p) \lor Plugged(p) \land \neg AlarmSilenced(p)) \implies AlarmOn(p)$
+        \end{enumerate}
+        \end{enumerate}
+
+    \end{enumerate}
+
+
+\end{document}
