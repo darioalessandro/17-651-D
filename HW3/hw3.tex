@@ -33,9 +33,12 @@ deduction:
  \item $p \land q,p\implies s,q\implies t\vdash s\land t$ \\
  \item $q \implies \neg p,p\land q\vdash r$ \\
  \item $p \land q \vdash p \implies q$ \\
-   \begin{tabular}{l|ll}
-    1 & . &. \\
-   \end{tabular} 
+   \begin{tabular}{l ll lll}
+     1. & $p \land q$ & premise \\
+     2. & $p$         & $\land-elim$,1\\
+     3. & $q$         & $\land-elim$,1\\
+     4. & $p \implies q$ & $\implies-intro$,2,3 \\
+   \end{tabular} \\
  \item $\neg\neg q \vdash q \lor r$ \\
    \begin{tabular}{l ll}
     1. & $\neg\neg q$ & premise \\
