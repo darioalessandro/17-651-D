@@ -11,14 +11,12 @@ A declarative snetence (that is, sentence that declares a fact) that is either T
 3. x + 1 = 2. Not a proposition.
 4. My name is vignesh. It is a proposition.
 
-### Logical connectives
+### Logical connectives sorted by precedence
 
-1. NOT
-2. AND
-3. OR
+1. NOT: $$\neg$$
+2. AND $$\land$$
+3. OR $$\lor$$
+4. IMPLIES $$\implies$$
+5. MATERIAL EQUIVALENCE $$\iff$$
 
-Precedence of operators:
-
-$$
-\not > \land > \lor
-$$
+### 
