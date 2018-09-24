@@ -1,0 +1,159 @@
+\documentclass{article}
+\usepackage{verbatim,indentfirst,amsmath,amsthm,amssymb,latexsym,enumerate,amssymb,zed-csp}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\newcommand{\revise}[1] {\textcolor{red} {#1}} 				% Text to revise
+
+
+\input{handout}
+\renewcommand{\implies}{\Rightarrow}
+\renewcommand{\iff}{\Leftrightarrow}
+\newcommand{\define}{==}
+\begin{document}
+
+\homework{}{24 September 2018}{Homework \#4: \\[10pt]
+Structures, Equational Reasoning, and Induction }{}
+
+\begin{enumerate}[\bf I.]
+\item \textbf{Sets, Relations, and Functions}
+\begin{enumerate}[1.]
+\item Use set comprehension to define the set $\mathit{SumOfSquares}$
+containing all the natural numbers that can be expressed as the sum
+$a^2 + b^2$ where $a$ and $b$ are natural numbers.
+
+\item Write out in full the powersets of each of the following.
+\begin{enumerate}[a.]
+\item $\{7,1\}$
+\item $\{5\}$
+\item $\emptyset$
+\item $\{\emptyset\}$
+\end{enumerate}
+\item Write out in full the following Cartesian products.
+\begin{enumerate}[a.]
+\item $\{4,2\}\times\{2,4\}$
+\item $\{0\}\times\emptyset$
+\item $\{1,2\}\times\{a\}$
+\item $\{\emptyset\}\times\{a\}$
+\end{enumerate}
+
+\item Suppose $R \define 2 \upto 5$ and $S == 4 \upto 6$. Enumerate the elements of the following sets.
+
+\begin{enumerate}[a.]
+\item $R \cup S$
+\item $R \cap S$
+\item $R \setminus S$
+\item $S \setminus R$
+\item $S \cross R$
+\end{enumerate}
+
+\item Let $S$ be the set of numbers from 1 to 12 inclusive. Let $R$ be a relation, such that
+$R:S\leftrightarrow S$ and such that $x$ is related to $y$ exactly when
+$y$ is greater than the square of $x$ but less than the square of
+$x+1$. Provide an axiomatic definition for $R$. \\
+(Note: be sure to check your notation and formatting --- refer to page 152 in GWC10.)
+
+\item Suppose $\mathit{Let}$ and $\mathit{Num}$ are defined as
+follows:
+\begin{eqnarray*}
+\mathit{Let} & \define & \{a,b,c,d,e\}\\
+\mathit{Num} & \define & \{1,2,3,4,5\}
+\end{eqnarray*}
+\begin{enumerate}[a.]
+\item Give an example of each of the following:
+\begin{enumerate}[i.]
+\item A function whose declaration is $\mathit{Let\rightarrow Num}$
+\item A function whose declaration is $\mathit{Let\rightarrow\!\!\!\!\shortmid ~Num}$
+\item A total injection from \emph{Let} to \emph{Num}
+\end{enumerate}
+\item Is it possible to give an example of a total injection from \emph{Let} to $\{1,2,3,4\}$? If so, provide one; if not, explain why not.
+
+\end{enumerate}
+\end{enumerate}
+\clearpage
+
+\item \textbf{Proof: Equational Reasoning} \\[8pt]
+You may use any of the following theorems in your equational proofs:
+
+\begin{tabular}{llll}
+$\vdash p \land \mathit{true} ~~\iff~~ p$   &$\land$-True\\
+$\vdash p \land \mathit{false} ~~\iff~~ \mathit{false}$
+&$\land$-False\\
+$\vdash p \lor \mathit{true} ~~\iff~~ \mathit{true}$ &$\lor$-True\\
+$\vdash p \lor \mathit{false} ~~\iff~~ p$ & $\lor$-False\\
+$\vdash p \lor \neg p$  &Excluded Middle\\
+$\vdash p \lor q ~~\iff~~ q \lor p$ & $\lor$-Commutativity\\
+$\vdash p \land q ~~\iff~~ q \land p$ &$\land$-Commutativity\\
+$\vdash (p \lor q) \lor r ~~\iff~~ p \lor (q \lor r)$ &$\lor$-Associativity\\
+$\vdash (p \land q) \land r ~~\iff~~ p \land (q \land r)$
+&$\land$-Associativity\\
+$\vdash p \lor (q \land r) ~~\iff~~ (p \lor q) \land (p \lor r)$
+&$\lor\land$-Distributivity\\
+$\vdash p \land (q \lor r) ~~\iff~~ (p \land q) \lor (p \land r)$
+&$\land\lor$-Distributivity\\
+$\vdash p \implies q ~~\iff~~ \neg p \lor q$ &$\implies$-Alternative\\
+$\vdash p \implies q ~~\iff~~ \neg q \implies \neg p$
+&Contrapositives\\
+$\vdash \neg\neg p ~~\iff~~ p$   &Double Negation\\
+$\vdash \neg(p \land q) ~~\iff~~ \neg p \lor \neg q$&De Morgan\\
+$\vdash \neg(p \lor q) ~~\iff~~ \neg p \land \neg q$& De Morgan\\
+$\vdash x\in\emptyset ~~\iff~~ \mathit{false}$& $\emptyset$ Membership\\
+\end{tabular}
+\begin{enumerate}[1.]\setcounter{enumii}{6}
+\item Prove in equational style the following laws for set union:
+
+\begin{enumerate}[a.]
+\item $S\cup T=T\cup S$
+\item $S\cap\emptyset= \emptyset$
+\end{enumerate}
+(\textsc{Hint}: To prove $S=T$ show $\forall x: U \bullet x \in S\Leftrightarrow x\in T$, where U is the type of elements in sets $S$ and $T$.)
+\item Prove the following theorem in equational style:
+$$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg p\land\neg r)$$
+
+\end{enumerate}
+
+\item \textbf{Sequences}
+
+
+\begin{enumerate}[1.]\setcounter{enumii}{8}
+
+\item Define the following sequences by enumeration:
+\begin{enumerate}[a.]
+\item $Threes$: natural numbers smaller than 18 that are divisible by 3.
+\item  $Twos$: natural numbers smaller than 20 that are divisible by 2.
+\end{enumerate}
+
+\item Given the above, what are each of the following:
+\begin{enumerate}[a.]
+\item $Threes \cup Twos$
+\item $Threes \cap Twos$
+\item $\dom Threes$
+\item $\ran Threes$
+\item $\dom Twos \dres Threes$
+\item $(5 \upto 8)\dres (Threes \frown Twos)$\\
+(\textsc{Note}: $\frown$ is the concatenation operator).
+\end{enumerate}
+\end{enumerate}
+
+
+\item \textbf{Proof: Natural Induction} \\[8pt]
+Prove the following claim by induction over the natural numbers:
+\[\displaystyle 0^2 + 1^2 + 2^2 + ... + n^2 = \frac{n( n + 1 )( 2n + 1 )}{6}\]
+
+\item \textbf{Proof: Structural Induction} \\[8pt]
+Consider the definition of binary trees in Chapter 7.
+\begin{enumerate}
+\item Show that
+\[\forall t: TREE \bullet leaves(t) = nodes(t) + 1\]
+\item Define a $mirror$ function that recursively swaps the branches of a tree.
+\item Using the definition of $mirror$  show
+that
+\[\forall t: TREE \bullet size(mirror(t)) = size(t)\]
+\item Using the definition of $mirror$ show that
+\[\forall t: TREE \bullet mirror(mirror(t)) = t\]
+\end{enumerate}
+(\textsc{Hint}: use structural induction over trees.)
+
+
+\end{enumerate}
+
+\end{document}
