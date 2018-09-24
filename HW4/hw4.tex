@@ -19,14 +19,15 @@ Structures, Equational Reasoning, and Induction }{}
 \begin{enumerate}[1.]
 \item Use set comprehension to define the set $\mathit{SumOfSquares}$
 containing all the natural numbers that can be expressed as the sum
-$a^2 + b^2$ where $a$ and $b$ are natural numbers.
+$a^2 + b^2$ where $a$ and $b$ are natural numbers. \\
+$SumOfSquares == \{x: \mathbb{N} | (\exists a : \mathbb{N}) (\exists b : \mathbb{N}) \bullet  x = a^2 + b^2 \}$ \\
 
 \item Write out in full the powersets of each of the following.
 \begin{enumerate}[a.]
-\item $\{7,1\}$
-\item $\{5\}$
-\item $\emptyset$
-\item $\{\emptyset\}$
+\item $\mathbb{P}\{7,1\} = \{\emptyset, \{1\}, \{7\}, \{7,1\}\}$
+\item $\mathbb{P}\{5\}$ = $\{\emptyset, \{5\}\}$
+\item $\mathbb{P} \emptyset$ = $\{\emptyset\}$
+\item $\mathbb{P}\{\emptyset\}$ = $\{\emptyset, \{\emptyset\}\}$
 \end{enumerate}
 \item Write out in full the following Cartesian products.
 \begin{enumerate}[a.]
