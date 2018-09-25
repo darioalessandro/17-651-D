@@ -200,7 +200,14 @@ $ size (node(t1,t2) = 1 + size(t1) + size(t2) $ \\
 \\
 \textbf{Proof:}\\
 \textbf{Base Case:} Shw the property holds for leaf, that is, size(leaf) = size(mirror(leaf)) \\
-
+\begin{tabular}{l ll lll}
+     $size(leaf) &    &  \\
+     = &   & [definition of size] \\
+     1 &   & [arithmetic] \\
+     1 & & \\
+     = &   & [definition size(mirror(leaf))] \\
+     size(mirror(leaf)) & &  
+   \end{tabular} \\
 
 \item Using the definition of $mirror$ show that
 \[\forall t: TREE \bullet mirror(mirror(t)) = t\]
