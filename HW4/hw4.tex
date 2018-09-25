@@ -176,17 +176,16 @@ Prove the following claim by induction over the natural numbers:
 \textbf{Base case:}\\
 $P(0) = \frac{0} {6} = 0 $ \\
 $0^2 = 0$ \\
-\textbf{Inductive step} We assume that $k \in \mathbb{N}$ and P(k) holds. We then show that P(k+1) holds, that is $0^2 + 1^2 + 2^2 + ... + k + (k + 1)^2 = \frac{(k+1)( (k+1) + 1 )( 2(k+1) + 1 )}{6}$
+\textbf{Inductive step} We assume that $k \in \mathbb{N}$ and P(k) holds. We then show that P(k+1) holds, that is $0^2 + 1^2 + 2^2 + ... + k + (k + 1)^2 = \frac{(k+1)( (k+1) + 1 )( 2(k+1) + 1 )}{6} = \frac{2k^3 + 9k^2 + 13K + 6}{6}$
 \\
 \begin{tabular}{l ll lll}
      $0^2 + 1^2 + 2^2 + ... + k + (k + 1)^2$  &    &  \\
      = &   & [substitution, induction hypothesis] \\
      $\frac{k( k + 1 )( 2k + 1 )}{6} + (k + 1)^2$  &    &  \\
-     = &   & [induction hypothesis] \\
-     1 + size(mirror(t2)) + size(mirror((t1)) & & \\
-     = & & [definition of mirror] \\
-     1 + size(node(mirror(t2), mirror(t1))) + size(node(mirror(t1), mirror(t2))) & & \\
-     not sure what to do after this... \\
+     = &   & [arithmetic] \\
+     $\frac{(k^2 + k)(2k + 1)}{6} + (k + 1)^2 $ & & \\
+     = &   & [arithmetic] \\
+     $\frac{2k^3 + 9k^2 + 13K + 6}{6}$  & & \\
 \end{tabular} \\
 
 \item \textbf{Proof: Structural Induction} \\[8pt]
