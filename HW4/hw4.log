@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  24 SEP 2018 23:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  25 SEP 2018 02:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -501,7 +501,45 @@ Underfull \hbox (badness 10000) in paragraph at lines 152--154
 
  []
 
-[4] (./hw4.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--156
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 156--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
+
+ []
+
+
+Overfull \hbox (41.58989pt too wide) in paragraph at lines 164--169
+\OT1/cmr/m/it/10 Threes \OML/cmm/m/it/10 _ \OT1/cmr/m/it/10 Twos \OT1/cmr/m/n/1
+0 ==\OML/cmm/m/it/10 < \OT1/cmr/m/n/10 3\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 6\OM
+L/cmm/m/it/10 ; \OT1/cmr/m/n/10 9\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 12\OML/cmm/
+m/it/10 ; \OT1/cmr/m/n/10 15\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 2\OML/cmm/m/it/1
+0 ; \OT1/cmr/m/n/10 4\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 6\OML/cmm/m/it/10 ; \OT
+1/cmr/m/n/10 8\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 10\OML/cmm/m/it/10 ; \OT1/cmr/
+m/n/10 12\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 14\OML/cmm/m/it/10 ; \OT1/cmr/m/n/1
+0 16\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 18 \OML/cmm/m/it/10 >$ $\U/msa/m/n/10 C\
+OT1/cmr/m/it/10 isaskingusto^^Llterelementsfrom\OT1/cmr/m/n/10 5 []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--186
+
+ []
+
+[4] [5] (./hw4.aux) ) 
 Here is how much of TeX's memory you used:
  2567 strings out of 492649
  29577 string characters out of 6129622
@@ -510,21 +548,21 @@ Here is how much of TeX's memory you used:
  7915 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  27i,9n,35p,239b,447s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/
-msam10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symb
-ols/msbm10.pfb>
-Output written on hw4.pdf (4 pages, 118968 bytes).
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symb
+ols/msam10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+symbols/msbm10.pfb>
+Output written on hw4.pdf (5 pages, 121253 bytes).
 PDF statistics:
- 57 PDF objects out of 1000 (max. 8388607)
- 40 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -150,7 +150,7 @@ $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg 
 \item Given the above, what are each of the following:
 \begin{enumerate}[a.]
 \item $Threes \cup Twos$ \\
-  $Threes \cup Twos$ == $<2,3,4,6,8,9,10,12,14,15,16,18 >$ \\
+  $Threes \cup Twos$ = $<2,3,4,6,8,9,10,12,14,15,16,18 >$ \\
 \item $Threes \cap Twos$ \\
   Empty sequence: $<>$
 \item $\dom Threes$

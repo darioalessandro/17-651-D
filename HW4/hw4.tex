@@ -141,10 +141,10 @@ $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg 
 \begin{enumerate}[a.]
 \item $Threes$: natural numbers smaller than 18 that are divisible by 3. \\
   Using GWC10 notation for seq enums definition: \\
-  $Threes::= 3 | 6 |  9 | 12 | 15$ \\
+  $Threes-= \{3 , 6 ,  9 , 12 , 15\}$ \\
 \item  $Twos$: natural numbers smaller than 20 that are divisible by 2. \\
   Using GWC10 notation for seq enums definition: \\:
-  $Twos::= 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18$ \\
+  $Twos== \{2 , 4 , 6 , 8 , 10 , 12 , 14 , 16 , 18\}$ \\
 \end{enumerate}
 
 \item Given the above, what are each of the following:
@@ -152,12 +152,19 @@ $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg 
 \item $Threes \cup Twos$ \\
   $Threes \cup Twos$ = $<2,3,4,6,8,9,10,12,14,15,16,18 >$ \\
 \item $Threes \cap Twos$ \\
-  Empty sequence: $<>$
-\item $\dom Threes$
-  
-\item $\ran Threes$
-\item $\dom Twos \dres Threes$
+  $Threes \cap Twos$ = $<6, 12>$ \\
+\item $\dom Threes == \{1, 2 ,3 ,4 ,5 \}$ \\
+  To get the domain of a sequence, we just need to get the indexes from 1 up to the cardinality of the sequence. \\
+\item $\ran Threes == \{3 ,6 ,9 ,12 ,15\}$ \\
+\item $\dom Twos \dres Threes$ \\
+  $\dres$ is the domain restrictor operator, informally, the restricted relation contains those \\
+  elements from Three whose first component appears in Two. \\
+  $dom Twos == \{1,2,3,4,5,6,7,8,9,10,11,12\}$\\
+  $\dom Twos \dres Threes == \{3, 6, 9, 12, 15\}$\\
 \item $(5 \upto 8)\dres (Threes \frown Twos)$\\
+  $Threes \frown Twos == <3,6,9,12,15,2,4,6,8,10,12,14,16,18>$
+  $\dres is asking us to filter elements from 5 \upto 8$ \\
+  $(5 \upto 8)\dres (Threes \frown Twos) == <15,2,4,5>$
 (\textsc{Note}: $\frown$ is the concatenation operator).
 \end{enumerate}
 \end{enumerate}
@@ -172,7 +179,11 @@ Consider the definition of binary trees in Chapter 7.
 \begin{enumerate}
 \item Show that
 \[\forall t: TREE \bullet leaves(t) = nodes(t) + 1\]
-\item Define a $mirror$ function that recursively swaps the branches of a tree.
+\item Define a $mirror$ function that recursively swaps the branches of a tree. \\
+  The idea of this function is that it recursively calls mirror swapping TREE2 and TREE1 \\
+  every time that it finds a node. If it finds a leaf it just returns. \\
+  $ mirror: TREE $\arrowright$ TREE $\\
+$mirror(t) = t.leaf | t.node <<mirror(t.TREE2),mirror(t.TREE1)>>$ \\
 \item Using the definition of $mirror$  show
 that
 \[\forall t: TREE \bullet size(mirror(t)) = size(t)\]
