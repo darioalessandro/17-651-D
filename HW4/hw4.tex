@@ -179,9 +179,9 @@ $0^2 = 0$ \\
 \textbf{Inductive step} We assume that $k \in \mathbb{N}$ and P(k) holds. We then show that P(k+1) holds, that is $0^2 + 1^2 + 2^2 + ... + k + (k + 1)^2 = \frac{(k+1)( (k+1) + 1 )( 2(k+1) + 1 )}{6}$
 \\
 \begin{tabular}{l ll lll}
-     $0^2 + 1^2 + 2^2 + ... + k + (k + 1)^2 = \frac{(k+1)( (k+1) + 1 )( 2(k+1) + 1 )}{6}$  &    &  \\
-     = &   & [definition of size] \\
-     1 + size(t1) + size(t2) & & \\
+     $0^2 + 1^2 + 2^2 + ... + k + (k + 1)^2$  &    &  \\
+     = &   & [substitution, induction hypothesis] \\
+     $\frac{k( k + 1 )( 2k + 1 )}{6} + (k + 1)^2$  &    &  \\
      = &   & [induction hypothesis] \\
      1 + size(mirror(t2)) + size(mirror((t1)) & & \\
      = & & [definition of mirror] \\
