@@ -62,11 +62,13 @@ follows:
 \begin{enumerate}[a.]
 \item Give an example of each of the following:
 \begin{enumerate}[i.]
-\item A function whose declaration is $\mathit{Let\rightarrow Num} = \{ a \maps 1, b \maps b\}$
-\item A function whose declaration is $\mathit{Let\rightarrow\!\!\!\!\shortmid ~Num}$
-\item A total injection from \emph{Let} to \emph{Num}
+\item A function whose declaration is $\mathit{Let\rightarrow Num} \\f1 == \{ a \mapsto 1, b \mapsto 2, c \mapsto 3, d \mapsto 4, e \mapsto 5 \}$
+\item A function whose declaration is $\mathit{Let\rightarrow\!\!\!\!\shortmid ~Num} \\f2 == \{ a \mapsto 1, b \mapsto 2, c \mapsto 3\}$
+\item A total injection from \emph{Let} to \emph{Num}\\
+$f3 == \{ a \mapsto 1, b \mapsto 2, c \mapsto 3, d \mapsto 4, e \mapsto 5 \}$\\  
 \end{enumerate}
-\item Is it possible to give an example of a total injection from \emph{Let} to $\{1,2,3,4\}$? If so, provide one; if not, explain why not.
+\item Is it possible to give an example of a total injection from \emph{Let} to $\{1,2,3,4\}$? If so, provide one; if not, explain why not. \\
+No because the number of values in the source is larger that the target and we can not map more than one source element to the same target because that will violate the injection rule. 
 
 \end{enumerate}
 \end{enumerate}
@@ -103,8 +105,26 @@ $\vdash x\in\emptyset ~~\iff~~ \mathit{false}$& $\emptyset$ Membership\\
 \item Prove in equational style the following laws for set union:
 
 \begin{enumerate}[a.]
-\item $S\cup T=T\cup S$
-\item $S\cap\emptyset= \emptyset$
+\item $S\cup T=T\cup S$ \\
+  $\iff$ [Definition of $\cup$] \\
+  $x \in S \lor x \in T $ \\
+  $\iff$ [$\lor$ commutative]\\
+  $ x \in T \lor x \in S $ \\
+  Hence, $ x \in S \lor x \in T \iff x \in T \lor x \in S $ \\
+  Since x was arbitrary, we have $\exists-Intro$ \\
+  $\exists x:T \bullet (x \in S \lor x \in T \iff x \in T \lor x \in S )$ \\
+  By the definition of set equality \\
+  $ S \cup T= T\cup S$ QED \\
+  
+\item $S\cap\emptyset= \emptyset$ \\
+  $\iff$ [Definition of $\cup$] \\
+  $x \in S \land x \in \emptyset $ \\
+  $\iff$ [$emptyset$ Membership]\\
+  $ x \in T \land false $ \\
+  $\iff$ [Applying $\land truth tables$] \\
+  $false = {\emptyset}$ QED\\ 
+  
+  
 \end{enumerate}
 (\textsc{Hint}: To prove $S=T$ show $\forall x: U \bullet x \in S\Leftrightarrow x\in T$, where U is the type of elements in sets $S$ and $T$.)
 \item Prove the following theorem in equational style:
@@ -119,15 +139,22 @@ $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg 
 
 \item Define the following sequences by enumeration:
 \begin{enumerate}[a.]
-\item $Threes$: natural numbers smaller than 18 that are divisible by 3.
-\item  $Twos$: natural numbers smaller than 20 that are divisible by 2.
+\item $Threes$: natural numbers smaller than 18 that are divisible by 3. \\
+  Using GWC10 notation for seq enums definition: \\
+  $Threes::= 3 | 6 |  9 | 12 | 15$ \\
+\item  $Twos$: natural numbers smaller than 20 that are divisible by 2. \\
+  Using GWC10 notation for seq enums definition: \\:
+  $Twos::= 2 | 4 | 6 | 8 | 10 | 12 | 14 | 16 | 18$ \\
 \end{enumerate}
 
 \item Given the above, what are each of the following:
 \begin{enumerate}[a.]
-\item $Threes \cup Twos$
-\item $Threes \cap Twos$
+\item $Threes \cup Twos$ \\
+  $Threes \cup Twos$ = $<2,3,4,6,8,9,10,12,14,15,16,18 >$ \\
+\item $Threes \cap Twos$ \\
+  Empty sequence: $<>$
 \item $\dom Threes$
+  
 \item $\ran Threes$
 \item $\dom Twos \dres Threes$
 \item $(5 \upto 8)\dres (Threes \frown Twos)$\\
