@@ -172,7 +172,12 @@ $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg 
 
 \item \textbf{Proof: Natural Induction} \\[8pt]
 Prove the following claim by induction over the natural numbers:
-\[\displaystyle 0^2 + 1^2 + 2^2 + ... + n^2 = \frac{n( n + 1 )( 2n + 1 )}{6}\]
+\[\displaystyle 0^2 + 1^2 + 2^2 + ... + n^2 = \frac{n( n + 1 )( 2n + 1 )}{6}\] \\
+\textbf{Base case:}\\
+$P(0) = \frac{0} {6} = 0 $ \\
+$0^2 = 0$ \\
+\textbf{Inductive step} We assume that $k \in \mathbb{N}$ and P(k) holds. We then show that P(k+1) holds.
+
 
 \item \textbf{Proof: Structural Induction} \\[8pt]
 Consider the definition of binary trees in Chapter 7.
@@ -199,21 +204,55 @@ $ size (leaf) = 1 \land $\\
 $ size (node(t1,t2) = 1 + size(t1) + size(t2) $ \\
 \\
 \textbf{Proof:}\\
-\textbf{Base Case:} Shw the property holds for leaf, that is, size(leaf) = size(mirror(leaf)) \\
+\textbf{Base Case:} Show the property holds for leaf, that is, size(leaf) = size(mirror(leaf)) \\
+\\
 \begin{tabular}{l ll lll}
-     $size(leaf) &    &  \\
+     size(leaf) &    &  \\
      = &   & [definition of size] \\
-     1 &   & [arithmetic] \\
      1 & & \\
      = &   & [definition size(mirror(leaf))] \\
-     size(mirror(leaf)) & &  
-   \end{tabular} \\
+     size(mirror(leaf)) & &  \\
+\end{tabular} \\
+\\
+\textbf{Induction case:} Assume that the property holds for trees t1 and t2, that is size(t1) = size(mirror(t2)), and size(t2) = size(mirror(t1)). Show that it holds for node(t1,t2) \\
+\\
+\begin{tabular}{l ll lll}
+     size(node(t1,t2)) &    &  \\
+     = &   & [definition of size] \\
+     1 + size(t1) + size(t2) & & \\
+     = &   & [induction hypothesis] \\
+     1 + size(mirror(t2)) + size(mirror((t1)) & & \\
+     = & & [definition of mirror] \\
+     1 + size(node(mirror(t2), mirror(t1))) + size(node(mirror(t1), mirror(t2))) & & \\
+     not sure what to do after this... \\
+\end{tabular} \\
+\\
 
 \item Using the definition of $mirror$ show that
 \[\forall t: TREE \bullet mirror(mirror(t)) = t\]
 \end{enumerate}
 (\textsc{Hint}: use structural induction over trees.)
-
+\\
+\textbf{Proof:}\\
+\textbf{Base Case:} Show the property holds for leaf, that is, leaf = mirror(leaf) \\
+\\
+\begin{tabular}{l ll lll}
+     leaf &    &  \\
+     = &   & [definition mirror(leaf)] \\
+     mirror(leaf) & &  \\
+\end{tabular} \\
+\\
+\textbf{Induction case:} Assume that the property holds for trees t1 and t2, that is node(t1, t2) = node(mirror(t2), mirror(t1)) \\
+\\
+\begin{tabular}{l ll lll}
+     node(t1,t2) &    &  \\
+     = &   & [definition of mirror] \\
+     mirror(node(t1, t2)) & & \\
+     = &   & [applying mirror function to node] 
+     node(mirror(t2), mirror(t1)) & & \\
+     not sure what to do after this... \\
+\end{tabular} \\
+\\
 
 \end{enumerate}
 
