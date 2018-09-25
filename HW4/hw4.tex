@@ -180,13 +180,28 @@ Consider the definition of binary trees in Chapter 7.
 \item Show that
 \[\forall t: TREE \bullet leaves(t) = nodes(t) + 1\]
 \item Define a $mirror$ function that recursively swaps the branches of a tree. \\
-  The idea of this function is that it recursively calls mirror swapping TREE2 and TREE1 \\
+  The idea of this function is that it recursively calls mirror swapping t1 and t2 \\
   every time that it finds a node. If it finds a leaf it just returns. \\
-  $ mirror: TREE $\arrowright$ TREE $\\
-$mirror(t) = t.leaf | t.node <<mirror(t.TREE2),mirror(t.TREE1)>>$ \\
+  \\
+  $ mirror: TREE \rightarrow TREE $\\
+  --------------------------------------- \\
+  $\forall t1,t2 : TREE \bullet$\\
+  $leaf | node <<mirror(t2),mirror(t1)>>$ \\
 \item Using the definition of $mirror$  show
 that
-\[\forall t: TREE \bullet size(mirror(t)) = size(t)\]
+\[\forall t: TREE \bullet size(mirror(t)) = size(t)\] \\
+Using the definition of size(t) provided in GWC10: \\
+\\
+$ size: TREE \rightarrow \mathbb{N} $\\
+---------------------------------------- \\
+$ \forall t1,t2: TREE \bullet $\\
+$ size (leaf) = 1 \land $\\
+$ size (node(t1,t2) = 1 + size(t1) + size(t2) $ \\
+\\
+\textbf{Proof:}\\
+\textbf{Base Case:} Shw the property holds for leaf, that is, size(leaf) = size(mirror(leaf)) \\
+
+
 \item Using the definition of $mirror$ show that
 \[\forall t: TREE \bullet mirror(mirror(t)) = t\]
 \end{enumerate}
