@@ -177,6 +177,7 @@ $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg 
 \item $(5 \upto 8)\dres (Threes \frown Twos)$\\
   $Threes \frown Twos == <3,6,9,12,15,2,4,6,8,10,12,14,16,18>$ \\
   $\dres$ is asking us to filter elements from 5 $\upto 8$ \\
+  \textbf{Redo note:} Corrected notation to set and swaped 5 to 6. \\
   $(5 \upto 8)\dres (Threes \frown Twos) == \{15,2,4,6\}$
 (\textsc{Note}: $\frown$ is the concatenation operator).
 \end{enumerate}
@@ -212,8 +213,10 @@ Consider the definition of binary trees in Chapter 7.
   \\
   $ mirror: TREE \rightarrow TREE $\\
   --------------------------------------- \\
+  \textbf{Redo:} fixed equation, the key aspect is changing the order of t1, t2 and calling $mirror(node)$ recursively. \\
   $\forall t1,t2 : TREE \bullet$\\
-  $leaf | node <<mirror(t2),mirror(t1)>>$ \\
+  $mirror(leaf) = leaf \land$ \\
+  $mirror(node(t1, t2)) = node(mirror(t2), mirror(t1))$ \\
 \item Using the definition of $mirror$  show
 that
 \[\forall t: TREE \bullet size(mirror(t)) = size(t)\] \\
