@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  27 SEP 2018 20:34
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  27 SEP 2018 22:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -471,47 +471,62 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--40
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--63
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--63
+
+ []
+
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 69--71
+Underfull \hbox (badness 10000) in paragraph at lines 75--77
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 110--123
+Underfull \hbox (badness 10000) in paragraph at lines 116--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 110--123
+Underfull \hbox (badness 10000) in paragraph at lines 116--129
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--136
+Underfull \hbox (badness 10000) in paragraph at lines 129--142
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 123--136
+Underfull \hbox (badness 10000) in paragraph at lines 129--142
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--157
 
  []
 
 [3
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 150--153
+Underfull \hbox (badness 10000) in paragraph at lines 166--169
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 153--156
+Underfull \hbox (badness 10000) in paragraph at lines 169--172
 
  []
 
 
-Overfull \hbox (104.03513pt too wide) in paragraph at lines 160--165
+Overfull \hbox (104.03513pt too wide) in paragraph at lines 176--181
 \OT1/cmr/m/it/10 Threes \OMS/cmsy/m/n/10 [ \OT1/cmr/m/it/10 Twos$ \OT1/cmr/m/n/
 10 = $\OMS/cmsy/m/n/10 f\OT1/cmr/m/n/10 (1\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 3)
 \OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (2\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 6)\OML/
@@ -530,170 +545,175 @@ m/it/10 ; \OT1/cmr/m/n/10 14)\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 (8\OML/cmm/m/it
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 160--165
+Underfull \hbox (badness 10000) in paragraph at lines 176--181
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--168
+Underfull \hbox (badness 10000) in paragraph at lines 181--184
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 168--170
+Underfull \hbox (badness 10000) in paragraph at lines 184--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 170--171
+Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 171--177
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 189--204
+Underfull \hbox (badness 10000) in paragraph at lines 187--193
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 209--237
+Underfull \hbox (badness 10000) in paragraph at lines 205--220
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--237
+Underfull \hbox (badness 10000) in paragraph at lines 225--264
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--237
+Underfull \hbox (badness 10000) in paragraph at lines 225--264
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--237
+Underfull \hbox (badness 10000) in paragraph at lines 225--264
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--237
+Underfull \hbox (badness 10000) in paragraph at lines 225--264
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 209--237
+Overfull \hbox (68.81134pt too wide) in paragraph at lines 225--264
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 225--264
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--249
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 239--249
+Underfull \hbox (badness 10000) in paragraph at lines 225--264
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 251--286
+Underfull \hbox (badness 10000) in paragraph at lines 266--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--286
+Underfull \hbox (badness 10000) in paragraph at lines 266--276
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--286
+Underfull \hbox (badness 10000) in paragraph at lines 278--313
 
  []
 
 
-Overfull \hbox (8.37445pt too wide) in paragraph at lines 251--286
+Underfull \hbox (badness 10000) in paragraph at lines 278--313
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 278--313
+
+ []
+
+
+Overfull \hbox (8.37445pt too wide) in paragraph at lines 278--313
 \OT1/cmr/bx/n/10 Induction case: \OT1/cmr/m/n/10 As-sume that the prop-erty hol
 ds for trees t1 and t2, that is size(mirror(t1))
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--286
+Underfull \hbox (badness 10000) in paragraph at lines 278--313
 
  []
 
 
-Overfull \hbox (249.83951pt too wide) in paragraph at lines 251--286
+Overfull \hbox (249.83951pt too wide) in paragraph at lines 278--313
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--286
+Underfull \hbox (badness 10000) in paragraph at lines 278--313
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 251--286
+Underfull \hbox (badness 10000) in paragraph at lines 278--313
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 317--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--315
+Underfull \hbox (badness 10000) in paragraph at lines 317--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--315
-
- []
-
-
-Overfull \hbox (38.9024pt too wide) in paragraph at lines 290--315
+Overfull \hbox (38.9024pt too wide) in paragraph at lines 317--342
 \OT1/cmr/bx/n/10 Induction case: \OT1/cmr/m/n/10 As-sume that the prop-erty hol
 ds for trees t1 and t2, that is mir-ror(mirror(node(t1,t2)))
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--315
+Underfull \hbox (badness 10000) in paragraph at lines 317--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--315
+Underfull \hbox (badness 10000) in paragraph at lines 317--342
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--315
+Underfull \hbox (badness 10000) in paragraph at lines 317--342
 
  []
 
-[6] [7] (./hw4.aux) ) 
+[7] (./hw4.aux) ) 
 Here is how much of TeX's memory you used:
  2567 strings out of 492649
  29577 string characters out of 6129622
- 106455 words of memory out of 5000000
+ 107455 words of memory out of 5000000
  6444 multiletter control sequences out of 15000+600000
  7915 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,9n,35p,258b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
-i10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/m
-sam10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb>
-Output written on hw4.pdf (7 pages, 140794 bytes).
+ 27i,9n,35p,258b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
+pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pf
+b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam1
+0.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb>
+Output written on hw4.pdf (7 pages, 141758 bytes).
 PDF statistics:
  76 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream

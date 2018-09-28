@@ -137,7 +137,18 @@ $\vdash x\in\emptyset ~~\iff~~ \mathit{false}$& $\emptyset$ Membership\\
 (\textsc{Hint}: To prove $S=T$ show $\forall x: U \bullet x \in S\Leftrightarrow x\in T$, where U is the type of elements in sets $S$ and $T$.)
 \item Prove the following theorem in equational style:
 $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg p\land\neg r)$$
-
+\begin{tabular}{l ll lll}
+  $ \neg(\neg p \implies (q\land r))$  &  &  \\
+  $\iff$  & & [$\implies$-Alternative] \\
+  $ \neg(p \lor (q \land r)) $& & \\
+  $\iff$ & & [$\lor \land$ - Distributibity] \\
+  $ \neg((p \lor q) \land (p \lor))$ & & \\
+  $\iff$ & &  [De Morgan] \\
+  $\neg (p \land q) \land \neg (p \land r)$ & & \\
+  $\iff$ & & [De Morgan] \\
+  $(\neg p\land \neg q)\lor(\neg p\land\neg r)$ & & \\
+  
+\end{tabular} \\
 \end{enumerate}
 
 \item \textbf{Sequences}
@@ -236,7 +247,13 @@ $ nodes(node(t1,t2)) = 1 + nodes(t1) + nodes(t2)$ \\
 \textbf{Induction case:} Generalize base case for leaves(t1) = nodes(t1) + 1 and leaves(t2) = nodes(t2) + 1  \\
 \\
 \begin{tabular}{l ll lll}
-     leaves(node(t1,t2)) &  &  \\
+  leaves(node(t1,t2)) &  &  \\
+  = & & [applying definiton of leaves] \\
+  leaves(t1) + leaves(t2) & & \\
+  = & & [induction hypotesis] \\
+  nodes(t1) + 1 + nodes(t2) + 1 \\
+  = & & [transforming the nodes back to leaves using nodes(node(t1,t2))] \\
+  nodes(t) + 1 & & \\
 \end{tabular} \\
 \\
 

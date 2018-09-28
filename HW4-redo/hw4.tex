@@ -54,7 +54,13 @@ $R:S\leftrightarrow S$ and such that $x$ is related to $y$ exactly when
 $y$ is greater than the square of $x$ but less than the square of
 $x+1$. Provide an axiomatic definition for $R$. \\
 (Note: be sure to check your notation and formatting --- refer to page 152 in GWC10.)
-
+  \textbf{Redo note:} Added equation  \\
+  $S == \{1,2,3,4,5,6,7,8,9,10,11,12\}$ \\
+  \\
+  $R: S \rightarrow S$ \\
+  --------------------------- \\
+  $\forall x,y:S \bullet(x,y) \in S \iff (x^2 < y) \land (y < (x + 1)^2)$ \\
+  
 \item Suppose $\mathit{Let}$ and $\mathit{Num}$ are defined as
 follows:
 \begin{eqnarray*}
@@ -136,8 +142,18 @@ $\vdash x\in\emptyset ~~\iff~~ \mathit{false}$& $\emptyset$ Membership\\
 \end{enumerate}
 (\textsc{Hint}: To prove $S=T$ show $\forall x: U \bullet x \in S\Leftrightarrow x\in T$, where U is the type of elements in sets $S$ and $T$.)
 \item Prove the following theorem in equational style:
-$$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg p\land\neg r)$$
-
+  $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg p\land\neg r)$$ \\
+  \textbf{Redo note:} Added proof \\ 
+  \begin{tabular}{l ll lll}  
+  $ \neg(\neg p \implies (q\land r))$  &  &  \\
+  $\iff$  & & [$\implies$-Alternative] \\
+  $ \neg(p \lor (q \land r)) $& & \\
+  $\iff$ & & [$\lor \land$ - Distributibity] \\
+  $ \neg((p \lor q) \land (p \lor r))$ & & \\
+  $\iff$ & &  [De Morgan] \\
+  $(\neg p\land \neg q)\lor(\neg p\land\neg r)$ & & \\
+  
+\end{tabular} \\
 \end{enumerate}
 
 \item \textbf{Sequences}
@@ -241,7 +257,7 @@ $ nodes(node(t1,t2)) = 1 + nodes(t1) + nodes(t2)$ \\
   leaves(t1) + leaves(t2) & & \\
   = & & [induction hypotesis] \\
   nodes(t1) + 1 + nodes(t2) + 1 \\
-  = & & [transforming the nodes back to leaves using the nodes(node(t1,t2)) equation]
+  = & & [transforming the nodes back to leaves using nodes(node(t1,t2))] \\
   nodes(t) + 1 & & \\
 \end{tabular} \\
 \\
