@@ -20,7 +20,8 @@ Structures, Equational Reasoning, and Induction }{}
 \item Use set comprehension to define the set $\mathit{SumOfSquares}$
 containing all the natural numbers that can be expressed as the sum
 $a^2 + b^2$ where $a$ and $b$ are natural numbers. \\
-$SumOfSquares == \{x: \mathbb{N} | (\exists a : \mathbb{N}) (\exists b : \mathbb{N}) \bullet  x = a^2 + b^2 \}$ \\
+\textbf{Redo note:} Adjusted parenthesis \\
+$SumOfSquares == \{x: \mathbb{N} | \exists a : \mathbb{N} \bullet \exists b : \mathbb{N} \bullet  x = a^2 + b^2 \}$ \\
 
 \item Write out in full the powersets of each of the following.
 \begin{enumerate}[a.]
@@ -34,7 +35,8 @@ $SumOfSquares == \{x: \mathbb{N} | (\exists a : \mathbb{N}) (\exists b : \mathbb
 \item $\{4,2\}\times\{2,4\} = \{(4,2), (4,4), (2,2), (2,4)\}$
 \item $\{0\}\times\emptyset = \emptyset$
 \item $\{1,2\}\times\{a\} = \{(1,a), (2,a) \}$
-\item $\{\emptyset\}\times\{a\} = \{\emptyset \}$
+\item $\{\emptyset\}\times\{a\} = \{(\emptyset, a)\}$ \\
+\textbf{Redo note:} Defined pair \\  
 \end{enumerate}
 
 \item Suppose $R \define 2 \upto 5$ and $S == 4 \upto 6$. Enumerate the elements of the following sets.
@@ -106,25 +108,31 @@ $\vdash x\in\emptyset ~~\iff~~ \mathit{false}$& $\emptyset$ Membership\\
 
 \begin{enumerate}[a.]
 \item $S\cup T=T\cup S$ \\
-  $\iff$ [Definition of $\cup$] \\
-  $x \in S \lor x \in T $ \\
-  $\iff$ [$\lor$ commutative]\\
-  $ x \in T \lor x \in S $ \\
-  Hence, $ x \in S \lor x \in T \iff x \in T \lor x \in S $ \\
-  Since x was arbitrary, we have $\exists-Intro$ \\
-  $\exists x:T \bullet (x \in S \lor x \in T \iff x \in T \lor x \in S )$ \\
-  By the definition of set equality \\
-  $ S \cup T= T\cup S$ QED \\
-  
+  \textbf{Redo note:} Adjusted proof \\
+ \begin{tabular}{l ll lll}
+     $x \in S \cup T $  &    &  \\
+     $\iff$ &   & [Definition of $\cup$] \\
+     $x \in S \lor x \in T$  &    &  \\
+     $\iff$ &   & [$\lor$ commutative] \\
+     $ x \in T \lor x \in S$  & & \\
+     $\iff$  &   & [Definition of $\cup$]  \\
+     $x \in T \cup S $  &    &  \\
+ \end{tabular} \\
+ $S\cup T=T\cup S$ QED \\
+\\  
 \item $S\cap\emptyset= \emptyset$ \\
-  $\iff$ [Definition of $\cup$] \\
-  $x \in S \land x \in \emptyset $ \\
-  $\iff$ [$emptyset$ Membership]\\
-  $ x \in T \land false $ \\
-  $\iff$ [Applying $\land truth tables$] \\
-  $false = {\emptyset}$ QED\\ 
-  
-  
+  \textbf{Redo note:} Adjusted proof \\
+  \begin{tabular}{l ll lll}
+     $ x \in S\cap\emptyset$  &    &  \\
+    $\iff$ &   & [Definition of $\cap$] \\
+    $x \in S \land x \in \emptyset $ & & \\
+    $\iff$ &   & [$emptyset$ Membership]\\
+    $ x \in T \land false $ & &\\
+    $\iff$ &   & [arithmetic] \\
+    ${\emptyset}$ & & \\
+  \end{tabular} \\
+  $S\cap\emptyset= \emptyset$ QED \\
+\\ 
 \end{enumerate}
 (\textsc{Hint}: To prove $S=T$ show $\forall x: U \bullet x \in S\Leftrightarrow x\in T$, where U is the type of elements in sets $S$ and $T$.)
 \item Prove the following theorem in equational style:
@@ -141,18 +149,22 @@ $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg 
 \begin{enumerate}[a.]
 \item $Threes$: natural numbers smaller than 18 that are divisible by 3. \\
   Using GWC10 notation for seq enums definition: \\
-  $Threes-= \{3 , 6 ,  9 , 12 , 15\}$ \\
+  $Threes== <3 , 6 ,  9 , 12 , 15>$ \\
 \item  $Twos$: natural numbers smaller than 20 that are divisible by 2. \\
-  Using GWC10 notation for seq enums definition: \\:
-  $Twos== \{2 , 4 , 6 , 8 , 10 , 12 , 14 , 16 , 18\}$ \\
+  Using GWC10 notation for seq enums definition: \\
+  $Twos== <2 , 4 , 6 , 8 , 10 , 12 , 14 , 16 , 18>$ \\
 \end{enumerate}
 
 \item Given the above, what are each of the following:
 \begin{enumerate}[a.]
 \item $Threes \cup Twos$ \\
-  $Threes \cup Twos$ = $<2,3,4,6,8,9,10,12,14,15,16,18 >$ \\
+  \textbf{Redo note:} Transformed to sets and applied $\cup$. \\ 
+  $TreesAsSetOfPairs = \{(1,3),(2,6),(3,9),(4,12),(5,15) \} $ \\
+  $TwosAsSetOfPairs = \{ (1,2),(2,4),(3,6), (4,8), (5,10),(6,12),(7,14), (8,16), (9,18) \}$ \\
+  $Threes \cup Twos$ = $\{(1,3),(2,6),(3,9),(4,12),(5,15),(1,2),(2,4),(3,6),(4,8),(5,10),(6,12),(7,14),(8,16),(9,18) \}$ \\
 \item $Threes \cap Twos$ \\
-  $Threes \cap Twos$ = $<6, 12>$ \\
+  \textbf{Redo note:} Transformed to sets and applied $\cap$. \\
+  $Threes \cap Twos$ = $\{\emptyset\}$ \\
 \item $\dom Threes == \{1, 2 ,3 ,4 ,5 \}$ \\
   To get the domain of a sequence, we just need to get the indexes from 1 up to the cardinality of the sequence. \\
 \item $\ran Threes == \{3 ,6 ,9 ,12 ,15\}$ \\
@@ -160,11 +172,13 @@ $$ \vdash \neg(\neg p \implies (q\land r))~~\iff~~(\neg p\land \neg q)\lor(\neg 
   $\dres$ is the domain restrictor operator, informally, the restricted relation contains those \\
   elements from Three whose first component appears in Two. \\
   $dom Twos == \{1,2,3,4,5,6,7,8,9,10,11,12\}$\\
-  $\dom Twos \dres Threes == \{3, 6, 9, 12, 15\}$\\
+  \textbf{Redo note:} Corrected set notation. \\
+  $\dom Twos \dres Threes ==<3, 6, 9, 12, 15>$\\
 \item $(5 \upto 8)\dres (Threes \frown Twos)$\\
-  $Threes \frown Twos == <3,6,9,12,15,2,4,6,8,10,12,14,16,18>$
-  $\dres is asking us to filter elements from 5 \upto 8$ \\
-  $(5 \upto 8)\dres (Threes \frown Twos) == <15,2,4,5>$
+  $Threes \frown Twos == <3,6,9,12,15,2,4,6,8,10,12,14,16,18>$ \\
+  $\dres$ is asking us to filter elements from 5 $\upto 8$ \\
+  \textbf{Redo note:} Corrected notation to set and swaped 5 to 6. \\
+  $(5 \upto 8)\dres (Threes \frown Twos) == \{15,2,4,6\}$
 (\textsc{Note}: $\frown$ is the concatenation operator).
 \end{enumerate}
 \end{enumerate}
@@ -192,48 +206,86 @@ $0^2 = 0$ \\
 Consider the definition of binary trees in Chapter 7.
 \begin{enumerate}
 \item Show that
-\[\forall t: TREE \bullet leaves(t) = nodes(t) + 1\]
+  \[\forall t: TREE \bullet leaves(t) = nodes(t) + 1\] \\
+\textbf{Redo Note:} Added proof: \\
+$ size: TREE \rightarrow \mathbb{N} $\\
+------------------------------ \\
+$ \forall t1,t2: TREE \bullet $\\
+$ size (leaf) = 1 \land $\\
+$ size (node(t1,t2) = 1 + size(t1) + size(t2) $ \\
+\\
+$leaves : TREE \rightarrow \mathbb{N}$ \\
+$nodes: TREE \rightarrow \mathbb{N}$ \\
+----------------------------- \\
+$ \forall t1,t2: TREE \bullet $\\
+$ leaves (leaf) = 1 \land $\\
+$ leaves (node(t1,t2)) = leaves(t1) + leaves(t2) \land  $ \\
+$ nodes(leaf) = 0 \land$\\
+$ nodes(node(t1,t2)) = 1 + nodes(t1) + nodes(t2)$ \\
+\\
+\textbf{Base Case:} Show the property holds for leaf, that is, leaves(leaf) = 1 \\
+\begin{tabular}{l ll lll}
+  $leaves(leaf)$  &  &  \\
+  =  & & [definition of leaves] \\
+  0 + 1 & & \\
+  = & & [definiton of nodes] \\
+  nodes(leaf) + 1 & & \\
+  
+\end{tabular} \\
+\\
+\textbf{Induction case:} Generalize base case for leaves(t1) = nodes(t1) + 1 and leaves(t2) = nodes(t2) + 1  \\
+\\
+\begin{tabular}{l ll lll}
+      &  &  \\
+\end{tabular} \\
+\\
+
+
 \item Define a $mirror$ function that recursively swaps the branches of a tree. \\
   The idea of this function is that it recursively calls mirror swapping t1 and t2 \\
   every time that it finds a node. If it finds a leaf it just returns. \\
   \\
   $ mirror: TREE \rightarrow TREE $\\
-  --------------------------------------- \\
+  --------------------------- \\
+  \textbf{Redo note:} fixed equation, the key aspect is changing the order of t1, t2 and calling $mirror(node)$ recursively. \\
   $\forall t1,t2 : TREE \bullet$\\
-  $leaf | node <<mirror(t2),mirror(t1)>>$ \\
+  $mirror(leaf) = leaf \land$ \\
+  $mirror(node(t1, t2)) = node(mirror(t2), mirror(t1))$ \\
 \item Using the definition of $mirror$  show
 that
 \[\forall t: TREE \bullet size(mirror(t)) = size(t)\] \\
 Using the definition of size(t) provided in GWC10: \\
 \\
 $ size: TREE \rightarrow \mathbb{N} $\\
----------------------------------------- \\
+----------------------------- \\
 $ \forall t1,t2: TREE \bullet $\\
 $ size (leaf) = 1 \land $\\
 $ size (node(t1,t2) = 1 + size(t1) + size(t2) $ \\
 \\
 \textbf{Proof:}\\
 \textbf{Base Case:} Show the property holds for leaf, that is, size(leaf) = size(mirror(leaf)) \\
-\\
+\textbf{Redo note:} Corrected equation for mirror(node). \\
 \begin{tabular}{l ll lll}
      size(leaf) &    &  \\
-     = &   & [definition of size] \\
-     1 & & \\
      = &   & [definition size(mirror(leaf))] \\
      size(mirror(leaf)) & &  \\
+     = &  &  [since mirror(leaf) = leaf]
+     size(leaf) &    &  \\
+     1  &   & \\
 \end{tabular} \\
 \\
-\textbf{Induction case:} Assume that the property holds for trees t1 and t2, that is size(t1) = size(mirror(t2)), and size(t2) = size(mirror(t1)). Show that it holds for node(t1,t2) \\
+\textbf{Redo note:} Corrected induction hypotesis. \\
+\textbf{Induction case:} Assume that the property holds for trees t1 and t2, that is size(mirror(t1)) = size(t1), and size(mirror(t2)) = size(t2). Show that it holds for node(t1,t2) \\
 \\
 \begin{tabular}{l ll lll}
-     size(node(t1,t2)) &    &  \\
-     = &   & [definition of size] \\
-     1 + size(t1) + size(t2) & & \\
-     = &   & [induction hypothesis] \\
-     1 + size(mirror(t2)) + size(mirror((t1)) & & \\
-     = & & [definition of mirror] \\
-     1 + size(node(mirror(t2), mirror(t1))) + size(node(mirror(t1), mirror(t2))) & & \\
-     not sure what to do after this... \\
+     size(mirror(node(t1,t2))) &    &  \\
+     = &   & [definition of mirror(node)] \\
+     size(node(mirror(t2), mirror(t1)))  & & \\
+     = &   & [applying distributive property of size]
+     size(mirror(t2)) + size(mirror(t1)) = &   & [induction hypothesis] \\
+     size(t2) + size(t1) & & \\
+     = &   & [applying distributive property of size] \\
+     size(t) & & \\
 \end{tabular} \\
 \\
 
@@ -246,20 +298,23 @@ $ size (node(t1,t2) = 1 + size(t1) + size(t2) $ \\
 \textbf{Base Case:} Show the property holds for leaf, that is, leaf = mirror(leaf) \\
 \\
 \begin{tabular}{l ll lll}
-     leaf &    &  \\
-     = &   & [definition mirror(leaf)] \\
+     mirror(mirror(leaf)) &    &  \\
+     = &   & [applying definition mirror(leaf)] \\
      mirror(leaf) & &  \\
+     =   &    & [applying definition of mirror(leaf) \\
+     leaf QED \\
 \end{tabular} \\
 \\
-\textbf{Induction case:} Assume that the property holds for trees t1 and t2, that is node(t1, t2) = node(mirror(t2), mirror(t1)) \\
+\textbf{Induction case:} Assume that the property holds for trees t1 and t2, that is mirror(mirror(node(t1,t2))) = node(t1,t2) \\
 \\
 \begin{tabular}{l ll lll}
-     node(t1,t2) &    &  \\
+     mirror(mirror(node(t1,t2)))  &    &  \\
      = &   & [definition of mirror] \\
-     mirror(node(t1, t2)) & & \\
-     = &   & [applying mirror function to node] 
-     node(mirror(t2), mirror(t1)) & & \\
-     not sure what to do after this... \\
+     mirror(node(mirror(t2), mirror(t1))) & & \\
+     = &   & [applying mirror function again] \\
+     node(node(t1',t2'), node(node(t2',t1')) & & \\
+     = &  & [if t1 = (node(t1',t2') and t2 = node(t2', t1')] \\
+    node(t1, t2) QED
 \end{tabular} \\
 \\
 

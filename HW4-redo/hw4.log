@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  27 SEP 2018 12:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  27 SEP 2018 20:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -560,93 +560,118 @@ Underfull \hbox (badness 10000) in paragraph at lines 189--204
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 210--220
+Underfull \hbox (badness 10000) in paragraph at lines 209--237
 
  []
 
 
-Overfull \hbox (9.40633pt too wide) in paragraph at lines 210--220
-\OT1/cmr/bx/n/10 Redo: \OT1/cmr/m/n/10 fixed equa-tion, the key as-pect is chan
-g-ing the or-der of t1, t2 and call-ing $\OT1/cmr/m/it/10 mirror\OT1/cmr/m/n/10
- (\OT1/cmr/m/it/10 node\OT1/cmr/m/n/10 )$
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 210--220
+Underfull \hbox (badness 10000) in paragraph at lines 209--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--255
+Underfull \hbox (badness 10000) in paragraph at lines 209--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--255
+Underfull \hbox (badness 10000) in paragraph at lines 209--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--255
+Underfull \hbox (badness 10000) in paragraph at lines 209--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--255
+Underfull \hbox (badness 10000) in paragraph at lines 209--237
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 222--255
+Underfull \hbox (badness 10000) in paragraph at lines 239--249
 
  []
 
 
-Overfull \hbox (74.47809pt too wide) in paragraph at lines 222--255
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 222--255
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 222--255
+Underfull \hbox (badness 10000) in paragraph at lines 239--249
 
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 259--281
+Underfull \hbox (badness 10000) in paragraph at lines 251--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--281
+Underfull \hbox (badness 10000) in paragraph at lines 251--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--281
+Underfull \hbox (badness 10000) in paragraph at lines 251--286
 
  []
 
 
-Overfull \hbox (67.45029pt too wide) in paragraph at lines 259--281
+Overfull \hbox (8.37445pt too wide) in paragraph at lines 251--286
+\OT1/cmr/bx/n/10 Induction case: \OT1/cmr/m/n/10 As-sume that the prop-erty hol
+ds for trees t1 and t2, that is size(mirror(t1))
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 251--286
+
+ []
+
+
+Overfull \hbox (249.83951pt too wide) in paragraph at lines 251--286
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--281
+Underfull \hbox (badness 10000) in paragraph at lines 251--286
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--281
+Underfull \hbox (badness 10000) in paragraph at lines 251--286
 
  []
 
-[6] (./hw4.aux) ) 
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--315
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--315
+
+ []
+
+
+Overfull \hbox (38.9024pt too wide) in paragraph at lines 290--315
+\OT1/cmr/bx/n/10 Induction case: \OT1/cmr/m/n/10 As-sume that the prop-erty hol
+ds for trees t1 and t2, that is mir-ror(mirror(node(t1,t2)))
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--315
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--315
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 290--315
+
+ []
+
+[6] [7] (./hw4.aux) ) 
 Here is how much of TeX's memory you used:
  2567 strings out of 492649
  29577 string characters out of 6129622
@@ -655,23 +680,23 @@ Here is how much of TeX's memory you used:
  7915 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  27i,9n,35p,258b,445s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
-.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
-pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pf
-b></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam1
-0.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/m
-sbm10.pfb>
-Output written on hw4.pdf (6 pages, 139677 bytes).
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+i10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
+7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sam10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbo
+ls/msbm10.pfb>
+Output written on hw4.pdf (7 pages, 140794 bytes).
 PDF statistics:
- 71 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 76 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
