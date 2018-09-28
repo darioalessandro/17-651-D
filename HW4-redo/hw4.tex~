@@ -236,7 +236,7 @@ $ nodes(node(t1,t2)) = 1 + nodes(t1) + nodes(t2)$ \\
 \textbf{Induction case:} Generalize base case for leaves(t1) = nodes(t1) + 1 and leaves(t2) = nodes(t2) + 1  \\
 \\
 \begin{tabular}{l ll lll}
-      &  &  \\
+     leaves(node(t1,t2)) &  &  \\
 \end{tabular} \\
 \\
 
