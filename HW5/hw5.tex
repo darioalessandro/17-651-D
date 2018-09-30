@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{graphics,indentfirst,amsmath,amsthm,amssymb,latexsym,enumerate}
+\usepackage{graphicx}
+\usepackage{zed-csp}
+\input{handout}
+
+\begin{document}
+
+\homework{}{26 September 2016}{Homework \#5: State Machines}{}
+
+\begin{enumerate}
+
+\item A certain, simple, answering machine has two buttons, ``play''
+and ``save'' and can, of course, receive messages. If someone plays
+the messages and doesn't save them, they are erased/overwritten when
+the next incoming message is received. The answering machine only
+holds a specified number of messages; when it reaches full capacity
+it refuses to accept new messages. The answering machine can be
+modeled by the state machine, $\mathbf{AnsMachine}$, whose state
+transition diagram is attached.
+
+\includegraphics[width=4in]{ansmachine.png}
+
+\begin{enumerate}
+ \item Give a 4-tuple description for this state machine.
+ \item Give three execution fragments of {\bf AnsMachine}, at least one of which is not an
+ execution.
+ \item Give both a finite and an infinite execution of
+ {\bf AnsMachine}.
+ \item For each of the following, indicate whether or not it is an event-based trace of
+ {\bf AnsMachine}.
+ \begin{enumerate}
+  \item  $\langle play, save, msg, msg, play \rangle$
+  \item  $\langle msg, msg, msg, play, save, msg, msg, msg \rangle$
+  \item  $\langle msg, play, save, msg, msg, play, msg, msg, msg \rangle$
+ \end{enumerate}
+ \item Give two examples of state-based traces of
+ {\bf AnsMachine}.
+ \item Give two sequences of
+states that are not state-based traces of {\bf AnsMachine}.
+\item What are the reachable states of this machine?
+\item Is {\bf AnsMachine}'s event-based behavior finite or
+infinite?
+ \item Can a state machine $M=(S,I,A,\delta)$ with an infinite trace have finite
+behavior? Give an example or explain why not.
+\end{enumerate}
+
+\item Consider a TV remote control that allows the user to select
+the channel to be viewed, add or remove a ``parental block'' to a
+channel that prevents the channel from being displayed (removal
+requires a password), and enter a password to allow a blocked
+channel currently selected to be displayed. If a blocked channel
+is selected, the channel is not initially displayed. The user may
+choose to select a different channel or may enter the password to
+display the channel. If the incorrect password is entered, the
+channel is not displayed. If the correct password is entered, the
+channel is displayed.
+
+Your task is to model the described functionality of the remote control. That is,
+\begin{enumerate}
+\item Specify the set of states
+
+\item Specify the pre- and post-conditions for each action
+\end{enumerate}
+
+Your solution should satisfy the following requirements:
+\begin{enumerate}[i.]
+\item Do \emph{not} model any functionality other than that described above. In particular, assume that the correct password is fixed and cannot be changed.
+\item Assume that the set of channels is $Channels == \set{n:\nat \mid 1 \leq n \leq 100}$.
+\item You may only use the following actions in your model:
+    \begin{itemize}
+    \item $select$: Select a channel for viewing
+    \item $correctpw$: Enter correct password
+    \item $incorrectpw$: Enter incorrect password
+    \item $addblock$: Block selected channel
+    \item $removeblock$: Unblock selected channel
+    \end{itemize}
+\item If (and only if) the requirements are ambiguous, state any assumptions that you made to resolve those ambiguities.
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
