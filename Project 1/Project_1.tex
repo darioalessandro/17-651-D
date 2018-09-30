@@ -1,0 +1,111 @@
+\documentclass{article}
+\usepackage{times}
+\usepackage{fullpage}
+
+\newcommand{\head}{\subsection*}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+%_______________________________________________________________________________
+% Heading section
+%_______________________________________________________________________________
+\begin{center}
+\rule{\textwidth}{1.5pt} \\ \rule[10pt]{\textwidth}{1pt}\\
+CMU 17-651\hfill Models of Software Systems\\[3ex]
+{\Large\bf Project 1: State Machine Modeling}\\[3ex]
+Garlan \hfill {\bf Due: October 5, 2016} \rule{\textwidth}{1pt}
+\\\rule[9.5pt]{\textwidth}{1.5pt}
+\end{center}
+
+The purpose of this first project is to give you experience in
+modeling a realistic system as a state machine. The example that we
+will use is the Infusion Pump. A general description of an Infusion
+Pump can be found in the General Project Documents folder on
+Blackboard.
+
+\bigskip You should carry out this project in your assigned team. Make sure that everyone in the group contributes to the overall effort. Each team should submit a single write-up of the project,
+due at the beginning of class on the project due date. We have
+posted a template for a group project write-up under the Course
+Resources $>$ \LaTeX~section on Blackboard.
+
+%___________________________________________________________________________________________________
+\head{Task 1 (20 points):}
+%___________________________________________________________________________________________________
+
+A sample description of a \emph{simplified version} of an infusion
+pump, written in FSP, is provided with this project document. This
+model describes a pump with only one infusion channel, and leaves
+out many of the features that a real infusion pump would have, as
+outlined in the general infusion pump description.
+
+\bigskip Your first task is to understand this specification. Read
+through the specification to make sure you understand what it is
+specifying. Then read it into LTSA and check its behavior using the
+LTSA simulation capabilities. Once you are familiar with it, answer
+the following questions in your project write-up:
+
+\begin{enumerate}
+    \item What is the alphabet of the state machine?
+    \item List two traces of the pump, each at least 4 actions in length.
+    \item In contrast to the specification of an infusion pump in homework 6, how does this specification model the fact that     the pump might run out of liquid?
+    \item Is it possible to ever dispense medication without setting the rate?  Why or why not? If your answer is yes, provide a trace that justifies your answer.
+    \item Is it ever possible for the flow to become blocked and have the alarm not sound at all?  Why or why not? If your answer is yes, provide a trace that justifies your answer.
+    \item If the pump is locked and dispensing, without unlocking or becoming blocked, will the pump ever stop dispensing? If your answer is yes, provide a trace that justifies your answer.
+    \item If the pump is locked and dispensing, is it possible for the \emph{patient} to alter the medicine he is receiving? If your answer is yes, provide a trace that justifies your answer.
+    \item Does this version have any behavior that you feel is inconsistent with the pump specification? Could it be fixed?
+\end{enumerate}
+
+%___________________________________________________________________________________________________
+\head{Task 2 (75 Points):}
+%___________________________________________________________________________________________________
+
+For the second part of your project you should develop a
+more-complete FSP specification of the infusion pump (40 points). To
+do this you can use the sample of Task 1 as a starting point, or you
+can start with your own model. Here are some guidelines to keep in
+mind as you develop your FSP specification:
+
+\begin{itemize}
+\item You do not need to model the human user of the pump.
+
+\item Restrict your specification to a single-line infusion pump.
+
+\item You are free to pick the level of abstraction for this specification. Your specification
+should be detailed enough, however, to answer the questions posed below.
+
+\item Be sure to document your specification adequately, and choose meaningful action and process names for readability.
+
+\item Your specification should not use parallel composition.
+
+\end{itemize}
+
+\noindent The full specification should be attached to your project
+write-up. Answer the following questions (35 points); for each,
+briefly explain why you answered it in the way you did, based on
+\emph{your} model. If your model does not address this issue,
+explain why. (Note: Reference certain parts of your specification that address features, ambiguities, or errors in each question.)
+
+\begin{enumerate}
+    \item Which aspects of the pump did you choose to model, and which did you choose to leave out?
+    \item Were there ambiguities in the English description of the infusion pump that your specification resolves?
+    \item State four general properties that your pump guarantees (for example, the alarm will always sound if a line becomes clogged), and say briefly why it is guaranteed.
+    \item Does your model say what happens if the power goes out in the middle of operation?
+    \item Referring to the additional documentation about the infusion pump on the general project description section of the web site, consider the errors noted about realistic pumps. Which of these types of errors can be illustrated with your pump? Does your pump exclude some of them from happening?
+
+\end{enumerate}
+
+
+%___________________________________________________________________________________________________
+\head{Task 3 (5 points):}
+%___________________________________________________________________________________________________
+
+
+How difficult would it be using the current subset of FSP to create
+a 4-line pump? What would have to change in your specification?
+
+
+
+
+
+\end{document}
