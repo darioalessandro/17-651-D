@@ -38,20 +38,20 @@ transition diagram is attached.
    execution. \\
    Given the GWC10 definition of execution fragment and execution: \\
    ``Definition 3. An execution fragment is a finite or infinite sequence $\langle$ s0,a1,s1,a2,s3,... $\rangle$ of alternating states and actions such that for all i (si,ai+1,si+1) is a step of M.''\\
+   \\
    ``Definition 4. An execution is an execution fragment starting with an initial state of M (and ending in a state if finite)'' \\
    \begin{enumerate}
-   \item a
-   \item b
-   \item c
+   \item $\langle none, msg, one, play, temp1, msg, one, msg, two \rangle$
+   \item $\langle none, msg, one, msg, two, play, temp2, save, two\rangle$
+   \item execution which is not an execution frament: \\ $\langle two, msg, three, play, temp3, play, temp3, msg, one \rangle$ \\
+     It is not an execution fragment because it starts at state two as opposed to $none$ \\
    \end{enumerate}
  
  \item Give both a finite and an infinite execution of
  {\bf AnsMachine}.
  \item For each of the following, indicate whether or not it is an event-based trace of
    {\bf AnsMachine}.\\
-   I think that this is a trick question because all 3 traces look event-based since
-   they are all sequences of events, I am going to make the assumption that the question is
-   if the presented event-based traces are valid or not for AnsMachine:
+   Logic used to answer: I determined if the  presented sequences of actions are valid or not for AnsMachine:
  \begin{enumerate}
  \item  $\langle play, save, msg, msg, play \rangle$ \\
    Not valid because the initial state none does not handle the play event. \\
