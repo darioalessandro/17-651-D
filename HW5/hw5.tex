@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\homework{}{26 September 2016}{Homework \#5: State Machines}{}
+\homework{}{1 October 2018}{Homework \#5: State Machines}{}
 
 \begin{enumerate}
 
@@ -22,17 +22,43 @@ transition diagram is attached.
 \includegraphics[width=4in]{ansmachine.png}
 
 \begin{enumerate}
- \item Give a 4-tuple description for this state machine.
+ \item Give a 4-tuple description for this state machine. \\
+   AnsweringMachine == ( \\
+   $\{none,one,two,three,temp1,temp2,temp3 \}$, \\
+   $\{none \}$, \\
+   $\{msg, play, save \}$, \\
+   $\{(none, msg, one),$ \\
+   $ (one, msg, two), (one, play, temp1),$ \\
+   $ (two, msg, three),(two, play, temp2),$ \\
+   $ (temp1, save, one), (temp1, msg, one), (temp1, play, temp1), $ \\
+   $ (temp2, save, two), (temp2, play, temp2), (temp2, msg, one),$ \\
+   $ (temp3, play, temp3), (temp3, save, tree), temp3, msg, one) \}$ \\
+   ) \\
  \item Give three execution fragments of {\bf AnsMachine}, at least one of which is not an
- execution.
+   execution. \\
+   Given the GWC10 definition of execution fragment and execution: \\
+   ``Definition 3. An execution fragment is a finite or infinite sequence $\langle$ s0,a1,s1,a2,s3,... $\rangle$ of alternating states and actions such that for all i (si,ai+1,si+1) is a step of M.''\\
+   ``Definition 4. An execution is an execution fragment starting with an initial state of M (and ending in a state if finite)'' \\
+   \begin{enumerate}
+   \item a
+   \item b
+   \item c
+   \end{enumerate}
+ 
  \item Give both a finite and an infinite execution of
  {\bf AnsMachine}.
  \item For each of the following, indicate whether or not it is an event-based trace of
- {\bf AnsMachine}.
+   {\bf AnsMachine}.\\
+   I think that this is a trick question because all 3 traces look event-based since
+   they are all sequences of events, I am going to make the assumption that the question is
+   if the presented event-based traces are valid or not for AnsMachine:
  \begin{enumerate}
-  \item  $\langle play, save, msg, msg, play \rangle$
-  \item  $\langle msg, msg, msg, play, save, msg, msg, msg \rangle$
-  \item  $\langle msg, play, save, msg, msg, play, msg, msg, msg \rangle$
+ \item  $\langle play, save, msg, msg, play \rangle$ \\
+   Not valid because the initial state none does not handle the play event. \\
+ \item  $\langle msg, msg, msg, play, save, msg, msg, msg \rangle$ \\
+   Not valid because after the element {5} you end up in three which does not handle msg \\
+ \item  $\langle msg, play, save, msg, msg, play, msg, msg, msg \rangle$ \\
+   It is a valid event-based trace, the final state is $three$ \\
  \end{enumerate}
  \item Give two examples of state-based traces of
  {\bf AnsMachine}.
@@ -40,7 +66,11 @@ transition diagram is attached.
 states that are not state-based traces of {\bf AnsMachine}.
 \item What are the reachable states of this machine?
 \item Is {\bf AnsMachine}'s event-based behavior finite or
-infinite?
+  infinite?\\
+  It is event-based behavior infinite because
+  we can create an infinite number of events if we send
+  the play message repeatedly while in any of the following states
+  $\{one, two three, temp1, temp2, temp3\}$ \\
  \item Can a state machine $M=(S,I,A,\delta)$ with an infinite trace have finite
 behavior? Give an example or explain why not.
 \end{enumerate}

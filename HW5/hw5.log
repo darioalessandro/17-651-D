@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  30 SEP 2018 19:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  30 SEP 2018 21:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -521,38 +521,83 @@ File: ansmachine.png Graphic file (type png)
 <use ansmachine.png>
 Package pdftex.def Info: ansmachine.png  used on input line 22.
 (pdftex.def)             Requested size: 289.07999pt x 213.39436pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 25--37
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--44
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 37--44
+
+ []
+
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./ansma
 chine.png>]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 72.
+Underfull \hbox (badness 10000) in paragraph at lines 57--59
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--61
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--63
+
+ []
+
+
+Overfull \hbox (66.12053pt too wide) in paragraph at lines 69--75
+\OT1/cmr/m/n/10 send the play mes-sage re-peat-edly while in any of the fol-low
+-ing states $\OMS/cmsy/m/n/10 f\OT1/cmr/m/it/10 one\OML/cmm/m/it/10 ; \OT1/cmr/
+m/it/10 twothree\OML/cmm/m/it/10 ; \OT1/cmr/m/it/10 temp\OT1/cmr/m/n/10 1\OML/c
+mm/m/it/10 ; \OT1/cmr/m/it/10 temp\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ; \OT1/cmr/
+m/it/10 temp\OT1/cmr/m/n/10 3\OMS/cmsy/m/n/10 g$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 69--75
+
+ []
+
+[2]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 103.
+
  (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
-
-[2] (./hw5.aux) ) 
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 103.
+ [3]
+(./hw5.aux) ) 
 Here is how much of TeX's memory you used:
  2762 strings out of 492649
  35138 string characters out of 6129622
- 101701 words of memory out of 5000000
+ 102701 words of memory out of 5000000
  6592 multiletter control sequences out of 15000+600000
  8233 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,4n,29p,270b,308s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb>
-Output written on hw5.pdf (2 pages, 362376 bytes).
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
+10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
+0.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb>
+Output written on hw5.pdf (3 pages, 364877 bytes).
 PDF statistics:
- 42 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 45 PDF objects out of 1000 (max. 8388607)
+ 30 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
