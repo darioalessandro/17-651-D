@@ -43,12 +43,17 @@ transition diagram is attached.
    \begin{enumerate}
    \item $\langle none, msg, one, play, temp1, msg, one, msg, two \rangle$
    \item $\langle none, msg, one, msg, two, play, temp2, save, two\rangle$
-   \item execution which is not an execution frament: \\ $\langle two, msg, three, play, temp3, play, temp3, msg, one \rangle$ \\
+   \item Execution which is not an execution frament: \\ $\langle two, msg, three, play, temp3, play, temp3, msg, one \rangle$ \\
      It is not an execution fragment because it starts at state two as opposed to $none$ \\
    \end{enumerate}
  
  \item Give both a finite and an infinite execution of
- {\bf AnsMachine}.
+   {\bf AnsMachine}.
+   \begin{enumerate}
+   \item finite == $\langle none, msg, one, play, temp2, save \rangle$
+   \item infinite == $\langle none, msg, one, play, temp1, msg, one, play, temp1, ... \rangle$ \\
+     I am not sure if I am using the right notation for the infinite execution, since $none$ is not repeated, only the $\{msg, one, play, temp1\}$ 
+   \end{enumerate}
  \item For each of the following, indicate whether or not it is an event-based trace of
    {\bf AnsMachine}.\\
    Logic used to answer: I determined if the  presented sequences of actions are valid or not for AnsMachine:
@@ -61,14 +66,24 @@ transition diagram is attached.
    It is a valid event-based trace, the final state is $three$ \\
  \end{enumerate}
  \item Give two examples of state-based traces of
- {\bf AnsMachine}.
+   {\bf AnsMachine}.
+   \begin{enumerate}
+   \item $\langle none, one, two, three \rangle$
+   \item $\langle none, one, temp1, one, two, temp2 \rangle$
+     \end{enumerate}
  \item Give two sequences of
-states that are not state-based traces of {\bf AnsMachine}.
-\item What are the reachable states of this machine?
+   states that are not state-based traces of {\bf AnsMachine}.
+   \begin{enumerate}
+   \item $\langle temp3, temp2, two \rangle$
+   \item $\langle none, three, two, temp3 \rangle$
+   \end{enumerate}
+ \item What are the reachable states of this machine? \\
+   The reachable states are the ones that we can get to given the set of state transition relations. \\
+   For {\bf AnsMachine}, reachableStates == $\{none, one, two, three, temp1, temp2, temp3 \}$ \\
 \item Is {\bf AnsMachine}'s event-based behavior finite or
   infinite?\\
   It is event-based behavior infinite because
-  we can create an infinite number of events if we send
+  we can create an infinite traces if we send
   the play message repeatedly while in any of the following states
   $\{one, two three, temp1, temp2, temp3\}$ \\
  \item Can a state machine $M=(S,I,A,\delta)$ with an infinite trace have finite
@@ -105,10 +120,14 @@ Your solution should satisfy the following requirements:
     \item $addblock$: Block selected channel
     \item $removeblock$: Unblock selected channel
     \end{itemize}
-\item If (and only if) the requirements are ambiguous, state any assumptions that you made to resolve those ambiguities.
+  \item If (and only if) the requirements are ambiguous, state any assumptions that you made to resolve those ambiguities. \\
+\end{enumerate}
+Assumptions:
+\begin{enumerate}
+\item TV power modes are out off scope.
+\item There are no communication errors between the tv and the remote.
 \end{enumerate}
 
 
-\end{enumerate}
 
 \end{document}
