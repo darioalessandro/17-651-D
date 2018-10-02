@@ -87,7 +87,16 @@ transition diagram is attached.
   the play message repeatedly while in any of the following states
   $\{one, two three, temp1, temp2, temp3\}$ \\
  \item Can a state machine $M=(S,I,A,\delta)$ with an infinite trace have finite
-behavior? Give an example or explain why not.
+   behavior? Give an example or explain why not. \\
+   \\
+   From GWC10, Chapter 9.6: \\
+   \\
+   ``Recall the red and blue light example where the behavior of the light is infinite because there are an infinite number of traces associated with the light. Also, some of those traces are infinite (e.g., pressing red forever). \\
+   \\
+   In some models of state machines, in particular, Communicating Sequential Processes (CSP), infinite traces are not included in the machine’s behavior. This kind of model is sometimes called the finite-trace model. The behavior of the machine is defined to be a possibly infinite set of finite traces.\\
+   \\
+Why is this a reasonable model? It has a simple structure which has some nice mathematical properties. Using this model may help simplify our thinking about the system; we know every trace in the behavior is finite so we do not have to worry about infinite traces. With a model that has both finite and infinite traces, whenever we prove some property about the behavior it describes, we usually have to structure our proof into two parts, one to handle the finite trace case and one to handle the infinite trace case. But perhaps the most compelling intuitive argument for this model is that we can never see an infinite execution; if we cannot observe this behavior then why should we model it?''
+
 \end{enumerate}
 
 \item Consider a TV remote control that allows the user to select
@@ -128,27 +137,28 @@ Assumptions:
 \item Communication errors between the tv and the remote are out of scope.
 \end{enumerate}
 
-$S = \{ current\_channel: Channels, blocked: \{false,true\}, removing\_block: \{true, false \}  \}  $ \\
+$S = \{ current\_channel: Channels, blocked: \{false,true\} \}  $ \\
 \\
 select(c:Channels) \\
 $\textbf{pre}$ true \\
 $\textbf{post}$ current\_channel = c \\
 \\
 addblock \\
-$\textbf{pre} blocked = false \land removing\_block = false$  \\
+$\textbf{pre} blocked = false $  \\
 $\textbf{post}$ blocked = true \\
 \\
 removeblock \\
-$\textbf{pre} blocked = false \land removing\_block = false$ \\
-$\textbf{post}$ removingBlock = true \\
+$\textbf{pre} blocked = true$ \\
+$\textbf{post} (correctpw \implies blocked = false) \land  $   \\
+$(incorrectpw \implies blocked = true ) $ \\
 \\
-correctpassword \\
-$\textbf{pre} blocked = true \land removing\_block = true $ \\
-$\textbf{post}$ blocked = false\\
+In my opinion, is channel displayed can be modeled as an action: \\
 \\
-incorrectpassword \\
-$\textbf{pre} blocked = true \land removing\_block = true $ \\
-$\textbf{post}$ blocked = true \\
+isChannelDisplayed(c:Channel) / \{true,false\} \\
+$\textbf{pre} true$ \\
+$\textbf{post} c = current\_channel \land \neg blocked$ \\
 \\
 \end{enumerate}
 \end{document}
+
+
