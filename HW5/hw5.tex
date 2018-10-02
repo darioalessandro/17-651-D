@@ -124,8 +124,31 @@ Your solution should satisfy the following requirements:
 \end{enumerate}
 Assumptions:
 \begin{enumerate}
-\item TV power modes are out off scope.
-\item There are no communication errors between the tv and the remote.
+\item TV power modes are out of scope.
+\item Communication errors between the tv and the remote are out of scope.
 \end{enumerate}
+
+$S = \{ current\_channel: Channels, blocked: \{false,true\}, removing\_block: \{true, false \}  \}  $ \\
+\\
+select(c:Channels) \\
+$\textbf{pre}$ true \\
+$\textbf{post}$ current\_channel = c \\
+\\
+addblock \\
+$\textbf{pre} blocked = false \land removing\_block = false$  \\
+$\textbf{post}$ blocked = true \\
+\\
+removeblock \\
+$\textbf{pre} blocked = false \land removing\_block = false$ \\
+$\textbf{post}$ removingBlock = true \\
+\\
+correctpassword \\
+$\textbf{pre} blocked = true \land removing\_block = true $ \\
+$\textbf{post}$ blocked = false\\
+\\
+incorrectpassword \\
+$\textbf{pre} blocked = true \land removing\_block = true $ \\
+$\textbf{post}$ blocked = true \\
+\\
 \end{enumerate}
 \end{document}
