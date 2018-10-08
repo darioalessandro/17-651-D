@@ -58,11 +58,22 @@ TEMP3 = (play -> TEMP3
  \item Consider the FSP specification of a simplified version of the Infusion Pump attached at the end of this assignment.
  Answer the following questions:
     \begin{enumerate}[a.]
-    \item Give an example of an action-based trace that causes the infusion pump to terminate without an alarm being raised.
-    \item Give an example of an action-based trace that causes the infusion pump to terminate with an alarm being raised.
-    \item Is there a limit to how much medication can be administered to a patient? Explain why or why not.
-    \item What happens if the nurse forgets to put any medicine in the bag (i.e., uses a refill amount of 0)?
-    \item Is it possible for an alarm to sound even if the patient has received the correct and full amount of medicine?
+    \item Give an example of an action-based trace that causes the infusion pump to terminate without an alarm being raised. \\
+      \includegraphics[width=2in]{no_alarm.png} \\
+      $trace\_alarm\_not\_raised == \langle plug\_in, set\_value\_3, pump\_fluid, pump\_fluid, fluid\_empty, fill\_fluid, pump\_fluid, done  \rangle $ \\
+    \item Give an example of an action-based trace that causes the infusion pump to terminate with an alarm being raised. \\
+      \includegraphics[width=2in]{alarm.png} \\
+      $trace\_alarm\_raised ==  \langle plug\_in, set\_value\_3, pump\_fluid, pump\_fluid, fluid\_empty, ring\_bell  \rangle $ \\
+    \item Is there a limit to how much medication can be administered to a patient? Explain why or why not. \\
+      \includegraphics[width=2in]{reset.png} \\
+      As it can be seen in the picture, if we reset the machine between filling procedures, it is possible to administer an arbitrary ammount of medicine. This will require human intervention to reset and refill process. \\
+      \\
+    On it's own the machine has a capacity of $FillAmt=2$. \\  
+  \item What happens if the nurse forgets to put any medicine in the bag (i.e., uses a refill amount of 0)? \\
+    $ nurse\_forgot == \langle plug\_in, set\_value\_0 \rangle$ \\
+    If the nurse makes the machine execute the previous trace, the only options available are to $end$ or $reset$ the machine. The nurse would be able to select another medicine if she/he selects $reset$.
+  \item Is it possible for an alarm to sound even if the patient has received the correct and full amount of medicine? \\
+    I was unable to find a trace that will end in $ring_bell$ given the listed conditions. \\ 
     \end{enumerate}
 
  \item Modify the FSP specification above to add two of the following capabilities, making sure

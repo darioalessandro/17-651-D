@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  7 OCT 2018 20:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  7 OCT 2018 21:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -505,26 +505,97 @@ Package pdftex.def Info: ans_machine.png  used on input line 18.
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./ans_m
-achine.png>] [2] [3
+achine.png>]
+<no_alarm.png, id=13, 467.7475pt x 417.56pt>
+File: no_alarm.png Graphic file (type png)
+<use no_alarm.png>
+Package pdftex.def Info: no_alarm.png  used on input line 62.
+(pdftex.def)             Requested size: 144.54pt x 129.03448pt.
+LaTeX Font Info:    Try loading font information for U+msa on input line 63.
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 63.
 
-] [4] (./hw6.aux) ) 
+(/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for U+lasy on input line 63.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+Overfull \hbox (100.47623pt too wide) in paragraph at lines 61--64
+\OT1/cmr/m/it/10 trace[]alarm[]not[]raised \OT1/cmr/m/n/10 == \OMS/cmsy/m/n/10 
+h\OT1/cmr/m/it/10 plug[]in\OML/cmm/m/it/10 ; \OT1/cmr/m/it/10 set[]value[]\OT1/
+cmr/m/n/10 3\OML/cmm/m/it/10 ; \OT1/cmr/m/it/10 pump[]^^Muid\OML/cmm/m/it/10 ; 
+\OT1/cmr/m/it/10 pump[]^^Muid\OML/cmm/m/it/10 ; \OT1/cmr/m/it/10 ^^Muid[]empty\
+OML/cmm/m/it/10 ; \OT1/cmr/m/it/10 ^^Lll[]^^Muid\OML/cmm/m/it/10 ; \OT1/cmr/m/i
+t/10 pump[]^^Muid\OML/cmm/m/it/10 ; \OT1/cmr/m/it/10 done\OMS/cmsy/m/n/10 i$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 61--64
+
+ []
+
+<alarm.png, id=14, 467.7475pt x 417.56pt>
+File: alarm.png Graphic file (type png)
+<use alarm.png>
+Package pdftex.def Info: alarm.png  used on input line 65.
+(pdftex.def)             Requested size: 144.54pt x 129.03448pt.
+
+Overfull \hbox (1.53572pt too wide) in paragraph at lines 64--67
+\OT1/cmr/m/it/10 trace[]alarm[]raised \OT1/cmr/m/n/10 == \OMS/cmsy/m/n/10 h\OT1
+/cmr/m/it/10 plug[]in\OML/cmm/m/it/10 ; \OT1/cmr/m/it/10 set[]value[]\OT1/cmr/m
+/n/10 3\OML/cmm/m/it/10 ; \OT1/cmr/m/it/10 pump[]^^Muid\OML/cmm/m/it/10 ; \OT1/
+cmr/m/it/10 pump[]^^Muid\OML/cmm/m/it/10 ; \OT1/cmr/m/it/10 ^^Muid[]empty\OML/c
+mm/m/it/10 ; \OT1/cmr/m/it/10 ring[]bell\OMS/cmsy/m/n/10 i$ 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--67
+
+ []
+
+<reset.png, id=15, 467.7475pt x 440.64626pt>
+File: reset.png Graphic file (type png)
+<use reset.png>
+Package pdftex.def Info: reset.png  used on input line 68.
+(pdftex.def)             Requested size: 144.54pt x 136.16861pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--72
+
+ []
+
+[2 <./no_alarm.png> <./alarm.png> <./reset.png>] [3] [4
+
+] [5] (./hw6.aux) ) 
 Here is how much of TeX's memory you used:
- 2698 strings out of 492649
- 33965 string characters out of 6129622
+ 2758 strings out of 492649
+ 35031 string characters out of 6129622
  101683 words of memory out of 5000000
- 6553 multiletter control sequences out of 15000+600000
- 4721 words of font info for 18 fonts, out of 8000000 for 9000
+ 6589 multiletter control sequences out of 15000+600000
+ 7782 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,4n,29p,270b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,4n,29p,301b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmtt10.pfb>
-Output written on hw6.pdf (4 pages, 97632 bytes).
+s/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmtt10.pfb>
+Output written on hw6.pdf (5 pages, 316198 bytes).
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
- 23 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
