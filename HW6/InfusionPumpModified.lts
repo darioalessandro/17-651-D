@@ -1,0 +1,100 @@
+//---------------------------------------------------
+//  Simple Infusion Pump
+//---------------------------------------------------
+//
+// Set of actions that can be selected interactively to
+// the animation of this model with the LTSA tool.
+//
+menu AnimationControlMenu = {
+    plug_in, set_value[0..3], reset, fill_fluids
+}
+//---------------------------------------------------
+//======================
+// Constants and Ranges
+//======================
+const Max = 3 range Amt = 0 .. Max    
+const FillAmt = 2    // Amount in bag initially and after refilling
+// Added by Dario:
+// Ammout of medicine allowed to be dispensed at each step
+//
+range Step = 1 .. FillAmt
+
+//=====================
+// Process Definitions
+//=====================
+//
+// Pump starts in power off state
+//
+PUMP = POWER_OFF,
+//
+// User must plug pump in before anything else can happen
+//
+POWER_OFF = (
+    plug_in -> SELF_TEST
+),
+
+// Added by Dario:
+// After plugging the machine, it performs a self-test or fire-up process.
+// If successful, proceeds to the SETUP starge, else, it returns the error and ENDS.
+// SELF_TEST assumes that failure occurs randomly for educational purposes.
+SELF_TEST = (
+    self_test -> SETUP
+    | self_test -> SHOW_ERROR
+),
+
+SHOW_ERROR = (show_error -> ERROR), 
+//
+// Before pump operation starts, user must enter amount of medicine to deliver
+// to patient
+//
+SETUP = (
+    set_value[deliver:Amt][step:Step] -> SETUP_CONFIRMATION[deliver][step]
+),
+
+//
+// Added by Dario: 
+// The SETUP_CONFIRMATION step allows the nurse to confirm its selection and proceeed
+// to the medicament PUMP process or to go back to SETUP and select another amount of
+// medicine.
+//
+
+SETUP_CONFIRMATION[deliver:Amt][step:Step] = (
+   user_confirmed_settings -> PUMP[deliver][FillAmt][step]
+   |user_rejected_settings -> SETUP
+),
+
+//
+// Main operation of pump:
+//  User may reset pump at any time
+//  When the pump has delivered the amount of medicine requested it goes
+//      to the DONE state
+//  When fluid runs out, the pump goes into an alarm state
+//  Otherwise, the pump delivers one unit of medicine
+//
+
+PUMP[deliver:Amt][remaining:Amt][step:Step] = (
+    reset -> SETUP
+    |
+    when (deliver == 0)
+        done -> DONE 
+    |
+    when (remaining < step)
+        fluid_empty -> EMPTY_ALARM[deliver][step]
+    |
+    when (deliver >= step && remaining >= step)
+        pump_fluid -> PUMP[deliver-step][remaining-step][step]
+    |
+    when (deliver < step && remaining >= step)
+        pump_fluid -> PUMP[0][remaining - step][step]
+         
+),
+//
+// Error state associated with empty pump:
+//  Repeatedly rings bell until user refills the pump
+//
+EMPTY_ALARM[deliver:Amt][step:Step] = (
+    ring_bell -> EMPTY_ALARM[deliver][step]
+    |
+    fill_fluids -> PUMP[deliver][FillAmt][step]
+),
+DONE = END.
