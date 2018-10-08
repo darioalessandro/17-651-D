@@ -152,6 +152,14 @@ $\textbf{pre} blocked = true$ \\
 $\textbf{post} (correctpw \implies blocked = false) \land  $   \\
 $(incorrectpw \implies blocked = true ) $ \\
 \\
+correctpw \\
+$\textbf{pre} true$ \\
+$\textbf{post} true$ \\
+\\
+incorrectpw \\
+$\textbf{pre} true$ \\
+$\textbf{post} false$ \\
+\\
 In my opinion, is channel displayed can be modeled as an action: \\
 \\
 isChannelDisplayed(c:Channel) / \{true,false\} \\

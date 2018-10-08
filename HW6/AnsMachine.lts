@@ -1,0 +1,21 @@
+ANS_MACHINE = NONE,
+NONE = (msg -> ONE),
+ONE = (msg -> TWO
+      |play -> TEMP1
+      ),
+TWO = (msg -> THREE
+      |play -> TEMP2
+      ),
+THREE = (play -> TEMP3),
+TEMP1 = (play -> TEMP1
+        |save -> ONE
+        |msg  -> ONE
+        ),
+TEMP2 = (play -> TEMP2
+        |save -> TWO
+        |msg  -> ONE
+        ),
+TEMP3 = (play -> TEMP3
+        |save -> THREE
+        |msg  -> ONE
+        ).
