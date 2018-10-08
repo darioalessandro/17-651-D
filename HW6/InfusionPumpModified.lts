@@ -19,6 +19,11 @@ const FillAmt = 2    // Amount in bag initially and after refilling
 //
 range Step = 1 .. FillAmt
 
+// Added by Dario:
+const SimulationTime = 0  // Time when the program was executed.
+const EndOfTime = 100 // This is the end of time for the simulation.
+range Timestamp = SimulationTime .. EndOfTime
+
 //=====================
 // Process Definitions
 //=====================
@@ -37,6 +42,8 @@ POWER_OFF = (
 // After plugging the machine, it performs a self-test or fire-up process.
 // If successful, proceeds to the SETUP starge, else, it returns the error and ENDS.
 // SELF_TEST assumes that failure occurs randomly for educational purposes.
+//
+
 SELF_TEST = (
     self_test -> SETUP
     | self_test -> SHOW_ERROR
@@ -63,7 +70,8 @@ SETUP_CONFIRMATION[deliver:Amt][step:Step] = (
    |user_rejected_settings -> SETUP
 ),
 
-//
+// 
+// Modified by Dario to supply the ammount of medicine defined in step.
 // Main operation of pump:
 //  User may reset pump at any time
 //  When the pump has delivered the amount of medicine requested it goes
@@ -86,7 +94,6 @@ PUMP[deliver:Amt][remaining:Amt][step:Step] = (
     |
     when (deliver < step && remaining >= step)
         pump_fluid -> PUMP[0][remaining - step][step]
-         
 ),
 //
 // Error state associated with empty pump:
@@ -98,3 +105,7 @@ EMPTY_ALARM[deliver:Amt][step:Step] = (
     fill_fluids -> PUMP[deliver][FillAmt][step]
 ),
 DONE = END.
+
+CLOCK = (tick->CLOCK).
+
+||CLOCK_PUMP = (CLOCK || PUMP).
