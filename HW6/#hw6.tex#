@@ -1,0 +1,177 @@
+\documentclass{article}
+\usepackage{graphics,indentfirst,amsmath,amsthm,amssymb,latexsym,enumerate}
+\usepackage{graphicx}
+\usepackage{zed-csp}
+\input{handout}
+
+\begin{document}
+
+\homework{}{8 October 2018}{Homework \#6: State Machines II and FSP}{}
+
+\begin{enumerate}[1.]
+
+
+\item Consider the answering machine described in HW 5. Write an FSP
+specification of {\bf AnsMachine}. (For your answer, include the text of the specification and turn in a diagram drawn by LTSA as an
+attachment.)
+
+\includegraphics[width=4in]{ans_machine.png}
+
+\begin{verbatim}
+ANS_MACHINE = NONE,
+
+NONE = (msg -> ONE),
+
+ONE = (msg -> TWO
+      |play -> TEMP1
+      ),
+
+TWO = (msg -> THREE
+      |play -> TEMP2
+      ),
+
+THREE = (play -> TEMP3),
+
+TEMP1 = (play -> TEMP1
+        |save -> ONE
+        |msg  -> ONE
+        ),
+
+TEMP2 = (play -> TEMP2
+        |save -> TWO
+        |msg  -> ONE
+        ),
+
+TEMP3 = (play -> TEMP3
+        |save -> THREE
+        |msg  -> ONE
+        ).
+\end{verbatim}
+
+
+%
+%\item Consider the Diverging Counter example of Chapter 10 of GWC09. Prove that $x+y=0$ is an invariant of the $DivergingCounter$ state machine.
+%
+%(\textsc{Note:} In your proof use style C (in Section 10.1.1) of reasoning about invariants and a similar degree of formalism as in the lecture on this topic.)
+%
+
+ \item Consider the FSP specification of a simplified version of the Infusion Pump attached at the end of this assignment.
+ Answer the following questions:
+    \begin{enumerate}[a.]
+    \item Give an example of an action-based trace that causes the infusion pump to terminate without an alarm being raised. \\
+      \includegraphics[width=2in]{no_alarm.png} \\
+      $trace\_alarm\_not\_raised == \langle plug\_in, set\_value\_3, pump\_fluid, pump\_fluid, fluid\_empty, fill\_fluid, pump\_fluid, done  \rangle $ \\
+    \item Give an example of an action-based trace that causes the infusion pump to terminate with an alarm being raised. \\
+      \includegraphics[width=2in]{alarm.png} \\
+      $trace\_alarm\_raised ==  \langle plug\_in, set\_value\_3, pump\_fluid, pump\_fluid, fluid\_empty, ring\_bell  \rangle $ \\
+    \item Is there a limit to how much medication can be administered to a patient? Explain why or why not. \\
+      \includegraphics[width=2in]{reset.png} \\
+      As it can be seen in the picture, if we reset the machine between filling procedures, it is possible to administer an arbitrary ammount of medicine. This will require human intervention to reset and refill process. \\
+      \\
+    The machine has a capacity of $FillAmt=2$. \\  
+  \item What happens if the nurse forgets to put any medicine in the bag (i.e., uses a refill amount of 0)? \\
+    $ nurse\_forgot == \langle plug\_in, set\_value\_0 \rangle$ \\
+    If the nurse makes the machine execute the previous trace, the only options available are to $end$ or $reset$ the machine. The nurse would be able to select another medicine if she/he selects $reset$.
+    \item Is it possible for an alarm to sound even if the patient has received the correct and full amount of medicine?
+    \end{enumerate}
+
+ \item Modify the FSP specification above to add two of the following capabilities, making sure
+ to explain in your comments which capabilities you are adding.
+ \begin{enumerate}[a.]
+    \item self-check at start-up
+    \item confirmation of settings
+    \item a start and end of treatment time
+    \item other error condition detection
+    \item ability to set the amount of medicine to be dispensed at each dispensing step
+    \item power outage and automatic switch to backup power supply
+    \end{enumerate}
+ Submit an electronic copy of the modified FSP specification.
+\end{enumerate}
+
+\clearpage
+
+\begin{verbatim}
+//---------------------------------------------------
+//  Simple Infusion Pump
+//---------------------------------------------------
+
+//
+// Set of actions that can be selected interactively to
+// the animation of this model with the LTSA tool.
+//
+menu AnimationControlMenu = {
+    plug_in, set_value[0..3], reset, fill_fluids
+}
+
+//---------------------------------------------------
+
+//======================
+// Constants and Ranges
+//======================
+
+const Max = 3 range Amt = 0 .. Max
+
+const FillAmt = 2    // Amount in bag initially and after refilling
+
+//=====================
+// Process Definitions
+//=====================
+
+//
+// Pump starts in power off state
+//
+PUMP = POWER_OFF,
+
+//
+// User must plug pump in before anything else can happen
+//
+POWER_OFF = (
+    plug_in -> SETUP
+),
+
+//
+// Before pump operation starts, user must enter amount of medicine to deliver
+// to patient
+//
+SETUP = (
+    set_value[deliver:Amt] -> PUMP[deliver][FillAmt]
+),
+
+//
+// Main operation of pump:
+//  User may reset pump at any time
+//  When the pump has delivered the amount of medicine requested it goes
+//      to the DONE state
+//  When fluid runs out, the pump goes into an alarm state
+//  Otherwise, the pump delivers one unit of medicine
+//
+PUMP[deliver:Amt][remaining:Amt] = (
+    reset -> SETUP
+    |
+    when (deliver == 0)
+        done -> DONE
+    |
+    when (remaining == 0)
+        fluid_empty -> EMPTY_ALARM[deliver]
+    |
+    when (deliver > 0 && remaining > 0)
+        pump_fluid -> PUMP[deliver-1][remaining-1]
+),
+
+//
+// Error state associated with empty pump:
+//  Repeatedly rings bell until user refills the pump
+//
+EMPTY_ALARM[deliver:Amt] = (
+    ring_bell -> EMPTY_ALARM[deliver]
+    |
+    fill_fluids -> PUMP[deliver][FillAmt]
+),
+
+DONE = END.
+\end{verbatim}
+\end{document}
+
+\end{enumerate}
+
+\end{document}
