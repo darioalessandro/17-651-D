@@ -38,9 +38,36 @@ $)$.
 \\
 1. Base case: show that $\theta$ holds in the initial state. \\
 Here there's only one initial state: \\
+$[x = 0;y = 0 ]$ \\ 
 Proof: \\
-
-
+\begin{tabular}{l ll lll}
+     x + y = 0 \\ &    &  \\
+     = &   & [initial state] \\
+     0 + 0 = 0 & & \\
+     = &   & [aritmetic] \\
+     0 = 0  \\
+\end{tabular} \\
+2. Induction step on inc: \\
+\\
+Show: $\theta (s), pre(s), post(s, s') \vdash \theta(s')$ \\
+That is, from $x' = x + i \wedge y' = y - i$ \\
+\\
+$ \theta (s) == x + y = 0 $ \\
+prove that $ x' + y' = 0 $ \\
+Proof: \\
+\begin{tabular}{l ll lll}
+     y' \\ &    &  \\
+     = &   & [poscondition] \\
+     y - i & & \\
+     = &   & [introduction hypothesis y + x = 0, or y = -x] \\
+     -x - i \\
+     = & & [replacing x definition] \\ 
+     -(x + i) \\
+     = & & [aritmetic] \\
+     -x' \\
+     \\
+    y' = -x' is equivalent to y' + x' = 0 \\
+\end{tabular} \\
 \noindent (\textsc{Note:} In your proof use style C (in Section 10.1.1) of reasoning about invariants and a similar degree of formalism as in the lecture on this topic.)
 
 \vspace{12pt}
