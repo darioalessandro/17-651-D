@@ -61,9 +61,9 @@ Proof: \\
      y - i & & \\
      = &   & [introduction hypothesis y + x = 0, or y = -x] \\
      -x - i \\
-     = & & [replacing x definition] \\ 
+     = & & [factorizing] \\ 
      -(x + i) \\
-     = & & [aritmetic] \\
+     = & & [replacing definition of x'] \\
      -x' \\
      \\
     y' = -x' is equivalent to y' + x' = 0 \\
@@ -94,13 +94,13 @@ Specify each of the following:
 enrolled: \power Student\\
 completed: \power Student
 \where
-\dots
+completed \subseteq enrolled \\
 \end{schema}
 \item An operation to enroll a new student.
 \item The initial state(s)  for your state space.
 \item An operation to record that a student (already enrolled in class) has completed the homework.
 \item An operation to inquire whether a student (who must be enrolled) has completed the homework (the answer is to be either `Yes' or `No').
-\item A robust version of the system. (Be sure to use the schema calculus, as illustrated by the class lecture and the paper by Spivey on Z.)
+\item A robust version of the system. (Be sure to use the schema calculus, as illustrated by the class lecture and the paper by Spivey on Z.) \\  
 \end{enumerate}
 
 \end{document}
