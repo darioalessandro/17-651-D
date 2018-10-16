@@ -20,9 +20,9 @@ const FillAmt = 2    // Amount in bag initially and after refilling
 range Step = 1 .. FillAmt
 
 // Added by Dario:
-const SimulationTime = 0  // Time when the program was executed.
+const SimulationStartTime = 0  // Time when the program was executed.
 const EndOfTime = 100 // This is the end of time for the simulation.
-range Timestamp = SimulationTime .. EndOfTime
+range Timestamp = SimulationStartTime .. EndOfTime
 
 //=====================
 // Process Definitions
@@ -101,11 +101,38 @@ PUMP[deliver:Amt][remaining:Amt][step:Step] = (
 //
 EMPTY_ALARM[deliver:Amt][step:Step] = (
     ring_bell -> EMPTY_ALARM[deliver][step]
-    |
-    fill_fluids -> PUMP[deliver][FillAmt][step]
+    | fill_fluids -> PUMP[deliver][FillAmt][step]
 ),
+
 DONE = END.
 
-CLOCK = (tick->CLOCK).
+//
+// Added by Dario:
+// POWER_MANAGEMENT is used to control whether the system operates using the energy grid or the backup battery.
 
-||CLOCK_PUMP = (CLOCK || PUMP).
+POWER_MANAGEMENT = GRID,
+
+GRID = ( tick -> GRID
+        | tick -> BACKUP_BATTERY
+),
+
+//
+// Once the system switches to the backup battery, it remains using it until the machine is stopped.
+//
+BACKUP_BATTERY = (tick -> BACKUP_BATTERY).
+
+//
+// Clock used to store the simulation time, on each tick it gets increased by one until it reaches the end of time.
+CLOCK = TICK[SimulationStartTime],
+
+TICK[t:Timestamp] = (
+    when(t < EndOfTime)
+        tick -> TICK[t + 1]
+    |
+    when(t >= EndOfTime)
+        tick -> ERROR
+).
+//
+// Run Clock, Power Management and the Pump in parallel.
+//
+|| CLOCK_PUMP = (CLOCK || PUMP || POWER_MANAGEMENT).

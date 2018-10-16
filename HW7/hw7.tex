@@ -1,0 +1,79 @@
+\documentclass{article}
+\usepackage{zed-csp}
+\usepackage{amsfonts}
+\input{handout}
+\newenvironment{spec}{
+ \vspace*{8pt}
+ \begin{center}
+ \begin{minipage}{5in}
+ \renewcommand{\baselinestretch}{1}
+ }{
+ \end{minipage}
+ \end{center}
+ \vspace*{8pt}
+}
+\begin{document}
+
+\homework{}{10 October 2016}{Homework \#7: Invariants and Introduction to Z}{}
+
+\noindent \textbf{Part 1: Invariants}\\
+
+\noindent Consider the Diverging Counter example of Chapter 10 of GWC09. Prove that $x+y=0$ is an invariant of the $DivergingCounter$ state machine.\\
+\\
+DivergingCounter = $($ \\
+$[ x, y : \mathbb{Z} ],$ \\
+$\{ s: [x, y : \mathbb{Z}] | s(x) = -s(y) \},$ \\
+$\{poke(i: \mathbb{Z})\},$ \\
+$\delta$ == \\
+
+\begin{spec}
+\begin{tabbing}
+\indent {\em poke}\={\em (i: $\mathbb{Z}$)}\\
+           \> {\bf pre} $i > 0$\\
+           \> {\bf post} $x' = x + i \wedge y' = y - i$
+\end{tabbing}
+\end{spec}
+
+$)$.
+\\
+1. Base case: show that $\theta$ holds in the initial state. \\
+Here there's only one initial state: \\
+Proof: \\
+
+
+\noindent (\textsc{Note:} In your proof use style C (in Section 10.1.1) of reasoning about invariants and a similar degree of formalism as in the lecture on this topic.)
+
+\vspace{12pt}
+
+\noindent \textbf{Part 2: Z} \\
+
+\noindent \textsc{Note}: For this part of the assignment you must format your
+answers using \LaTeX and typecheck the answers using {\em fuzz},  Z-EVES, or the Community Z tools.  \\
+
+\noindent Write a Z specification of the following system. Your specification should include sufficient explanatory
+prose to make it easily understandable. (The prose is important---answers with little
+or no prose will receive a low grade.)\\[2ex]
+A teacher wants to keep a register of students in the class, and to record which students have completed their homework. \\[2ex]
+Let the given set $Student$ represent the set of all students who might ever be enrolled in a class:
+\begin{zed}
+[Student]
+\end{zed}
+Specify each of the following:
+\begin{enumerate}
+\item The state space for a register.
+
+\textsc{Hint}: use two sets of students:
+\begin{schema}{Register}
+enrolled: \power Student\\
+completed: \power Student
+\where
+\dots
+\end{schema}
+\item An operation to enroll a new student.
+\item The initial state(s)  for your state space.
+\item An operation to record that a student (already enrolled in class) has completed the homework.
+\item An operation to inquire whether a student (who must be enrolled) has completed the homework (the answer is to be either `Yes' or `No').
+\item A robust version of the system. (Be sure to use the schema calculus, as illustrated by the class lecture and the paper by Spivey on Z.)
+\end{enumerate}
+
+\end{document}
