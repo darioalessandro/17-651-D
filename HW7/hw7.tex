@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{zed-csp}
+\usepackage{savesym}
 \usepackage{amsfonts}
 \input{handout}
 \newenvironment{spec}{
@@ -12,6 +13,7 @@
  \end{center}
  \vspace*{8pt}
 }
+\newcommand{\estimates}{\mathrel{\hat{=}}}
 \begin{document}
 
 \homework{}{15 October 2018}{Homework \#7: Invariants and Introduction to Z}{}
@@ -96,24 +98,83 @@ completed: \power Student
 \where
 completed \subseteq enrolled \\
 \end{schema}
-\item An operation to enroll a new student. \\
-\begin{schema}{Register}
-enrolled: \power Student\\
-completed: \power Student
-\where
-completed \subseteq enrolled \\
+\item An operation to enroll a new student. 
+\begin{schema}{Enroll}
+  \Delta Register \\
+  student?:Student
+  \where
+  student? \notin enrolled \\
+  enrolled' = enrolled \union $\{student?\}$
 \end{schema}  
-\item The initial state(s)  for your state space. \\
-\begin{schema}{Register}
-enrolled: \power Student\\
-completed: \power Student
+\item The initial state(s)  for your state space.
+  The proposed spec initialized both sets as empty sets. \\
+\begin{schema}{InitRegister}
+Register
 \where
-completed \subseteq enrolled \\
+enrolled = \emptyset \\
+completed = \emptyset
 \end{schema}
-
 \item An operation to record that a student (already enrolled in class) has completed the homework.
+  The proposed Z spec adds student? to the completed power set by definining a union. \\
+  \begin{schema}{RegisterHomeworkCompletion}
+  \Delta Register \\
+  student?:Student
+  \where
+  student? \in enrolled \\
+  completed' = completed \union $\{student?\}$
+  \end{schema} 
 \item An operation to inquire whether a student (who must be enrolled) has completed the homework (the answer is to be either `Yes' or `No').
-\item A robust version of the system. (Be sure to use the schema calculus, as illustrated by the class lecture and the paper by Spivey on Z.) \\  
+  Defining type to answer: \\
+  Answer ::= Yes $\mid$ No \\
+  \begin{schema}{HasCompletedTheHomeworkSuccess}
+  \Xi Register \\
+  student?:Student \\
+  answer!:Answer 
+  \where
+  student? \in completed \\
+  answer!: Yes
+  \end{schema}
+  \begin{schema}{HasCompletedTheHomeworkErr}
+  \Xi Register \\
+  student?:Student \\
+  answer!:Answer 
+  \where
+  student? \notin completed \\
+  answer!: No
+  \end{schema}
+  Only one of the expressions will meet the preconditions so $\lor$ is the right relation to use: \\
+  \\
+  HasCompletedTheHomework $\doteq HasCompletedTheHomeworkSuccess \lor HasCompletedTheHomeworkErr $ \\
+  
+\item A robust version of the system. (Be sure to use the schema calculus, as illustrated by the class lecture and the paper by Spivey on Z.) \\
+  Declaring type to return a result: \\
+REPORT ::= ok $\mid$ already-enrolled $\mid$ not-enrolled \\
+  \begin{schema}{Success}
+    result!:REPORT
+  \where
+    result!: ok
+  \end{schema}
+  Used to capture the scenario where the student is not enrolled in the register: \\
+  \begin{schema}{NotEnrolled}
+    \Xi Register \\
+    student?:Student \\
+    result!:REPORT
+    \where
+    student? \notin enrolled \\
+    result!: $not-enrolled$
+  \end{schema}
+  \begin{schema}{AlreadyEnrolled}
+    \Xi Register \\
+    student?:Student \\
+    result!:REPORT
+    \where
+    student? \in enrolled \\
+    result!: $already-enrolled$
+  \end{schema}
+  Robust versions of the operations: \\
+  RREnroll $\estimates (Enroll \land Success) \lor AlreadyEnrolled$\\
+  RRegisterHomeworkCompletion $\estimates (RegisterHomeworkCompletion \land Success) \lor NotEnrolled $  \\
+  HasCompletedTheHomework is already a robust method so no need to modify.
 \end{enumerate}
 
 \end{document}
