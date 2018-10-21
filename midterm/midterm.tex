@@ -78,7 +78,7 @@ weight : TREE \rightarrow \nat
 \quad leaves(binary\_node(n,t_1,t_2)) = leaves(t_1) + leaves(t_2) \land\\
 \quad leaves(ternary\_node(n,t_1,t_2,t_3)) = leaves(t_1) + leaves(t_2) + leaves(t_3) \land\\
 ~\\ 
-\quad nodes(leaf) = 0 \land\\
+\quad nodes(leaf(n)) = 0 \land\\
 \quad nodes(binary\_node(n,t_1,t_2)) = 1 + nodes(t_1) + nodes(t_2) \land\\
 \quad nodes(ternary\_node(n,t_1,t_2,t_3)) = 1 + nodes(t_1) + nodes(t_2) + nodes(t_3) \land\\
 ~\\ 
