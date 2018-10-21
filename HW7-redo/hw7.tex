@@ -1,0 +1,198 @@
+\documentclass{article}
+\usepackage{zed-csp}
+\usepackage{savesym}
+\usepackage{amsfonts}
+\input{handout}
+\newenvironment{spec}{
+ \vspace*{8pt}
+ \begin{center}
+ \begin{minipage}{5in}
+ \renewcommand{\baselinestretch}{1}
+ }{
+ \end{minipage}
+ \end{center}
+ \vspace*{8pt}
+}
+\newcommand{\estimates}{\mathrel{\hat{=}}}
+\begin{document}
+
+\homework{}{15 October 2018}{Homework \#7: Invariants and Introduction to Z}{}
+
+\noindent \textbf{Part 1: Invariants}\\
+
+\noindent Consider the Diverging Counter example of Chapter 10 of GWC09. Prove that $x+y=0$ is an invariant of the $DivergingCounter$ state machine.\\
+\\
+DivergingCounter = $($ \\
+$[ x, y : \mathbb{Z} ],$ \\
+$\{ s: [x, y : \mathbb{Z}] | s(x) = -s(y) \},$ \\
+$\{poke(i: \mathbb{Z})\},$ \\
+$\delta$ == \\
+
+\begin{spec}
+\begin{tabbing}
+\indent {\em poke}\={\em (i: $\mathbb{Z}$)}\\
+           \> {\bf pre} $i > 0$\\
+           \> {\bf post} $x' = x + i \wedge y' = y - i$
+\end{tabbing}
+\end{spec}
+
+$)$.
+\\
+1. Base case: show that $\theta$ holds in the initial state. \\
+Here there's only one initial state: \\
+$[x = 0;y = 0 ]$ \\ 
+Proof: \\
+\begin{tabular}{l ll lll}
+     x + y = 0 \\ &    &  \\
+     = &   & [initial state] \\
+     0 + 0 = 0 & & \\
+     = &   & [aritmetic] \\
+     0 = 0  \\
+\end{tabular} \\
+2. Induction step on inc: \\
+\\
+Show: $\theta (s), pre(s), post(s, s') \vdash \theta(s')$ \\
+That is, from $x' = x + i \wedge y' = y - i$ \\
+\\
+$ \theta (s) == x + y = 0 $ \\
+prove that $ x' + y' = 0 $ \\
+Proof: \\
+\begin{tabular}{l ll lll}
+     y' \\ &    &  \\
+     = &   & [postcondition] \\
+     y - i & & \\
+     = &   &  [hypothesis introduction  y + x = 0, or y = -x] \\
+     -x - i \\
+     = & & [factorizing] \\ 
+     -(x + i) \\
+     = & & [replacing definition of x'] \\
+     -x' \\
+     \\
+    y' = -x' is equivalent to y' + x' = 0 \\
+\end{tabular} \\
+\noindent (\textsc{Note:} In your proof use style C (in Section 10.1.1) of reasoning about invariants and a similar degree of formalism as in the lecture on this topic.)
+
+\vspace{12pt}
+
+\noindent \textbf{Part 2: Z} \\
+
+\noindent \textsc{Note}: For this part of the assignment you must format your
+answers using \LaTeX and typecheck the answers using {\em fuzz},  Z-EVES, or the Community Z tools.  \\
+
+\noindent Write a Z specification of the following system. Your specification should include sufficient explanatory
+prose to make it easily understandable. (The prose is important---answers with little
+or no prose will receive a low grade.)\\[2ex]
+A teacher wants to keep a register of students in the class, and to record which students have completed their homework. \\[2ex]
+Let the given set $Student$ represent the set of all students who might ever be enrolled in a class: 
+\begin{zed}
+[Student]
+\end{zed}
+Specify each of the following:
+\begin{enumerate}
+\item The state space for a register. \\
+  \textbf{Reasoning:} 
+  I propose using two powersets of students, one to represent the enrolled students and another one for the students that completed
+  their homework. \\
+  I added the invariant completed $\subseteq$ enrolled to capture the fact that all students that completed their homework have to be enrolled \\
+\textsc{Hint}: use two sets of students:
+\begin{schema}{Register}
+enrolled: \power Student\\
+completed: \power Student
+\where
+completed \subseteq enrolled \\
+\end{schema}
+\item An operation to enroll a new student. \\
+  \textbf{Reasoning:}
+  I propose using the union operation between the currently enrolled vehicles and the new student. \\
+  It is important to mention that the union operation is defined for sets, that is why $student?$ is  wrapped in a set. \\
+\begin{schema}{Enroll}
+  \Delta Register \\
+  student?:Student
+  \where
+  student? \notin enrolled \\
+  enrolled' = enrolled \union $\{student?\}$ \\
+  completed' = completed
+\end{schema}  
+\item The initial state(s)  for your state space. \\
+  \\
+  \textbf{Reasoning:} The proposed z-spec is to initialize both sets as empty sets. \\
+\begin{schema}{InitRegister}
+Register
+\where
+enrolled = \emptyset \\
+completed = \emptyset
+\end{schema}
+\item An operation to record that a student (already enrolled in class) has completed the homework.
+  \textbf{Reasoning:} The proposed Z spec adds student? to the completed power set by definining a union. \\
+  \begin{schema}{RegisterHomeworkCompletion}
+  \Delta Register \\
+  student?:Student
+  \where
+  student? \in enrolled \\
+  completed' = completed \union $\{student?\}$ \\
+  enrolled' = enrolled
+  \end{schema} 
+\item An operation to inquire whether a student (who must be enrolled) has completed the homework (the answer is to be either `Yes' or `No'). \\
+  \textbf{Reasoning:} The previous statement specifies the expected return values, to meet the requirements, we need to define a new type to answer: \\
+  \\
+  Answer ::= Yes $\mid$ No \\
+  HasCompletedTheHomeworkSuccess is used to express the successful HasCompletedTheHomework check. it returns answer:Yes, all it does is to check if the student is in the completed set. \\
+  \begin{schema}{HasCompletedTheHomeworkSuccess}
+  \Xi Register \\
+  student?:Student \\
+  answer!:Answer 
+  \where
+  student? \in completed \\
+  answer!: Yes
+  \end{schema}
+  HasCompletedTheHomeworkErr is used to express the error scenario, meaning, student is not in the completed set, it returns answer:No \\
+  \begin{schema}{HasCompletedTheHomeworkErr}
+  \Xi Register \\
+  student?:Student \\
+  answer!:Answer 
+  \where
+  student? \notin completed \\
+  answer!: No
+  \end{schema}
+  \textbf{Reasoning:} Only one of the expressions will meet the preconditions so $\lor$ is the right relation to use: \\
+  \\
+  HasCompletedTheHomework $\estimates HasCompletedTheHomeworkSuccess \lor HasCompletedTheHomeworkErr $ \\
+  
+\item A robust version of the system. (Be sure to use the schema calculus, as illustrated by the class lecture and the paper by Spivey on Z.) \\
+  Declaring type to return a result: \\
+REPORT ::= ok $\mid$ already-enrolled $\mid$ not-enrolled \\
+\textbf{Reasoning:} We propose using REPORT to return the success or failure of each operation. \\
+We also need to define some helper schemas to embed the RESULT. \\
+Success is used when the operation has been successful. \\
+  \begin{schema}{Success}
+    result!:REPORT
+  \where
+    result!: ok
+  \end{schema}
+  NotEnrolled is used to capture the scenario where the student is not enrolled in the register, all we do is checking if the student is in the enrolled set. \\
+  \begin{schema}{NotEnrolled}
+    \Xi Register \\
+    student?:Student \\
+    result!:REPORT
+    \where
+    student? \notin enrolled \\
+    result!: $not-enrolled$
+  \end{schema}
+  AlreadyEnrolled is used to handle the error scenario of the enroll operation, all we do is a precondition that checks if the student is in the enrolled set. \\
+  \begin{schema}{AlreadyEnrolled}
+    \Xi Register \\
+    student?:Student \\
+    result!:REPORT
+    \where
+    student? \in enrolled \\
+    result!: $already-enrolled$
+  \end{schema}
+  Robust versions of the operations: \\
+  \\
+  RREnroll $\estimates (Enroll \land Success) \lor AlreadyEnrolled$\\
+  RRegisterHomeworkCompletion $\estimates (RegisterHomeworkCompletion \land Success) \lor NotEnrolled $  \\
+  HasCompletedTheHomework is already a robust method so no need to modify. \\
+  \\
+\end{enumerate}
+
+\end{document}
