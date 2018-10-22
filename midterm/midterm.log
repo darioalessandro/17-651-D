@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  21 OCT 2018 21:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  21 OCT 2018 21:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -648,7 +648,7 @@ T1/ptm/m/n/12 there's
 ] [11
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 373--374
+Underfull \hbox (badness 10000) in paragraph at lines 374--375
 
  []
 
@@ -675,7 +675,7 @@ sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
 /usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local
 /texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2
 018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on midterm.pdf (13 pages, 205006 bytes).
+Output written on midterm.pdf (13 pages, 205147 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  60 compressed objects within 1 object stream
