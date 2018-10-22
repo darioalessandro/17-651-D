@@ -1,6 +1,6 @@
 \documentclass[12pt,fleqn]{article}
 \usepackage{amsmath,epsf,times,zed-csp,fancyhdr,verbatim,graphicx,color}
-
+\usepackage{breqn}
 \setlength{\oddsidemargin}{0in}
 \setlength{\evensidemargin}{0in}
 \setlength{\topmargin}{-1.0in}
@@ -219,8 +219,8 @@ The terms ``single'' and ``double'' refer to the number of shots of espresso a b
 %-------------------------------------------
 
   \textcolor{blue}{It took me a long time to figure out what the states meant in the machine, after reaching
-    out a few times to Dawn and by looking at the other questions, the best I could come with is that the state variables represent the user selection from milk and number of espresso shots.
-
+    out a few times to Dawn and by looking at the other questions, the best I could come with is that the state variables represent the user selection from milk and number of espresso shots.\\
+\\
   To avoid cluttering the diagram with labels, I decided to color code the arrows, I could also have used arrows on both ends of the action line.}
   
 
@@ -238,8 +238,20 @@ The terms ``single'' and ``double'' refer to the number of shots of espresso a b
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-\vspace*{1in} %this line can be deleted when you enter your answer
-
+  \textcolor{blue}{
+    $\delta = ($\\
+    $\{capuccino\_single\_shot, e\_button, capuccino\_double\_shot\},$ \\
+    $\{capuccino\_single\_shot, m\_button, single\_shot\},$ \\
+    $\{capuccino\_single\_shot, d\_button, capuccino\_single\_shot\},$ \\
+    $\{capuccino\_double\_shot, m\_button, double\_shot\},$ \\
+    $\{capuccino\_double\_shot, d\_button, capuccino\_single\_shot\},$ \\
+    $\{capuccino\_double\_shot, e\_button, capuccino\_single\_shot\},$ \\
+    $\{double\_shot, d\_button, capuccino\_single\_shot\},$ \\
+    $\{double\_shot, e\_button, single\_shot\},$ \\
+    $\{single\_shot, d\_button, capuccino\_single\_shot\},$ \\
+    $\{single\_shot, e\_button, double\_shot\},$ \\
+    $)$ \\
+  }
 %-------------------------------------------
 
 
@@ -249,7 +261,21 @@ The terms ``single'' and ``double'' refer to the number of shots of espresso a b
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-
+\textcolor{blue}{
+  $e\_button$ makes espresso toggle between 1 and 2 shots and keeps milk selection the same. \\
+  $e\_button()$ \\
+  $\textbf{pre:} true$  \\
+  $\textbf{post:}$ (espresso = 1 $\implies$ (expresso' = 2 $\land$ milk' = milk)) $\land$ \\
+                   (espresso = 2 $\implies$ (expresso' = 1 $\land$ milk' = milk)) \\
+  \\
+  $m\_button$ is only allowed if milk = 1, this threw me off a little bit but is what I was able to interpret from the state machine definition. It disables the milk.\\
+  $m\_button()$ \\
+  $\textbf{pre:} milk = 1$  \\
+  $\textbf{post}:$ milk' = 0 $\land$ espresso' = espresso \\
+  \\
+  $d\_button()$ \\
+  $\textbf{pre:} true$  \\
+  \textbf{post:} milk' = 1 $\land$ espresso' = 1 \\}
 
 %-------------------------------------------
 

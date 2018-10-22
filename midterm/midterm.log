@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  21 OCT 2018 20:00
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  21 OCT 2018 21:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -183,7 +183,273 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: pdftex.def on input line 147.
 )
-(./midterm.aux)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/breqn/breqn.sty
+(/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2018/03/05 L3 programming layer (loader) 
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/expl3-code.tex
+Package: expl3 2018/03/05 L3 programming layer (code)
+\c_max_int=\count103
+\l_tmpa_int=\count104
+\l_tmpb_int=\count105
+\g_tmpa_int=\count106
+\g_tmpb_int=\count107
+\g__intarray_font_int=\count108
+\g__prg_map_int=\count109
+\c_log_iow=\count110
+\l_iow_line_count_int=\count111
+\l__iow_line_target_int=\count112
+\l__iow_one_indent_int=\count113
+\l__iow_indent_int=\count114
+\c_zero_dim=\dimen127
+\c_max_dim=\dimen128
+\l_tmpa_dim=\dimen129
+\l_tmpb_dim=\dimen130
+\g_tmpa_dim=\dimen131
+\g_tmpb_dim=\dimen132
+\c_zero_skip=\skip56
+\c_max_skip=\skip57
+\l_tmpa_skip=\skip58
+\l_tmpb_skip=\skip59
+\g_tmpa_skip=\skip60
+\g_tmpb_skip=\skip61
+\c_zero_muskip=\muskip11
+\c_max_muskip=\muskip12
+\l_tmpa_muskip=\muskip13
+\l_tmpb_muskip=\muskip14
+\g_tmpa_muskip=\muskip15
+\g_tmpb_muskip=\muskip16
+\l_keys_choice_int=\count115
+\c__fp_leading_shift_int=\count116
+\c__fp_middle_shift_int=\count117
+\c__fp_trailing_shift_int=\count118
+\c__fp_big_leading_shift_int=\count119
+\c__fp_big_middle_shift_int=\count120
+\c__fp_big_trailing_shift_int=\count121
+\c__fp_Bigg_leading_shift_int=\count122
+\c__fp_Bigg_middle_shift_int=\count123
+\c__fp_Bigg_trailing_shift_int=\count124
+\c__fp_rand_size_int=\count125
+\c__fp_rand_four_int=\count126
+\c__fp_rand_eight_int=\count127
+\l__sort_length_int=\count128
+\l__sort_min_int=\count129
+\l__sort_top_int=\count130
+\l__sort_max_int=\count131
+\l__sort_true_max_int=\count132
+\l__sort_block_int=\count133
+\l__sort_begin_int=\count134
+\l__sort_end_int=\count135
+\l__sort_A_int=\count136
+\l__sort_B_int=\count137
+\l__sort_C_int=\count138
+\l__tl_build_start_index_int=\count139
+\l__tl_build_index_int=\count140
+\l__tl_analysis_normal_int=\count141
+\l__tl_analysis_index_int=\count142
+\l__tl_analysis_nesting_int=\count143
+\l__tl_analysis_type_int=\count144
+\l__regex_internal_a_int=\count145
+\l__regex_internal_b_int=\count146
+\l__regex_internal_c_int=\count147
+\l__regex_balance_int=\count148
+\l__regex_group_level_int=\count149
+\l__regex_mode_int=\count150
+\c__regex_cs_in_class_mode_int=\count151
+\c__regex_cs_mode_int=\count152
+\l__regex_catcodes_int=\count153
+\l__regex_default_catcodes_int=\count154
+\c__regex_catcode_D_int=\count155
+\c__regex_catcode_S_int=\count156
+\c__regex_catcode_L_int=\count157
+\c__regex_catcode_O_int=\count158
+\c__regex_catcode_A_int=\count159
+\c__regex_all_catcodes_int=\count160
+\l__regex_show_lines_int=\count161
+\l__regex_min_state_int=\count162
+\l__regex_max_state_int=\count163
+\l__regex_left_state_int=\count164
+\l__regex_right_state_int=\count165
+\l__regex_capturing_group_int=\count166
+\l__regex_min_pos_int=\count167
+\l__regex_max_pos_int=\count168
+\l__regex_curr_pos_int=\count169
+\l__regex_start_pos_int=\count170
+\l__regex_success_pos_int=\count171
+\l__regex_curr_char_int=\count172
+\l__regex_curr_catcode_int=\count173
+\l__regex_last_char_int=\count174
+\l__regex_case_changed_char_int=\count175
+\l__regex_curr_state_int=\count176
+\l__regex_step_int=\count177
+\l__regex_min_active_int=\count178
+\l__regex_max_active_int=\count179
+\l__regex_replacement_csnames_int=\count180
+\l__regex_match_count_int=\count181
+\l__regex_min_submatch_int=\count182
+\l__regex_submatch_int=\count183
+\l__regex_zeroth_submatch_int=\count184
+\g__regex_trace_regex_int=\count185
+\c_empty_box=\box28
+\l_tmpa_box=\box29
+\l_tmpb_box=\box30
+\g_tmpa_box=\box31
+\g_tmpb_box=\box32
+\l__box_top_dim=\dimen133
+\l__box_bottom_dim=\dimen134
+\l__box_left_dim=\dimen135
+\l__box_right_dim=\dimen136
+\l__box_top_new_dim=\dimen137
+\l__box_bottom_new_dim=\dimen138
+\l__box_left_new_dim=\dimen139
+\l__box_right_new_dim=\dimen140
+\l__box_internal_box=\box33
+\l__coffin_internal_box=\box34
+\l__coffin_internal_dim=\dimen141
+\l__coffin_offset_x_dim=\dimen142
+\l__coffin_offset_y_dim=\dimen143
+\l__coffin_x_dim=\dimen144
+\l__coffin_y_dim=\dimen145
+\l__coffin_x_prime_dim=\dimen146
+\l__coffin_y_prime_dim=\dimen147
+\c_empty_coffin=\box35
+\l__coffin_aligned_coffin=\box36
+\l__coffin_aligned_internal_coffin=\box37
+\l_tmpa_coffin=\box38
+\l_tmpb_coffin=\box39
+\l__coffin_display_coffin=\box40
+\l__coffin_display_coord_coffin=\box41
+\l__coffin_display_pole_coffin=\box42
+\l__coffin_display_offset_dim=\dimen148
+\l__coffin_display_x_dim=\dimen149
+\l__coffin_display_y_dim=\dimen150
+\l__coffin_bounding_shift_dim=\dimen151
+\l__coffin_left_corner_dim=\dimen152
+\l__coffin_right_corner_dim=\dimen153
+\l__coffin_bottom_corner_dim=\dimen154
+\l__coffin_top_corner_dim=\dimen155
+\l__coffin_scaled_total_height_dim=\dimen156
+\l__coffin_scaled_width_dim=\dimen157
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/l3kernel/l3pdfmode.def
+File: l3pdfmode.def 2017/03/18 v L3 Experimental driver: PDF mode
+\l__driver_color_stack_int=\count186
+))
+Package: breqn 2017/01/27 v0.98e Breaking equations
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/breqn/flexisym.sty
+Package: flexisym 2017/01/27 v0.98e Make math characters macros
+LaTeX Info: Redefining \textprime on input line 300.
+LaTeX Info: Redefining \not on input line 358.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/breqn/cmbase.sym
+File: cmbase.sym 2007/12/19 v0.92
+LaTeX Info: Redefining \hbar on input line 325.
+LaTeX Info: Redefining \surd on input line 327.
+LaTeX Info: Redefining \angle on input line 335.
+LaTeX Info: Redefining \neq on input line 336.
+LaTeX Info: Redefining \mapsto on input line 337.
+LaTeX Info: Redefining \cong on input line 338.
+LaTeX Info: Redefining \notin on input line 341.
+LaTeX Info: Redefining \rightleftharpoons on input line 342.
+LaTeX Info: Redefining \doteq on input line 343.
+LaTeX Info: Redefining \hookrightarrow on input line 344.
+LaTeX Info: Redefining \hookleftarrow on input line 345.
+LaTeX Info: Redefining \bowtie on input line 346.
+LaTeX Info: Redefining \models on input line 347.
+LaTeX Info: Redefining \Longrightarrow on input line 348.
+LaTeX Info: Redefining \longrightarrow on input line 349.
+LaTeX Info: Redefining \Longleftarrow on input line 350.
+LaTeX Info: Redefining \longleftarrow on input line 351.
+LaTeX Info: Redefining \longmapsto on input line 352.
+LaTeX Info: Redefining \longleftrightarrow on input line 353.
+LaTeX Info: Redefining \Longleftrightarrow on input line 354.
+LaTeX Info: Redefining \cdots on input line 358.
+LaTeX Info: Redefining \vdots on input line 361.
+LaTeX Info: Redefining \ddots on input line 366.
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/breqn/mathstyle.sty
+Package: mathstyle 2017/01/27 0.98e Tracking mathstyle implicitly
+LaTeX Info: Redefining \displaystyle on input line 93.
+LaTeX Info: Redefining \textstyle on input line 95.
+LaTeX Info: Redefining \scriptstyle on input line 97.
+LaTeX Info: Redefining \scriptscriptstyle on input line 99.
+LaTeX Info: Redefining \genfrac on input line 145.
+))
+(/usr/local/texlive/2018/texmf-dist/tex/latex/tools/calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count187
+\calc@Bcount=\count188
+\calc@Adimen=\dimen158
+\calc@Bdimen=\dimen159
+\calc@Askip=\skip62
+\calc@Bskip=\skip63
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count189
+\calc@Cskip=\skip64
+)
+\inf@bad=\count190
+\maxint=\count191
+\listwidth=\dimen160
+\eqnumsep=\dimen161
+\eqmargin=\dimen162
+\eqlinespacing=\skip65
+\eqlineskip=\skip66
+\eqlineskiplimit=\dimen163
+\eqbinoffset=\muskip17
+\eqdelimoffset=\muskip18
+\eqindentstep=\dimen164
+\eqstyle=\toks22
+\eqbreakdepth=\count192
+\eqinterlinepenalty=\count193
+\intereqpenalty=\count194
+\intereqskip=\skip67
+\prerelpenalty=\count195
+\prebinoppenalty=\count196
+\Dmedmuskip=\muskip19
+\Dthickmuskip=\muskip20
+\eqleftskip=\skip68
+\eqrightskip=\skip69
+\eq@vspan=\skip70
+\eq@binoffset=\muskip21
+\EQ@box=\box43
+\EQ@copy=\box44
+\EQ@numbox=\box45
+\eq@wdNum=\dimen165
+\GRP@numbox=\box46
+\grp@wdNum=\dimen166
+\eq@lines=\count197
+\eq@curline=\count198
+\eq@badness=\count199
+\EQ@vims=\count266
+\eq@dp=\dimen167
+\eq@wdL=\dimen168
+\eq@wdT=\dimen169
+\eq@wdMin=\dimen170
+\grp@wdL=\dimen171
+\grp@wdR=\dimen172
+\grp@wdT=\dimen173
+\eq@wdRmax=\dimen174
+\eq@firstht=\dimen175
+\eq@wdCond=\dimen176
+\eq@indentstep=\dimen177
+\eq@linewidth=\dimen178
+\grp@linewidth=\dimen179
+\eq@hshift=\dimen180
+\eq@given@sidespace=\dimen181
+\eq@final@linecount=\count267
+\eq@wdR=\dimen182
+\EQ@continue=\toks23
+\lr@level=\count268
+\GRP@queue=\toks24
+\GRP@box=\box47
+\GRP@wholebox=\box48
+\darraycolsep=\skip71
+\cur@row=\count269
+\cur@col=\count270
+\conditionsep=\skip72
+) (./midterm.aux)
 \openout1 = `midterm.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -199,21 +465,23 @@ LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 16.
- (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-) (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+)
+(/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count103
-\scratchdimen=\dimen127
-\scratchbox=\box28
-\nofMPsegments=\count104
-\nofMParguments=\count105
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count106
-\MPscratchDim=\dimen128
-\MPnumerator=\count107
-\makeMPintoPDFobject=\count108
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count271
+\scratchdimen=\dimen183
+\scratchbox=\box49
+\nofMPsegments=\count272
+\nofMParguments=\count273
+\everyMPshowfont=\toks25
+\MPscratchCnt=\count274
+\MPscratchDim=\dimen184
+\MPnumerator=\count275
+\makeMPintoPDFobject=\count276
+\everyMPtoPDFconversion=\toks26
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -298,14 +566,14 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <12> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 36.
 
-Overfull \hbox (19.97455pt too wide) detected at line 40
-\OT1/ptm/m/it/12 TREE \OT1/cmr/m/n/12 ::= \OT1/ptm/m/it/12 leaf\OMS/cmsy/m/n/12
- hh\U/msb/m/n/12 N\OMS/cmsy/m/n/12 ii j \OT1/ptm/m/it/12 binary[]node\OMS/cmsy/
-m/n/12 hh\U/msb/m/n/12 N \OMS/cmsy/m/n/12 ^^B \OT1/ptm/m/it/12 TREE \OMS/cmsy/m
-/n/12 ^^B \OT1/ptm/m/it/12 TREE\OMS/cmsy/m/n/12 ii j \OT1/ptm/m/it/12 ternary[]
-node\OMS/cmsy/m/n/12 hh\U/msb/m/n/12 N \OMS/cmsy/m/n/12 ^^B \OT1/ptm/m/it/12 TR
-EE \OMS/cmsy/m/n/12 ^^B \OT1/ptm/m/it/12 TREE \OMS/cmsy/m/n/12 ^^B \OT1/ptm/m/i
-t/12 TREE\OMS/cmsy/m/n/12 ii
+Overfull \hbox (63.21114pt too wide) detected at line 40
+\OML/cmm/m/it/12 TREE \OT1/cmr/m/n/12 ::= \OML/cmm/m/it/12 leaf\OMS/cmsy/m/n/12
+ hh\U/msb/m/n/12 N\OMS/cmsy/m/n/12 iij\OML/cmm/m/it/12 binary[]node\OMS/cmsy/m/
+n/12 hh\U/msb/m/n/12 N \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 TREE \OMS/cmsy/m/n
+/12 ^^B \OML/cmm/m/it/12 TREE\OMS/cmsy/m/n/12 iij\OML/cmm/m/it/12 ternary[]node
+\OMS/cmsy/m/n/12 hh\U/msb/m/n/12 N \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 TREE \
+OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12 TREE \OMS/cmsy/m/n/12 ^^B \OML/cmm/m/it/12
+ TREE\OMS/cmsy/m/n/12 ii
  []
 
 <trees.png, id=8, 1121.18875pt x 378.41376pt>
@@ -314,14 +582,13 @@ File: trees.png Graphic file (type png)
 Package pdftex.def Info: trees.png  used on input line 47.
 (pdftex.def)             Requested size: 325.215pt x 109.76604pt.
 
-Overfull \hbox (15.95943pt too wide) detected at line 64
-\OT1/ptm/m/it/12 ternary[]node\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 ; \OT1/ptm/m/i
-t/12 binary[]node\OT1/cmr/m/n/12 (6\OML/cmm/m/it/12 ; \OT1/ptm/m/it/12 leaf\OT1
-/cmr/m/n/12 (1)\OML/cmm/m/it/12 ; \OT1/ptm/m/it/12 leaf\OT1/cmr/m/n/12 (3))\OML
-/cmm/m/it/12 ; \OT1/ptm/m/it/12 leaf\OT1/cmr/m/n/12 (4)\OML/cmm/m/it/12 ; \OT1/
-ptm/m/it/12 ternary[]node\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 ; \OT1/ptm/m/it/12 
-leaf\OT1/cmr/m/n/12 (5)\OML/cmm/m/it/12 ; \OT1/ptm/m/it/12 leaf\OT1/cmr/m/n/12 
-(7)\OML/cmm/m/it/12 ; \OT1/ptm/m/it/12 leaf\OT1/cmr/m/n/12 (5)))
+Overfull \hbox (47.33655pt too wide) detected at line 64
+\OML/cmm/m/it/12 ternary[]node\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 ; binary[]node
+\OT1/cmr/m/n/12 (6\OML/cmm/m/it/12 ; leaf\OT1/cmr/m/n/12 (1)\OML/cmm/m/it/12 ; 
+leaf\OT1/cmr/m/n/12 (3))\OML/cmm/m/it/12 ; leaf\OT1/cmr/m/n/12 (4)\OML/cmm/m/it
+/12 ; ternary[]node\OT1/cmr/m/n/12 (2\OML/cmm/m/it/12 ; leaf\OT1/cmr/m/n/12 (5)
+\OML/cmm/m/it/12 ; leaf\OT1/cmr/m/n/12 (7)\OML/cmm/m/it/12 ; leaf\OT1/cmr/m/n/1
+2 (5)))
  []
 
 [2
@@ -335,19 +602,36 @@ leaf\OT1/cmr/m/n/12 (5)\OML/cmm/m/it/12 ; \OT1/ptm/m/it/12 leaf\OT1/cmr/m/n/12
 ] [6
 
 ]
-<BaristaMini.png, id=32, 696.6025pt x 533.995pt>
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
+
+ []
+
+<BaristaMini.png, id=32, 704.6325pt x 534.99875pt>
 File: BaristaMini.png Graphic file (type png)
 <use BaristaMini.png>
-Package pdftex.def Info: BaristaMini.png  used on input line 226.
-(pdftex.def)             Requested size: 433.62pt x 332.40161pt.
- [7
+Package pdftex.def Info: BaristaMini.png  used on input line 228.
+(pdftex.def)             Requested size: 433.62pt x 329.23044pt.
+[7
 
- <./BaristaMini.png>] [8
+ <./BaristaMini.png>]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 278.
+
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 278--279
+
+ []
+
+[8
 
 ]
-Overfull \hbox (2.6082pt too wide) in paragraph at lines 258--259
-[]\OT1/ptm/m/n/12 Assuming that the $[]$ sup-plies a cof-fee cup each time $\OT
-1/ptm/m/it/12 d[]button$ \OT1/ptm/m/n/12 is pressed
+Overfull \hbox (4.78957pt too wide) in paragraph at lines 286--287
+[]\OT1/ptm/m/n/12 Assuming that the $[]$ sup-plies a cof-fee cup each time $\OM
+L/cmm/m/it/12 d[]button$ \OT1/ptm/m/n/12 is pressed
  []
 
 [9
@@ -357,7 +641,7 @@ Overfull \hbox (2.6082pt too wide) in paragraph at lines 258--259
 ] [11
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 349--350
+Underfull \hbox (badness 10000) in paragraph at lines 377--378
 
  []
 
@@ -367,13 +651,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 349--350
 
 ] (./midterm.aux) ) 
 Here is how much of TeX's memory you used:
- 2971 strings out of 492649
- 37981 string characters out of 6129622
- 105817 words of memory out of 5000000
- 6783 multiletter control sequences out of 15000+600000
- 28504 words of font info for 72 fonts, out of 8000000 for 9000
+ 11642 strings out of 492649
+ 210298 string characters out of 6129622
+ 250740 words of memory out of 5000000
+ 15423 multiletter control sequences out of 15000+600000
+ 556762 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,15n,43p,589b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,16n,43p,10389b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.
 enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.p
 fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
@@ -381,12 +665,13 @@ fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
 usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
 sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
 /local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><
-/usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local
-/texlive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on midterm.pdf (13 pages, 183387 bytes).
+/usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local
+/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2
+018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on midterm.pdf (13 pages, 204289 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 89 PDF objects out of 1000 (max. 8388607)
+ 60 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
