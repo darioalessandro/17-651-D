@@ -1,0 +1,33 @@
+//---------------------------------------------------
+//  AutoBarista Mini
+//---------------------------------------------------
+//
+//=====================
+// Process Definitions
+//=====================
+//
+// Autobarista starts in capuccino state
+//
+AUTO_BARISTA_MINI = CAPUCCINO_SINGLE_SHOT,
+//
+CAPUCCINO_SINGLE_SHOT = (
+ e_button -> CAPUCCINO_DOUBLE_SHOT
+ |m_button -> SINGLE_SHOT
+ |d_button -> CAPUCCINO_SINGLE_SHOT 
+),
+
+CAPUCCINO_DOUBLE_SHOT = (
+e_button -> CAPUCCINO_SINGLE_SHOT
+ |m_button -> DOUBLE_SHOT
+ |d_button -> CAPUCCINO_SINGLE_SHOT
+),
+
+SINGLE_SHOT = (
+  d_button -> CAPUCCINO_SINGLE_SHOT
+ |e_button -> CAPUCCINO_DOUBLE_SHOT
+),
+
+DOUBLE_SHOT = (
+  d_button -> CAPUCCINO_SINGLE_SHOT
+ |e_button -> CAPUCCINO_DOUBLE_SHOT
+).
