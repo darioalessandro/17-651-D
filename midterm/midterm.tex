@@ -59,8 +59,9 @@ Tree A can be described as $$binary\_node(3,leaf(6),leaf(4))$$ and tree B as $$t
 % Your answer goes here
 %-------------------------------------------
 
-$$ternary\_node(2,binary\_node(6,leaf(1),leaf(3)),leaf(4),ternary\_node(2,leaf(5),leaf(7),leaf(5)))$$
-
+\textcolor{blue}{
+  $$ternary\_node(2,binary\_node(6,leaf(1),leaf(3)),leaf(4),ternary\_node(2,leaf(5),leaf(7),leaf(5)))$$
+  }
 %-------------------------------------------
 
 \clearpage
@@ -190,7 +191,6 @@ The terms ``single'' and ``double'' refer to the number of shots of espresso a b
 
 \begin{enumerate}
 \item Draw a transition diagram for $\mathrm{AutoBaristaMini}$. You may name individual states if you wish. For each state, be sure to indicate clearly the values of all state variables. Don't forget to label transitions. [15 points]
-
 %-------------------------------------------
 % Your answer goes here
 %
@@ -218,7 +218,13 @@ The terms ``single'' and ``double'' refer to the number of shots of espresso a b
 %
 %-------------------------------------------
 
+  \textcolor{blue}{It took me a long time to figure out what the states meant in the machine, after reaching
+   out a few times to Dawn and by looking at the other questions, the best I could come with is that the state variables represent the user selection from milk and number of espresso shots}
+  
 
+\begin{center}
+\includegraphics[width=6in]{BaristaMini.png}
+\end{center}
 %-------------------------------------------
 
 \clearpage
@@ -340,7 +346,27 @@ Model the reusable cup as an input: the input should be $true$ if a reusable cup
 
 The AutoBarista Mini and Eco are limited-functionality, lower-end models in the Queequeg line of coffee machines. Their basic model is the AutoBarista, which is currently in the process of being re-engineered.
 
-The AutoBarista is capable of producing drinks containing 0, 1, or 2 shots of espresso, with or without steamed milk, and in drinks containing steamed milk, with or without a shot of flavour syrup (syrup is not available for drinks containing only espresso). The machine offers a choice of three different syrups. There are thus a total of 14 different drinks the machine can produce.
+The AutoBarista is capable of producing drinks containing 0, 1, or 2 shots of espresso, with or without steamed milk, and in drinks containing steamed milk, with or without a shot of flavour syrup (syrup is not available for drinks containing only espresso). The machine offers a choice of three different syrups. There are thus a total of 14 different drinks the machine can produce. \\
+\begin{center}
+  \color{blue}
+\begin{tabular}{ c c c c}
+       & expresso & milk & flavour \\ 
+ 1     & $no\_shot$ & $yes\_milk$ & $no\_flavour$ \\  
+ 2     & $no\_shot$ & $yes\_milk$ & $flavour\_1$ \\
+ 3     & $no\_shot$ & $yes\_milk$ & $flavour\_2$ \\
+ 4     & $no\_shot$ & $yes\_milk$ & $flavour\_3$ \\
+ 5     & $one\_shot$ & $yes\_milk$ & $no\_flavour$ \\  
+ 6     & $one\_shot$ & $yes\_milk$ & $flavour\_1$ \\
+ 7     & $one\_shot$ & $yes\_milk$ & $flavour\_2$ \\
+ 8     & $one\_shot$ & $yes\_milk$ & $flavour\_3$ \\
+ 9     & $two\_shots$ & $yes\_milk$ & $no\_flavour$ \\  
+ 10    & $two\_shots$ & $yes\_milk$ & $flavour\_1$ \\
+ 11    & $two\_shots$ & $yes\_milk$ & $flavour\_2$ \\
+ 12    & $two\_shots$ & $yes\_milk$ & $flavour\_3$ \\
+ 13    & $one\_shot$ & $no\_milk$  & $no\_flavour$ \\
+ 14    & $two\_shots$ & $no\_milk$ & $no\_flavour$ \\
+ \end{tabular}
+\end{center}
 
 \begin{enumerate}
 \item[1.] Complete the following state space schema for the $\mathrm{AutoBarista}$ by supplying an appropriate invariant: [5 points]
@@ -356,12 +382,11 @@ espresso : Espresso\\
 milk : Milk\\
 flavour : Flavour
 \where
+\color{blue}
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-~\\ %this line can be deleted when you enter your answer
-~\\ %this line can be deleted when you enter your answer
-~   %this line can be deleted when you enter your answer
+if milk = no\_milk then flavour = no\_flavour
 %-------------------------------------------
 \end{schema}
 
