@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  21 OCT 2018 22:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 OCT 2018 01:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -449,7 +449,13 @@ LaTeX Info: Redefining \addtolength on input line 81.
 \cur@row=\count269
 \cur@col=\count270
 \conditionsep=\skip72
-) (./midterm.aux)
+)
+(/usr/local/texlive/2018/texmf-dist/tex/latex/changepage/changepage.sty
+Package: changepage 2009/10/20 v1.0c check page and change page layout
+\c@cp@cntr=\count271
+\cp@tempcnt=\count272
+)
+(./midterm.aux)
 \openout1 = `midterm.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
@@ -465,22 +471,20 @@ LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
 LaTeX Font Info:    ... okay on input line 16.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 16.
-
-(/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+ (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-)
-(/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+) (/usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count271
+\scratchcounter=\count273
 \scratchdimen=\dimen183
 \scratchbox=\box49
-\nofMPsegments=\count272
-\nofMParguments=\count273
+\nofMPsegments=\count274
+\nofMParguments=\count275
 \everyMPshowfont=\toks25
-\MPscratchCnt=\count274
+\MPscratchCnt=\count276
 \MPscratchDim=\dimen184
-\MPnumerator=\count275
-\makeMPintoPDFobject=\count276
+\MPnumerator=\count277
+\makeMPintoPDFobject=\count278
 \everyMPtoPDFconversion=\toks26
 ) (/usr/local/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -593,90 +597,159 @@ leaf\OT1/cmr/m/n/12 (3))\OML/cmm/m/it/12 ; leaf\OT1/cmr/m/n/12 (4)\OML/cmm/m/it
 
 [2
 
- <./trees.png>] [3
-
-] [4
-
-] [5
-
-] [6
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 224--225
+ <./trees.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 98--99
 
  []
 
-<BaristaMini.png, id=32, 704.6325pt x 534.99875pt>
+
+Overfull \hbox (35.16449pt too wide) in alignment at lines 99--109
+[] 
+ []
+
+
+Overfull \hbox (66.6458pt too wide) in alignment at lines 111--121
+[] 
+ []
+
+[3
+
+] [4] [5
+
+]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 180.
+
+Overfull \hbox (40.27132pt too wide) in paragraph at lines 178--181
+[]\OT1/ptm/b/n/12 Base Case: \OT1/ptm/m/n/12 Show that the prop-erty holds for 
+leaf, that is $\OML/cmm/m/it/12 nodes\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 leaf\OT1
+/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )) = \OML/cmm/m/it/12 binary[]no
+des\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 leaf\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT
+1/cmr/m/n/12 )) +
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--181
+
+ []
+
+
+Overfull \hbox (35.06892pt too wide) in paragraph at lines 182--193
+[][] 
+ []
+
+[6
+
+] [7
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 263--264
+
+ []
+
+<BaristaMini.png, id=37, 704.6325pt x 534.99875pt>
 File: BaristaMini.png Graphic file (type png)
 <use BaristaMini.png>
-Package pdftex.def Info: BaristaMini.png  used on input line 228.
+Package pdftex.def Info: BaristaMini.png  used on input line 267.
 (pdftex.def)             Requested size: 433.62pt x 329.23044pt.
-[7
-
- <./BaristaMini.png>]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 278.
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 278--279
-
- []
-
 [8
 
-]
-Overfull \hbox (4.78957pt too wide) in paragraph at lines 286--287
-[]\OT1/ptm/m/n/12 Assuming that the $[]$ sup-plies a cof-fee cup each time $\OM
-L/cmm/m/it/12 d[]button$ \OT1/ptm/m/n/12 is pressed
+ <./BaristaMini.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 317--318
+
  []
 
 
-Overfull \hbox (19.7424pt too wide) in paragraph at lines 318--320
-[][]\OT1/ptm/m/n/12 4, $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 single[]shot; double
-[]shot; cappuccino[]single[]shot; capuccino[]double[]shot\OMS/cmsy/m/n/12 g$ \O
-T1/ptm/m/n/12 there's
+Underfull \hbox (badness 10000) in paragraph at lines 317--318
+
  []
 
 [9
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 340.
+Overfull \hbox (4.78957pt too wide) in paragraph at lines 325--326
+[]\OT1/ptm/m/n/12 Assuming that the $[]$ sup-plies a cof-fee cup each time $\OM
+L/cmm/m/it/12 d[]button$ \OT1/ptm/m/n/12 is pressed
+ []
+
+
+Overfull \hbox (19.7424pt too wide) in paragraph at lines 357--359
+[][]\OT1/ptm/m/n/12 4, $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 single[]shot; double
+[]shot; cappuccino[]single[]shot; capuccino[]double[]shot\OMS/cmsy/m/n/12 g$ \O
+T1/ptm/m/n/12 there's
+ []
+
+[10
+
+]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 380.
 
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-<fps_machine.png, id=45, 705.63625pt x 492.84125pt>
+<fps_machine.png, id=48, 705.63625pt x 492.84125pt>
 File: fps_machine.png Graphic file (type png)
 <use fps_machine.png>
-Package pdftex.def Info: fps_machine.png  used on input line 377.
+Package pdftex.def Info: fps_machine.png  used on input line 417.
 (pdftex.def)             Requested size: 433.62pt x 302.85867pt.
- [10
+ [11
 
 ]
-[11 <./fps_machine.png>] [12
+[12 <./fps_machine.png>] [13
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 411--412
+Underfull \hbox (badness 10000) in paragraph at lines 458--459
 
  []
 
-[13
+[14
 
-] [14
+]
+Underfull \hbox (badness 10000) in paragraph at lines 518--518
+
+ []
+
+[15]
+Underfull \hbox (badness 10000) in paragraph at lines 539--539
+
+ []
+
+
+Overfull \hbox (108.44832pt too wide) in alignment at lines 539--539
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 560--560
+
+ []
+
+[16
 
 ] (./midterm.aux) ) 
 Here is how much of TeX's memory you used:
- 11682 strings out of 492649
- 210901 string characters out of 6129622
- 250740 words of memory out of 5000000
- 15457 multiletter control sequences out of 15000+600000
+ 11726 strings out of 492649
+ 211608 string characters out of 6129622
+ 251578 words of memory out of 5000000
+ 15497 multiletter control sequences out of 15000+600000
  557277 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,16n,43p,10389b,353s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,16n,43p,10389b,361s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.
 enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.p
 fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb
@@ -688,10 +761,10 @@ sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
 al/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive
 /2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on midterm.pdf (14 pages, 264790 bytes).
+Output written on midterm.pdf (16 pages, 272760 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 65 compressed objects within 1 object stream
+ 104 PDF objects out of 1000 (max. 8388607)
+ 69 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

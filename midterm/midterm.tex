@@ -1,6 +1,6 @@
 \documentclass[12pt,fleqn]{article}
 \usepackage{amsmath,epsf,times,zed-csp,fancyhdr,verbatim,graphicx,color}
-\usepackage{breqn}
+\usepackage{breqn, changepage}
 \setlength{\oddsidemargin}{0in}
 \setlength{\evensidemargin}{0in}
 \setlength{\topmargin}{-1.0in}
@@ -12,7 +12,7 @@
 
 \lhead{\sc Models of Software Systems: Midterm Exam}
 \cfoot{\thepage}
-
+\newcommand{\estimates}{\mathrel{\hat{=}}}
 \begin{document}
 
 \title{\sc Midterm Exam}
@@ -94,8 +94,32 @@ weight : TREE \rightarrow \nat
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
+  \color{blue}
+  I merely took the nodes axiomatic definition and tweaked it to only add binary nodes in the $binary\_nodes$ definition and ternary nodes in the $ternary\_nodes$ definition. \\
+\begin{axdef}
+binary\_nodes : TREE \rightarrow \nat\\
+\where
+\forall t_1, t_2, t_3:TREE@\forall n:\nat@\\ 
+~\\
+\quad binary\_nodes(leaf(n)) = 0 \land\\
+\quad binary\_nodes(binary\_node(n,t_1,t_2)) = 1 + binary\_nodes(t_1) + binary\_nodes(t_2) \land\\
+\quad binary\_nodes(ternary\_node(n,t_1,t_2,t_3)) =  binary\_nodes(t_1) + binary\_nodes(t_2) \\
+ + binary\_nodes(t_3)
+~\\ 
+\end{axdef}
 
-
+\begin{axdef}
+ternary\_nodes : TREE \rightarrow \nat\\
+\where
+\forall t_1, t_2, t_3:TREE@\forall n:\nat@\\ 
+~\\ 
+\quad ternary\_nodes(leaf(n)) = 0 \land\\
+\quad ternary\_nodes(binary\_node(n,t_1,t_2)) = ternary\_nodes(t_1) + ternary\_nodes(t_2) \land\\
+\quad ternary\_nodes(ternary\_node(n,t_1,t_2,t_3)) = 1 + ternary\_nodes(t_1) + ternary\_nodes(t_2) \\
++ ternary\_nodes(t_3) 
+~\\
+\end{axdef}
+\color{black}
 %-------------------------------------------
 
 \clearpage
@@ -151,9 +175,24 @@ Using these predicates and the functions defined above, translate the following 
 \clearpage
 
 \item[4.] Prove the following by structural induction: [15 points]
-$$\forall t:TREE@nodes(t) = binary\_nodes(t) + ternary\_nodes(t)$$
+  $$\forall t:TREE@nodes(t) = binary\_nodes(t) + ternary\_nodes(t)$$ \\
+\color{blue}  
+\textbf{Base Case:} Show that the property holds for leaf, that is $nodes(leaf(t)) = binary\_nodes(leaf(t)) + ternary\_nodes(leaf(t))$ \\ 
+
+\begin{tabular}{l l}
+  nodes(leaf(t)) &  \\
+  = & [Applying the definition of nodes(leaf(t))]  \\
+  0 & \\
+  = & [Aritmetic] \\
+  0 + 0 & \\
+  = & [Applying the definition of \\
+    &  $binary\_nodes(leaf(t))$ and \\
+    & $ternary\_nodes(leaf(t))$] \\
+  $binary\_nodes(leaf(t)) + ternary\_nodes(leaf(t))$ &  \\
+ \end{tabular}
 
 
+\color{black}
 \end{enumerate}
 
 \clearpage
@@ -265,8 +304,8 @@ The terms ``single'' and ``double'' refer to the number of shots of espresso a b
   $e\_button$ makes espresso toggle between 1 and 2 shots and keeps milk selection the same. \\
   $e\_button()$ \\
   $\textbf{pre:} true$  \\
-  $\textbf{post:}$ (espresso = 1 $\implies$ (expresso' = 2 $\land$ milk' = milk)) $\land$ \\
-                   (espresso = 2 $\implies$ (expresso' = 1 $\land$ milk' = milk)) \\
+  $\textbf{post:}$ (espresso = 1 $\implies$ (espresso' = 2 $\land$ milk' = milk)) $\land$ \\
+                   (espresso = 2 $\implies$ (espresso' = 1 $\land$ milk' = milk)) \\
   \\
   $m\_button$ is only allowed if milk = 1, this threw me off a little bit but is what I was able to interpret from the state machine definition. It disables the milk.\\
   $m\_button()$ \\
@@ -337,8 +376,8 @@ The terms ``single'' and ``double'' refer to the number of shots of espresso a b
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-\begin{verbatim}
 \color{blue}
+\begin{verbatim}
 //---------------------------------------------------
 //  AutoBarista Mini
 //---------------------------------------------------
@@ -373,7 +412,7 @@ DOUBLE_SHOT = (
  |e_button -> CAPUCCINO_DOUBLE_SHOT
 ).
 \end{verbatim}
-
+\color{black}
 \begin{center}
 \includegraphics[width=6in]{fps_machine.png}
 \end{center}
@@ -400,6 +439,13 @@ Model the reusable cup as an input: the input should be $true$ if a reusable cup
 % Your answer goes here
 %-------------------------------------------
 
+\textcolor{blue}{
+  $BOOLEAN ::= true \vert false$ \\
+  $d\_button(has\_reusable\_cup: BOOLEAN)$ \\
+  $\textbf{pre:} has\_reusable\_cup = true \lor cups > 0$  \\
+  $\textbf{post:}$ ($has\_reusable\_cup \implies$ (espresso' = 1 $\land$ milk' = 1 $\land$ cups' = cups)) $\land$ \\
+                   ($cups > 0 \implies$ (espresso' = 1 $\land$ milk' = 1 $\land$ cups' = cups - 1)) \\
+}
 
 %-------------------------------------------
 
@@ -413,7 +459,7 @@ The AutoBarista is capable of producing drinks containing 0, 1, or 2 shots of es
 \begin{center}
   \color{blue}
 \begin{tabular}{ c c c c}
-       & expresso & milk & flavour \\ 
+       & espresso & milk & flavour \\ 
  1     & $no\_shot$ & $yes\_milk$ & $no\_flavour$ \\  
  2     & $no\_shot$ & $yes\_milk$ & $flavour\_1$ \\
  3     & $no\_shot$ & $yes\_milk$ & $flavour\_2$ \\
@@ -440,6 +486,8 @@ Milk == \{yes\_milk,no\_milk\}\\
 Flavour == \{flavour\_1,flavour\_2,flavour\_3,no\_flavour\}
 \end{zed}
 
+\textcolor{blue}{ The invariant that I chosed to use is that if no milk is selected then no flavour can be selected.}
+
 \begin{schema}{AutoBarista}
 espresso : Espresso\\
 milk : Milk\\
@@ -449,7 +497,7 @@ flavour : Flavour
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-if milk = no\_milk then flavour = no\_flavour
+milk = no\_milk \implies flavour = no\_flavour
 %-------------------------------------------
 \end{schema}
 
@@ -458,7 +506,16 @@ if milk = no\_milk then flavour = no\_flavour
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-
+\textcolor{blue}{
+\textbf{Reasoning:} The proposal is to init espresso to one shot and milk to yes, and no flavour, this is consistant with the invariant because we are respecting the rule: ``beverage can contain a flavour only when milk has been selected''. \\
+\begin{schema}{InitAutoBarista}
+AutoBarista
+\where
+espresso = one\_shot \\
+milk = yes\_milk \\
+flavour = no\_flavour \\
+\end{schema}
+}
 
 %-------------------------------------------
 
@@ -469,8 +526,17 @@ if milk = no\_milk then flavour = no\_flavour
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-\vspace{3in} %this line can be deleted when you enter your answer
-
+  \textcolor{blue}{
+    Here I will propose a naive or not robust version of $ToggleMilk$ I'll present a safe version in the following question: \\
+    One thing to notice is that there are no real inputs or outputs in this version: \\
+    \begin{schema}{ToggleMilk}
+  \Delta AutoBarista  \\
+  \where
+  flavour = no\_flavour \\
+  (milk = yes\_milk \implies (milk' = no\_milk, flavour' = no\_flavour, espresso' = espresso)) \\
+  \land milk = no\_milk \implies (milk' = yes\_milk, flavour' = no\_flavour, espresso' = espresso))
+  \end{schema}
+  }
 %-------------------------------------------
 
 \item[4.] If the $ToggleMilk$ operation is not robust, use the schema calculus to make a robust version of the operation (be sure to define any auxiliary schemata you use in the process); if the operation is robust, explain why that is the case. [5 points]
@@ -478,8 +544,31 @@ if milk = no\_milk then flavour = no\_flavour
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-
-
+  \textcolor{blue}{
+    Note: The presented robust version of $ToggleMilk$ assumes that the $SetFlavour$ operation is also robust and respects the invariant. \\
+    \\
+    We declare an schema to represent the Result of the $ToggleMilk$ operation: \\
+    \\
+    ToggleMilkReport ::= Ok $\mid Error\_flavour\_selected$ \\
+ \\
+    Ok is used when the operation has been successful. \\
+  \begin{schema}{ToggleMilkSuccess}
+    result!:ToggleMilkReport
+  \where
+    result!: Ok
+  \end{schema}
+  }
+  \textcolor{blue}{
+  \begin{schema}{ToggleMilkError}
+    \Delta AutoBarista \\
+    result!:ToggleMilkReport
+    \where
+    flavour \neq no\_flavour) \\
+    result!: Error\_flavour\_selected
+  \end{schema}
+  \\ 
+  RToggleMilk $\estimates (ToggleMilk \land ToggleMilkSuccess) \lor ToggleMilkError$ \\
+  }
 %-------------------------------------------
 
 

@@ -181,7 +181,7 @@ Success is used when the operation has been successful. \\
   AlreadyEnrolled is used to handle the error scenario of the enroll operation, all we do is a precondition that checks if the student is in the enrolled set. \\
   \begin{schema}{AlreadyEnrolled}
     \Xi Register \\
-    student?:Student \\
+    student?:Studet \\
     result!:REPORT
     \where
     student? \in enrolled \\
