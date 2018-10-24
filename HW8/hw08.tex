@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage{zed-csp, amsfonts,color}
+\input{handout}
+
+\begin{document}
+
+\homework{}{17 October 2018}{Homework \#8: More Z}{}
+
+
+\noindent \textsc{Note}: For this assignment you must format your
+answers using \LaTeX\ and typecheck your answer to question 3 using {\em fuzz},  Z-EVES, or the Community Z tools.
+
+\begin{enumerate}
+
+\item The following questions refer to the handout on the Library Problem.
+\begin{enumerate}
+\item Write an operation to see if a book is currently checked out. \\
+  \color{blue}
+  Assuming that we need to find if a particular copy of a book is checked out and that
+  we do not need to do handle the scenario when the book is not in the library.\\
+  Using the definitions of $Library$, $BookOp$, $Copy$  provided in the Lecture: \\
+  \\
+  Defining type to answer: \\
+  Answer ::= Yes $\mid$ No 
+ \begin{schema}{IsBookCheckedOut}
+   \Xi BookOp \\
+   book?: Copy \\
+   answer!: Answer
+   \where
+    book? \in books \\
+    (\#\{ b : books | (records\,b).status = out \} = 1) \implies answer! = Yes \land
+    records' = records) \land \\
+    (\#\{ b : books | (records\,b).status = out \} = 0) \implies answer! = No \land
+    records' = records) 
+   
+\end{schema}
+\color{black}
+ 
+ \item Suppose you are curious to find out whether other people are interested in the same books as you.
+    \begin{enumerate}
+    \item Is it possible to write an operation that returns the set of books that you have checked out and later returned, and that were checked out by someone else after you returned them? If so, write the operation. If not, say why. \\
+      \color{blue}
+      Given the definition of Data, which is the type used to store status and lastuser,
+      it is not possible to preserve the history of the checkouts because every new book checkout overwrites the $lastuser$ user field. \\
+      We would have to modify our records data structure to create a new record every time a
+      book is Checked in or out and if someone wanted to pull the history of a book, they would have to query all records for a given book, the last known record would be the current state. \\
+     \color{black} 
+   \item Is it possible to write an operation that returns the set of books that you have checked out and later returned, but that were NEVER checked out by someone else after you returned them? If so, write the operation. If not, say why. \\
+     \color{blue}
+      Given the previous answer, it is possible, here's the operation: \\
+      \begin{schema}{GetAllTheBooksThatUserHasCheckedOutAndLaterReturned}
+   \Xi BookOp \\
+   person?: REAL\_PERSON \\
+   user\_books!:\mathbb{F}Copy
+   \where
+   user\_books = \{ b : books | (records\,b).lastuser = person? \}
+   \end{schema}
+    \end{enumerate}
+   \color{black} 
+\end{enumerate}
+
+\item The following questions refer to the handout on the Telephone Net.
+
+\begin{enumerate}
+
+\item Can a telephone Call itself? If so, what is the effect of a
+  subsequent Busy operation? \\
+  According to the CONNECTIONS set that was defined in the Lecture, it is possible: \\
+  CONNECTIONS = { {}, {1}, {2}, {3}, {1,2} {1,3}, {2,3}, {1,2,3} } \\
+  \\
+  \color{blue}
+  There's is no side effect of calling $Busy$ in the sense that the state of the Telephone Net is not changed, this is guaranteed by the invariant and the fact that part of the $Busy$ spec says that $reqs' = reqs$ \\
+  \color{black}
+
+\item Write an explicit Connect operation to connect a pair of
+phones. (HINT: Connect is different from Call; Connect establishes
+a connection among phones on an outstanding satisfiable request. Note also that you can't use the Event framing schema here because it assumes that the starting state is an efficient net.) \\
+\color{blue}
+Did not try :(
+\color{black}
+\item Is it possible to place a call from a phone that's already
+  busy?
+  \color{blue}
+  Lets consider the $Call$ operation defined in the lecture, $ph?, dialled? : PHONE$ are the inputs to the Z operation. \\
+  The backing data structure of the TelephonyNet Schema is $\mathbb{P}$ CONNECTION \\
+  Placing a call is defined as $reqs`= reqs \union \{\{ ph?,dialled? \}\} $ \\
+  It is possible to place a call from a phone that is connected and it has to be made to a phone that is different than the one that we are already connected to. \\
+  \color{black}
+\item Give an example that illustrates a situation in which a
+Hangup implies that a new connection will be made. Does the
+specification say which connection will be made if more than one
+is possible?
+\color{blue}
+I was unable to find this scenario, probably I did not explore enough. \\
+\color{black}
+\item If a Hangup operation is applied to a ph? that is not yet
+connected, what happens? Briefly speculate on how the
+specification would have to be changed to make this more
+realistic.
+\color{blue}
+The hangoup operation is modeled as $reqs' = reqs \setminus \{ c : const \vert ph? \in c \}$ \\
+If $ph$ is not in $const$ then it returns an empty set, then $ reqs' = reqs \setminus \emptyset = reqs $  
+\color{black}
+\item Modify Busy so that it also indicates which phones ph? is
+connected to. What is the output if the input ph? is not connected
+at all? \\
+\color{blue}
+I if not connected, dialled will return a $\emptyset$, else it will return a set with all the connections that ph has. \\
+\begin{schema}{BusyModified}
+   Event \\
+   ph?: PHONE \\
+   activeConnections!:\mathbb{N}CONNECTION \\
+   \where
+   reqs' = reqs \\
+   activeConnections! = \{ con : cons | ph \in con \}
+   \end{schema}
+\color{black}
+
+\end{enumerate}
+
+\item The following scenario describes a typical classroom
+situation.
+
+\begin{enumerate} \item A teacher needs to keep track of
+which homework assignments each student in the class has turned
+in. Each student in the class is given an ID, and at any time each
+student in the class has a (possibly empty) set of homeworks that
+have been turned in. The system should only keep records of the
+students in {\em this\/} class.
+
+\begin{zed}
+    [ID,STUDENTNAME,HOMEWORK]
+\end{zed}
+%%Unchecked
+\begin{schema}{ClassRecords}
+    student:ID \pfun STUDENTNAME \\
+    turnedIn: STUDENTNAME \pfun \power HOMEWORK
+\where
+\t1 \\
+\t1 \\
+\t1
+\end{schema}
+
+Complete the schema with an appropriate invariant.
+
+\textbf{Note:} You are not allowed to change the state variables
+in the schema. Supply only an appropriate invariant.
+
+%\vspace{12pt}
+
+% Problem 2
+\item Which of the following can be inferred from your definition
+of $ClassRecords$? Briefly justify your answer.
+
+\begin{itemize}
+\item No two students are assigned the same $ID$.
+%\vspace{.65in}
+
+\item A given student may have more than one $ID$.
+%\vspace{.65in}
+
+\item There may be some $ID$s that are not used by the system.
+%\vspace{.65in}
+
+\item All students that have an $ID$ also have a set of
+$HOMEWORK$s.
+%\vspace{.65in}
+
+\item Any student who has a set of $HOMEWORK$s also has an $ID$.
+%\vspace{.65in}
+
+\end{itemize}
+
+
+% Problem 3
+\item Write a schema $InitClassRecords$ that defines an
+appropriate initial state space for the system. Explain why the
+initial state space is consistent with the state space invariant
+that you defined earlier.
+%\vspace{2in}
+
+
+% Problem 4
+\item Write an operation to add a student to the class, provided
+that the student is not already a member of the class.
+%\vspace{2.5in}
+
+
+% Problem 5
+\item Write a robust version of the operation that returns an error
+value if the student is already a member of the class. Use the schema
+calculus: you should not need to rewrite the original operation.
+%\vspace{3in}
+
+
+% Problem 6
+\item Write an operation, $DeadBeats$, that returns the set of $ID$s
+(not student names!) of students who have not turned in more than one homework assignment.
+%\vspace{2in}
+
+
+% Problem 7
+\item Consider the following globally-defined function that
+determines whether a student's status is ok or not, based on a
+comparison with the set of total assignments that could have been
+turned in.
+
+\begin{zed}
+    STATUS ::= ok | not\_ok
+\end{zed}
+
+\begin{axdef}
+    StatusOf: \power HOMEWORK \cross \power HOMEWORK \fun STATUS
+\where
+    \forall student, total: \power HOMEWORK @ \\
+\t1    (StatusOf(student,total) = ok) \iff (\#(total \setminus
+student) < 2)
+\end{axdef}
+
+Explain in informal terms when the status of a student is not ok.
+%\vspace{1in}
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
