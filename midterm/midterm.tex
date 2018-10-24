@@ -142,9 +142,10 @@ Using these predicates and the functions defined above, translate the following 
 
 %-------------------------------------------
 % Your answer goes here
-%-------------------------------------------
-\vspace{1in} %this line can be deleted when you enter your answer
-
+  %-------------------------------------------
+\color{blue}
+$\forall t:TREE \bullet (is\_leaf(t) \lor ternary\_nodes(t) > binary\_nodes(t)) \implies is\_tree\_heavy(t) $ \\
+\color{black}
 %-------------------------------------------
 \item[b.] [3 points] Every $three\_heavy$ tree $weigh$s more than some $two\_heavy$ tree. 
 
@@ -159,15 +160,18 @@ Using these predicates and the functions defined above, translate the following 
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-\vspace{1in} %this line can be deleted when you enter your answer
-
+\color{blue}  
+$\exists t: THREE\_HEAVY \bullet \forall w: TWO\_HEAVY \bullet weight(t) > weight(w)$ \\
+\color{black}
 %-------------------------------------------
 \item[d.] [3 points] The immediate subtrees of any $balanced$ tree are either all $balanced$ or all have the same $weight$. 
 
 %-------------------------------------------
 % Your answer goes here
 %-------------------------------------------
-\vspace{1in} %this line can be deleted when you enter your answer
+\color{blue}
+$\forall t:BALANCED\_TREES \bullet \implies balanced(t.subrees) \lor same\_weight(t.subtrees) $ \\
+\color{black}
 
 %-------------------------------------------
 \end{enumerate}
@@ -189,7 +193,40 @@ Using these predicates and the functions defined above, translate the following 
     &  $binary\_nodes(leaf(t))$ and \\
     & $ternary\_nodes(leaf(t))$] \\
   $binary\_nodes(leaf(t)) + ternary\_nodes(leaf(t))$ &  \\
- \end{tabular}
+\end{tabular}
+\\
+\\
+\textbf{Induction case:} assume that the property holds for trees t1, t2 and t3, that is, $nodes(t_1) = binary\_nodes(t_1) +ternary\_nodes(t_1)$, $nodes(t_2) = binary\_nodes(t_2) +ternary\_nodes(t_2)$ and $nodes(t_3) = binary\_nodes(t_3) +ternary\_nodes(t_3)$ \\
+
+\begin{tabular}{l l}
+  nodes(node(t1, t2, t3)) &  \\
+  = & [definition of nodes]  \\
+  $1 + nodes(t_1) + nodes(t_2) \land (1 + nodes(t_1)$ & \\
+  $+ nodes(t_2) + nodes(t_3))$ & \\
+  = & [Introduction hypotesis] \\
+  $(1 + binary\_nodes(t_1) + ternary\_nodes(t_1)$ & \\
+  $+ binary\_nodes(t_2) + ternary\_nodes(t_2)) \land$ & \\
+  $( 1 + binary\_nodes(t_1) + ternary\_nodes(t_1) + $ & \\
+  $binary\_nodes(t_2) + ternary\_nodes(t_2) + $ & \\
+  $binary\_nodes(t_3) + ternary\_nodes(t_3))$ & \\
+  = & [Grouping all binary nodes \\
+    & and ternary nodes using the\\
+    & commutative property of +] \\
+  $(1 + binary\_nodes(t_1) + binary\_nodes(t_2) + $ & \\
+  $ternary\_nodes(t_1) + ternary\_nodes(t_2)) \land $ & \\
+  $(binary\_nodes(t_1) + binary\_nodes(t_2) + $ & \\
+  $binary\_nodes(t_3) + 1 + ternary\_nodes(t_1)$ & \\
+  $+ ternary\_nodes(t_2) + ternary\_nodes(t_3))$ & \\
+  = & [Substitution of definition of \\
+    & binary_nodes and ternary nodes] \\
+  $(binary\_nodes(binary\_node(n,t_1,t_2)) + $ & \\
+  $ternary\_nodes(binary\_node(n,t_1,t_2))) \land$ & \\
+  $(binary\_nodes(ternary\_node(n,t_1,t_2,t_3)) + $ & \\
+  $ternary\_nodes(ternary\_node(n,t_1,t_2,t_3)))$  & \\
+  = & [Factorizing $binary\_nodes$ \\
+    & and $ternary\_nodes$] \\
+  $binary\_nodes(node(t_1,t_2,t_3)) + ternary\_nodes(node(t_1, t_2,t_3))$ & \\
+\end{tabular}
 
 
 \color{black}

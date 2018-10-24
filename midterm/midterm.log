@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 OCT 2018 01:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  22 OCT 2018 03:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -614,13 +614,24 @@ Overfull \hbox (66.6458pt too wide) in alignment at lines 111--121
 
 [3
 
-] [4] [5
+] [4]
+Overfull \hbox (10.489pt too wide) in paragraph at lines 147--150
+[]$\OMS/cmsy/m/n/12 8\OML/cmm/m/it/12 t \OT1/cmr/m/n/12 : \OML/cmm/m/it/12 TREE
+ \OMS/cmsy/m/n/12 ^^O \OT1/cmr/m/n/12 (\OML/cmm/m/it/12 is[]leaf\OT1/cmr/m/n/12
+ (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 _ \OML/cmm/m/it/12 terna
+ry[]nodes\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ) \OML/cmm/m/it/12 
+> binary[]nodes\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )) \OMS/cmsy/
+m/n/12 ) \OML/cmm/m/it/12 is[]tree[]heavy\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT
+1/cmr/m/n/12 )$ 
+ []
+
+[5
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 180.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 184.
 
-Overfull \hbox (40.27132pt too wide) in paragraph at lines 178--181
+Overfull \hbox (40.27132pt too wide) in paragraph at lines 182--185
 []\OT1/ptm/b/n/12 Base Case: \OT1/ptm/m/n/12 Show that the prop-erty holds for 
 leaf, that is $\OML/cmm/m/it/12 nodes\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 leaf\OT1
 /cmr/m/n/12 (\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 )) = \OML/cmm/m/it/12 binary[]no
@@ -629,117 +640,142 @@ des\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 leaf\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t\OT
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--181
+Underfull \hbox (badness 10000) in paragraph at lines 182--185
 
  []
 
 
-Overfull \hbox (35.06892pt too wide) in paragraph at lines 182--193
+Overfull \hbox (35.06892pt too wide) in paragraph at lines 186--200
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--200
+
+ []
+
+
+Overfull \hbox (11.0081pt too wide) in paragraph at lines 186--200
+\OML/cmm/m/it/12 binary[]nodes\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n
+/12 ) + \OML/cmm/m/it/12 ternary[]nodes\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 t[]\OT
+1/cmr/m/n/12 )$\OT1/ptm/m/n/12 , $\OML/cmm/m/it/12 nodes\OT1/cmr/m/n/12 (\OML/c
+mm/m/it/12 t[]\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 binary[]nodes\OT1/cmr/m/n/12
+ (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 ternary[]nodes\OT1/c
+mr/m/n/12 (\OML/cmm/m/it/12 t[]\OT1/cmr/m/n/12 )$
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 186--200
+
+ []
+
+
+Overfull \hbox (58.77968pt too wide) in paragraph at lines 201--230
 [][] 
  []
 
 [6
 
-] [7
+] [7] [8
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 263--264
+Underfull \hbox (badness 10000) in paragraph at lines 300--301
 
  []
 
-<BaristaMini.png, id=37, 704.6325pt x 534.99875pt>
+<BaristaMini.png, id=40, 704.6325pt x 534.99875pt>
 File: BaristaMini.png Graphic file (type png)
 <use BaristaMini.png>
-Package pdftex.def Info: BaristaMini.png  used on input line 267.
+Package pdftex.def Info: BaristaMini.png  used on input line 304.
 (pdftex.def)             Requested size: 433.62pt x 329.23044pt.
-[8
-
- <./BaristaMini.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 317--318
-
- []
-
 [9
 
-]
-Overfull \hbox (4.78957pt too wide) in paragraph at lines 325--326
-[]\OT1/ptm/m/n/12 Assuming that the $[]$ sup-plies a cof-fee cup each time $\OM
-L/cmm/m/it/12 d[]button$ \OT1/ptm/m/n/12 is pressed
+ <./BaristaMini.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
+
  []
 
 
-Overfull \hbox (19.7424pt too wide) in paragraph at lines 357--359
-[][]\OT1/ptm/m/n/12 4, $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 single[]shot; double
-[]shot; cappuccino[]single[]shot; capuccino[]double[]shot\OMS/cmsy/m/n/12 g$ \O
-T1/ptm/m/n/12 there's
+Underfull \hbox (badness 10000) in paragraph at lines 354--355
+
  []
 
 [10
 
 ]
-LaTeX Font Info:    Try loading font information for OT1+pcr on input line 380.
+Overfull \hbox (4.78957pt too wide) in paragraph at lines 362--363
+[]\OT1/ptm/m/n/12 Assuming that the $[]$ sup-plies a cof-fee cup each time $\OM
+L/cmm/m/it/12 d[]button$ \OT1/ptm/m/n/12 is pressed
+ []
+
+
+Overfull \hbox (19.7424pt too wide) in paragraph at lines 394--396
+[][]\OT1/ptm/m/n/12 4, $\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 single[]shot; double
+[]shot; cappuccino[]single[]shot; capuccino[]double[]shot\OMS/cmsy/m/n/12 g$ \O
+T1/ptm/m/n/12 there's
+ []
+
+[11
+
+]
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 417.
 
  (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-<fps_machine.png, id=48, 705.63625pt x 492.84125pt>
+<fps_machine.png, id=51, 705.63625pt x 492.84125pt>
 File: fps_machine.png Graphic file (type png)
 <use fps_machine.png>
-Package pdftex.def Info: fps_machine.png  used on input line 417.
+Package pdftex.def Info: fps_machine.png  used on input line 454.
 (pdftex.def)             Requested size: 433.62pt x 302.85867pt.
- [11
+ [12
 
 ]
-[12 <./fps_machine.png>] [13
+[13 <./fps_machine.png>] [14
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 458--459
+Underfull \hbox (badness 10000) in paragraph at lines 495--496
 
  []
 
-[14
+[15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 518--518
+Underfull \hbox (badness 10000) in paragraph at lines 555--555
 
  []
 
-[15]
-Underfull \hbox (badness 10000) in paragraph at lines 539--539
+[16]
+Underfull \hbox (badness 10000) in paragraph at lines 576--576
 
  []
 
 
-Overfull \hbox (108.44832pt too wide) in alignment at lines 539--539
+Overfull \hbox (108.44832pt too wide) in alignment at lines 576--576
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--560
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--560
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--560
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 560--560
+Underfull \hbox (badness 10000) in paragraph at lines 597--597
 
  []
 
-[16
+[17
 
 ] (./midterm.aux) ) 
 Here is how much of TeX's memory you used:
@@ -761,10 +797,10 @@ sr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr
 al/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive
 /2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2018/texm
 f-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on midterm.pdf (16 pages, 272760 bytes).
+Output written on midterm.pdf (17 pages, 277640 bytes).
 PDF statistics:
- 104 PDF objects out of 1000 (max. 8388607)
- 69 compressed objects within 1 object stream
+ 107 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
