@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  24 OCT 2018 06:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  27 OCT 2018 00:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -136,56 +136,90 @@ Underfull \hbox (badness 10000) in paragraph at lines 17--26
  []
 
 
-Overfull \hbox (48.14546pt too wide) in alignment at lines 26--36
-[] 
+Underfull \hbox (badness 10000) in paragraph at lines 46--50
+
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 48--52
-
+Overfull \hbox (47.64569pt too wide) in alignment at lines 50--55
+[] 
  []
 
 [1
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 66--74
+Underfull \hbox (badness 10000) in paragraph at lines 64--75
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 104--110
+Underfull \hbox (badness 10000) in paragraph at lines 64--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 64--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--98
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 105--118
 
  []
 
 [2]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 155.
+Underfull \hbox (badness 10000) in paragraph at lines 118--125
 
- (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 172.
+
+(/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 155.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 172.
 
-Underfull \hbox (badness 10000) in paragraph at lines 155--162
+Underfull \hbox (badness 10000) in paragraph at lines 172--179
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 213--221
+Underfull \hbox (badness 10000) in paragraph at lines 230--238
+
+ []
+
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 250--252
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 233--235
-
- []
-
-
-Overfull \hbox (119.9792pt too wide) in alignment at lines 243--248
+Overfull \hbox (119.9792pt too wide) in alignment at lines 260--265
 [] 
  []
 
-[4] [5] (./hw08.aux) ) 
+[5] (./hw08.aux) ) 
 Here is how much of TeX's memory you used:
  1350 strings out of 492649
  15013 string characters out of 6129622
@@ -194,18 +228,18 @@ Here is how much of TeX's memory you used:
  7915 words of font info for 32 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  24i,11n,29p,264b,355s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbo
-ls/msbm10.pfb>
-Output written on hw08.pdf (5 pages, 119300 bytes).
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
+0.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/m
+sbm10.pfb>
+Output written on hw08.pdf (5 pages, 120468 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  42 compressed objects within 1 object stream

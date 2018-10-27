@@ -28,10 +28,8 @@ answers using \LaTeX\ and typecheck your answer to question 3 using {\em fuzz}, 
    answer!: Answer
    \where
     book? \in books \\
-    (\#\{ b : books | (records\,b).status = out \} = 1) \implies answer! = Yes \land
-    records' = records) \land \\
-    (\#\{ b : books | (records\,b).status = out \} = 0) \implies answer! = No \land
-    records' = records) 
+    (\#\{ b : books | (records\,b).status = out \} = 1) \implies answer! = Yes) \land \\
+    (\#\{ b : books | (records\,b).status = out \} = 0) \implies answer! = No ) 
    
 \end{schema}
 \color{black}
@@ -53,7 +51,7 @@ answers using \LaTeX\ and typecheck your answer to question 3 using {\em fuzz}, 
    person?: REAL\_PERSON \\
    user\_books!:\mathbb{F}Copy
    \where
-   user\_books = \{ b : books | (records\,b).lastuser = person? \}
+   user\_books = \{ b : books | (records\,b).lastuser = person? \land (records\,b).status = in \}
    \end{schema}
     \end{enumerate}
    \color{black} 
@@ -65,11 +63,14 @@ answers using \LaTeX\ and typecheck your answer to question 3 using {\em fuzz}, 
 
 \item Can a telephone Call itself? If so, what is the effect of a
   subsequent Busy operation? \\
-  According to the CONNECTIONS set that was defined in the Lecture, it is possible: \\
-  CONNECTIONS = { {}, {1}, {2}, {3}, {1,2} {1,3}, {2,3}, {1,2,3} } \\
   \\
   \color{blue}
+  According to the CONNECTIONS set that was defined in the Lecture, it is possible: \\
+  CONNECTIONS = $\{ \{\}, \{1\}, \{2\}, \{3\}, \{1,2\} \{1,3\}, \{2,3\}, \{1,2,3\} \}$ \\
+  \\
   There's is no side effect of calling $Busy$ in the sense that the state of the Telephone Net is not changed, this is guaranteed by the invariant and the fact that part of the $Busy$ spec says that $reqs' = reqs$ \\
+  \\
+  A new set $\{ph?, dialled?\}$ will be added to the reqs and cons sets where $ph? = dialled?$. \\
   \color{black}
 
 \item Write an explicit Connect operation to connect a pair of
@@ -81,10 +82,18 @@ Did not try :(
 \item Is it possible to place a call from a phone that's already
   busy?
   \color{blue}
+  \\
   Lets consider the $Call$ operation defined in the lecture, $ph?, dialled? : PHONE$ are the inputs to the Z operation. \\
+  \\
   The backing data structure of the TelephonyNet Schema is $\mathbb{P}$ CONNECTION \\
+  \\
   Placing a call is defined as $reqs`= reqs \union \{\{ ph?,dialled? \}\} $ \\
+  \\
   It is possible to place a call from a phone that is connected and it has to be made to a phone that is different than the one that we are already connected to. \\
+  \\
+  In order to make this a more realistic model, I propose that we do at least 2 things: \\
+  1. Transitioning a request to a connection should include the possibility of a failure due to various factor such as network quality, electrical, noise etc. \\
+  2. When a phone disconnects from a conference call (more than 2 peers connected) we should not drop all the participants like we do right now. \\
   \color{black}
 \item Give an example that illustrates a situation in which a
 Hangup implies that a new connection will be made. Does the
@@ -98,21 +107,29 @@ connected, what happens? Briefly speculate on how the
 specification would have to be changed to make this more
 realistic.
 \color{blue}
-The hangoup operation is modeled as $reqs' = reqs \setminus \{ c : const \vert ph? \in c \}$ \\
-If $ph$ is not in $const$ then it returns an empty set, then $ reqs' = reqs \setminus \emptyset = reqs $  
+\\
+The hangoup operation is modeled as \\
+$reqs' = reqs \setminus \{ c : const \vert ph? \in c \}$ \\
+If $ph$ is not in $const$ then it returns an empty set, then $ reqs' = reqs \setminus \emptyset = reqs $ \\
+\\
+In order to make it more realistic, I propose adding a new output called success! with type $Success:== YES \vert NO$ \\
+so that we can be more explicit about the success or failure of this opearation. \\
 \color{black}
 \item Modify Busy so that it also indicates which phones ph? is
 connected to. What is the output if the input ph? is not connected
 at all? \\
 \color{blue}
 I if not connected, dialled will return a $\emptyset$, else it will return a set with all the connections that ph has. \\
+YesOrNo::= Yes $\vert$ No \\
 \begin{schema}{BusyModified}
    Event \\
    ph?: PHONE \\
    activeConnections!:\mathbb{P}CONNECTION \\
+   busy!:YesOrNo
    \where
    reqs' = reqs \\
-   activeConnections! = \{ con : cons | ph \in con \}
+   activeConnections! = \{ con : cons | ph \in con \}\\
+   busy! = Yes \Leftrightarrow ph? \in \union cons 
    \end{schema}
 \color{black}
 
