@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  27 OCT 2018 00:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  27 OCT 2018 01:30
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -163,59 +163,54 @@ Underfull \hbox (badness 10000) in paragraph at lines 64--75
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--98
+Underfull \hbox (badness 10000) in paragraph at lines 83--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--98
+Underfull \hbox (badness 10000) in paragraph at lines 83--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--98
+Underfull \hbox (badness 10000) in paragraph at lines 83--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--98
+Underfull \hbox (badness 10000) in paragraph at lines 83--99
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 105--118
+Underfull \hbox (badness 10000) in paragraph at lines 106--119
 
  []
 
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 118--125
+Underfull \hbox (badness 10000) in paragraph at lines 119--126
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 172.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 179.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 172.
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--179
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 230--238
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 179.
+ [3]
+Underfull \hbox (badness 10000) in paragraph at lines 234--242
 
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 250--252
+Underfull \hbox (badness 10000) in paragraph at lines 254--256
 
  []
 
 
-Overfull \hbox (119.9792pt too wide) in alignment at lines 260--265
+Overfull \hbox (55.16835pt too wide) in alignment at lines 264--268
 [] 
  []
 
@@ -239,7 +234,7 @@ sy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cms
 y7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
 0.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/m
 sbm10.pfb>
-Output written on hw08.pdf (5 pages, 120468 bytes).
+Output written on hw08.pdf (5 pages, 121935 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  42 compressed objects within 1 object stream

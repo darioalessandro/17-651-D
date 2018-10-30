@@ -77,6 +77,7 @@ answers using \LaTeX\ and typecheck your answer to question 3 using {\em fuzz}, 
 phones. (HINT: Connect is different from Call; Connect establishes
 a connection among phones on an outstanding satisfiable request. Note also that you can't use the Event framing schema here because it assumes that the starting state is an efficient net.) \\
 \color{blue}
+ \textbf{did not fix}
 Did not try :(
 \color{black}
 \item Is it possible to place a call from a phone that's already
@@ -100,7 +101,7 @@ Hangup implies that a new connection will be made. Does the
 specification say which connection will be made if more than one
 is possible?
 \color{blue}
-I was unable to find this scenario, probably I did not explore enough. \\
+In case that a phone is in a connection and then multiple request are made to connect to it, but the mention connection is closed, then all the requests and connections to the mentioned phone will be removed.\\
 \color{black}
 \item If a Hangup operation is applied to a ph? that is not yet
 connected, what happens? Briefly speculate on how the
@@ -154,9 +155,15 @@ students in {\em this\/} class.
     turnedIn: STUDENTNAME \pfun \power HOMEWORK
 \where
 \color{blue}
-dom\,turnedIn \subseteq range\,student 
+(dom\,turnedIn \subseteq range\,student) \land \\
+\color{blue}
+\forall name: (range\, student) \bullet \\
+\color{blue}
+\#\{id : (dom\,student) \vert (student\, id) = name \} = 1
 \end{schema}
-
+\color{blue}
+The only limitation if this invariant is that it does not support homonyms, meaning two students with the same name, homonyms. \\
+\color{black}
 Complete the schema with an appropriate invariant.
 
 \textbf{Note:} You are not allowed to change the state variables
@@ -173,8 +180,6 @@ of $ClassRecords$? Briefly justify your answer.
   %\vspace{.65in}
   \\
   \textcolor{blue}{This can be inferred since the definition of student as $ID \pfun STUDENTNAME$ guarantees that.\\
-\\    
-    Meaning, it is not possible to map the same id to two different students.
   }
 
 \item A given student may have more than one $ID$.
@@ -203,10 +208,9 @@ initial state space is consistent with the state space invariant
 that you defined earlier.
 %\vspace{2in}
 \color{blue}
-I could not find how to init partial functions, is the intention to enroll all the students here? \\
-If that is not the case then an Empty Initializer will respect the invariant as both the $stuent$ and $turnedIn$ partial functions are empty, meaning, no range and no domain.
 \begin{schema}{InitClassRecords}
-   ClassRecords
+  ClassRecords \\
+  student = turnedIn = \emptyset 
 \where
 \color{blue}
 \end{schema}
@@ -260,8 +264,7 @@ $RAddStudent \estimates AddStudent \land AddStudentSuccess \lor AddStudentError$
   \Xi ClassRecords \\
   dead\_beats!: \mathbb{P} ID
   \where
-  \forall id : (dom student) \bullet \\
-     \#\{turnedIn(student(id)\} < 2 \land dead\_beats = dead\_beats \union {id}, student' = student \land student' = student 
+     deadbeats = \{id : dom\,student\, \vert \neg turnedIn(student(id)) \land \#\{ turnedIn(student(id) \} < 2\}
 \end{schema}
 \color{black}
 
@@ -287,6 +290,7 @@ Explain in informal terms when the status of a student is not ok.
 %\vspace{1in}
 
 \textcolor{blue}{
+  \textbf{did not fix}
   I know that this is a recursive function but I did not understand when the
   iteration stop, maybe when $\#(total \ student ) < 2$ ?
   What does the $X$ operator mean? 
