@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage{zed-csp}
+\input{handout}
+
+\begin{document}
+
+\homework{}{24 October 2016}{Homework \#9: Z Refinement}{}
+
+
+In a previous homework you developed a Z model of a class
+register. For the purposes of this homework, consider the following specification for this system:
+A teacher wants to keep a register of students in the class, and to record which students have completed their homework. \\[2ex]
+You may assume the given set $\mathit{Student}$:
+\begin{zed}
+[Student]
+\end{zed}
+
+The teacher models the state of the register by recording the
+students who have enrolled in the class and, also, those who have
+completed the homework. Naturally, only students who are enrolled
+can have completed the homework.
+\begin{schema}{Register}
+    enrolled: \power Student\\
+    completed: \power Student
+\where
+    completed \subseteq enrolled
+\end{schema}
+
+At the start of each course, no students are enrolled
+\begin{schema}{InitRegister}
+    Register
+\where
+    enrolled = \emptyset
+\end{schema}
+which has a natural consequence of $completed = \emptyset$.
+
+New students enroll in the class one at a time. Further, once
+students are enrolled in the class they cannot enroll again.
+\begin{schema}{AddStudent}
+    \Delta Register \\
+    name?: Student
+\where
+    name? \notin enrolled \\
+    enrolled' = enrolled \cup \{name?\} \\
+    completed' = completed
+\end{schema}
+The existing homework completion status is unchanged with the
+assumption that new students will complete the homework at a later
+time.
+
+Now, consider a concrete implementation of the register state
+space that represents the class register as two sequences: one
+that contains the enrolled students, and the other that is a
+sequence of $YES$ or $NO$, indicating whether the corresponding
+student has completed the course. (You may do this either using infinite sequences as modeled in Spivey's example, or using Z's built-in notion of finite sequences.)
+
+\begin{enumerate}
+\item Write a schema to model the concrete state space. Think
+carefully about the representation invariant.
+
+\item Write a schema representing the initial state for the concrete state space. Argue (informally) that the initial state satisfies the state invariant.
+
+\item Write the abstraction function (as a schema) that
+relates the concrete state space and the previously defined abstract state
+space.
+
+%\item Explain why your concrete representation is ``adequate".
+
+\item Argue that the initial state is a reasonable concrete
+representation by showing that it corresponds to the initial state
+of the abstract state space.
+
+\item Produce a concrete version of $AddStudent$.
+
+\item Argue informally (in the style of Spivey's paper, and the
+lectures slides) that this concrete operation is correct. ({\sc Hint}:
+first show ``applicability'' --- that it is defined over an
+appropriate set of concrete states; then show ``correctness'' --- that it produces
+results that are consistent with the abstract operation.)
+\end{enumerate}
+
+\noindent {\sc Note}: Question 3 asks you to define the concrete initial state and show that it is a valid instance of your concrete state space, while 4 asks you to show that this initial state is not only possible, but also corresponds to the abstract initial state space.
+
+
+\end{document}
