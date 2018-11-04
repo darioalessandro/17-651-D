@@ -1,0 +1,180 @@
+\documentclass{article}
+\usepackage{zed-csp, color, amsfonts}
+\input{handout}
+
+\begin{document}
+
+\homework{}{29 October 2018}{Homework \#9: Z Refinement}{}
+
+
+In a previous homework you developed a Z model of a class
+register. For the purposes of this homework, consider the following specification for this system:
+A teacher wants to keep a register of students in the class, and to record which students have completed their homework. \\[2ex]
+You may assume the given set $\mathit{Student}$:
+\begin{zed}
+[Student]
+\end{zed}
+
+The teacher models the state of the register by recording the
+students who have enrolled in the class and, also, those who have
+completed the homework. Naturally, only students who are enrolled
+can have completed the homework.
+\begin{schema}{Register}
+    enrolled: \power Student\\
+    completed: \power Student
+\where
+    completed \subseteq enrolled
+\end{schema}
+
+At the start of each course, no students are enrolled
+\begin{schema}{InitRegister}
+    Register
+\where
+    enrolled = \emptyset
+\end{schema}
+which has a natural consequence of $completed = \emptyset$.
+
+New students enroll in the class one at a time. Further, once
+students are enrolled in the class they cannot enroll again.
+\begin{schema}{AddStudent}
+    \Delta Register \\
+    name?: Student
+\where
+    name? \notin enrolled \\
+    enrolled' = enrolled \cup \{name?\} \\
+    completed' = completed
+\end{schema}
+The existing homework completion status is unchanged with the
+assumption that new students will complete the homework at a later
+time.
+
+Now, consider a concrete implementation of the register state
+space that represents the class register as two sequences: one
+that contains the enrolled students, and the other that is a
+sequence of $YES$ or $NO$, indicating whether the corresponding
+student has completed the course. (You may do this either using infinite sequences as modeled in Spivey's example, or using Z's built-in notion of finite sequences.)
+
+\begin{enumerate}
+\item Write a schema to model the concrete state space. Think
+  carefully about the representation invariant.
+  \color{blue}
+  \\
+  Even when in modern programming languages like go, C++ or Haskell we have the data structures required
+  to implemented the Register schema without transforming the model, I present a version of Register using array to illustrate the concept of a concrete state space. \\
+  \\
+  Once again I was victim of my inhability to read, I adjusted the types to match what is requested in the question, I would argue that my approach is also correct, but I understand that the assignement is asking for a very specific answer. \\
+  to fullfill the request we need to declare a new type to contain wether the student has completed the course or not. \\
+  \begin{zed}
+  HasCompletedTheCourse ::= Yes | No 
+\end{zed}
+  
+  \begin{schema}{Register1}
+    enrolled1:  \mathbb{N} \to Student\\
+    completed1: \mathbb{N} \to HasCompletedTheCourse \\
+    size: \mathbb{N} \\
+  \where
+  \forall i,j: 1..size \bullet i \neq j \implies enrolled1(i) \neq enrolled1(j)) 
+  \end{schema}
+  \color{black}
+\item Write a schema representing the initial state for the concrete state space. Argue (informally) that the initial state satisfies the state invariant. \\
+  \color{blue}
+  I decided to initialize both the enrolled and completed arrays to emptysets, and both sizes to 0. \\
+  This initialization meets the invariant because $completed\_size$ is equal than $enrolled\_size$, also, all elements in the enrolled sequence are different. \\
+  \begin{schema}{InitRegister1}
+    Register1
+  \where
+    enrolled1: \emptyset \\
+    completed1: \emptyset \\
+    size: 0 \\
+  \end{schema}
+  \color{black}  
+\item Write the abstraction function (as a schema) that
+relates the concrete state space and the previously defined abstract state
+space.
+\color{blue}
+  \begin{schema}{Abs}
+    Register \\
+    Register1
+  \where
+    enrolled = \{i:1..size \bullet enrolled1(i)\} \\
+    completed = \{i:1..size | completed1(i) = Yes  \bullet enrolled1(i)\}
+  \end{schema}
+  \color{black}  
+  %\item Explain why your concrete representation is ``adequate".
+  By using the filter operator ``|'' and $\bullet$ I was able to filter only the students that completed the course.\\
+  There is a 1:1 relationship between enrolled and enrolled1. \\
+\item Argue that the initial state is a reasonable concrete
+representation by showing that it corresponds to the initial state
+of the abstract state space.\\
+\color{blue}
+\begin{zed}
+Formally: InitRegister1 \land Abs \vdash InitRegister 
+\end{zed}
+
+enrolled \\
+\begin{tabular}{lll}
+=     & $\{i:1..size \bullet enrolled1(i)\}$   & [Abs] \\ 
+=     & $\{i:1..0 \bullet enrolled1(i)\}$   & [size = 0] \\
+= $\emptyset$ &  & \\
+\end{tabular}
+\\
+completed \\
+\begin{tabular}{lll}
+=     & $\{i:1..size | completed1(i) = Yes \bullet enrolled(i) \}$   & [Abs] \\ 
+=     & $\{i:1..0  | completed1(i) = Yes \bullet enrolled(i) \}$ & [size = 0] \\
+= $\emptyset$ &  & \\
+\end{tabular}
+\color{black}
+
+\item Produce a concrete version of $AddStudent$. \\
+  \color{blue}
+  \begin{schema}{AddStudent1}
+    \Delta Register1 \\
+    student?: Student
+    \where
+    \forall i:1..size \bullet student? \neq enrolled1(i) \\
+    size' = size + 1 \\
+    enrolled1' = enrolled1 \oplus \{ size' \mapsto student?\} \\
+    completed1' = completed1 \oplus \{ size' \mapsto No \} \\
+  \end{schema}
+  \color{black}
+
+\item Argue informally (in the style of Spivey's paper, and the
+lectures slides) that this concrete operation is correct. ({\sc Hint}:
+first show ``applicability'' --- that it is defined over an
+appropriate set of concrete states; then show ``correctness'' --- that it produces
+results that are consistent with the abstract operation.) \\
+\color{blue}
+Huge disclaimer: I tried to follow a very similar format than Spivey's, sometimes it felt like I was just replacing values which is always weird: \\
+\\
+The proposed AddStudent1 schema has the same inputs and outputs as AddStudent, but operates on the concrete instead of the abstract state. It is a correct implementation of AddStudent because of the following two facts:
+\begin{enumerate}
+\item Whenever AddStudent is legal in some abstract state, the implementation AddStudent1 is legal in any corresponding concrete state.
+\item The final state which results from AddStudent1 represents an abstract state which AddStudent could produce.
+\end{enumerate}
+Let us look at the reason why these two facts are true. The operation AddStudent is legal exactly if its pre-condition $student? \notin enrolled$ is satisfied, if this is so, the predicate \\
+$enrolled = \{i:1..size \bullet enrolled1(i)\}$ \\
+from Abs tell us that student? is not one of the elements enrolled1(i):
+$\forall i:1..size \bullet student? \neq enrolled(i)$ \\
+This is the precondition of AddStudent1. \\
+To prove the second fact we need to think about the concrete states before and after the execution of AddStudent1, and the abstract states they represent according to Abs. The two concrete states are related by AddStudent1, and we must show that the two abstract states are related as prescribed by AddStudent: \\
+$enrolled' = enrolled \union \{student?\}$ \\
+
+The domains of these two functions are the same, because \\
+\\
+completed'\\
+\begin{tabular}{lll}
+$= completed$ & & (invariant after)\\
+$= \{i:1..size' | completed1(i) = True \bullet enrolled(i) \}$ & & (from Abs') \\
+$=$ completed \\ 
+\end{tabular}
+\\
+
+\end{enumerate}
+
+\color{black}
+
+\noindent {\sc Note}: Question 3 asks you to define the concrete initial state and show that it is a valid instance of your concrete state space, while 4 asks you to show that this initial state is not only possible, but also corresponds to the abstract initial state space.
+
+
+\end{document}

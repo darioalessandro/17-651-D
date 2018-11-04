@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{zed-csp}
+\input{handout}
+
+\begin{document}
+
+\homework{}{31 October 2016}{Homework \#10: Concurrency}{}
+
+\begin{enumerate}
+
+\item Traces and Specifications:
+
+\begin{enumerate}
+\item Enumerate the traces for the following process \verb"P":
+\begin{verbatim}
+ P = (a -> a -> END | b -> a -> END).
+\end{verbatim}
+
+\item Enumerate the traces for the following process \verb"P":
+\begin{verbatim}
+ P1 = (a -> a -> END).
+ P2 = (a -> b -> END | a -> c -> END).
+ ||P = (P1 || P2).
+\end{verbatim}
+\end{enumerate}
+
+\item More Concurrency:
+
+Consider the two processes \texttt{STUDENT} and \texttt{TEACHER}, where
+\begin{align*}
+    \alpha\ \mathtt{STUDENT} &= \{\mathtt{do\_hw}, \mathtt{hand\_in}, \mathtt{pass}, \mathtt{fail}, \mathtt{cheer}, \mathtt{curse}\} \\
+    \alpha\ \mathtt{TEACHER} &= \{\mathtt{hand\_in}, \mathtt{grade}, \mathtt{pass}, \mathtt{fail}, \mathtt{grumble}\}
+\end{align*}
+The student repeatedly does her homework, hands it in, and gets a pass or fail---cheering when she
+passes and cursing when she fails. The teacher repeatedly collects the homework, grades it, and then assigns a pass or
+fail grade---grumbling after any time that he has to give out a failing grade.
+
+\begin{enumerate}
+\item Write an FSP process that characterizes the student and show a diagram that indicates its
+behavior.
+
+\item Write an FSP process that characterizes the teacher and show a diagram that indicates its
+behavior.
+
+\item Produce an LTS graph for \texttt{STUDENT || TEACHER}.
+
+\item What happens to this process if we augment \texttt{STUDENT}'s alphabet with the \texttt{grumble} event and
+have her grumble before doing her homework? Why does this occur?
+
+\item If your answer to the previous question involves deadlock, list
+two ways that you might change the definition to avoid this
+unintended problem. ({\sc Note}: You may not change the order in which events happen. For example, do not move the student's \texttt{grumble} event after her \texttt{hand\_in} event. Preserve the intended behavior of the model.)
+\end{enumerate}
+
+\item Exercises Based on MK06
+
+Consider the model of the client--server system described in section~3.1.4 of MK06.
+\begin{enumerate}
+\item Extend the model of the client--server system so that more than one client can use the server. Your model should support an arbitrary number of clients (\texttt{N}).
+
+\item Modify your new model of the client--server system so that a client's call may terminate with a \texttt{timeout} action rather than a response from the server. (Do not modify the server process.) What condition results from this modification?
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
