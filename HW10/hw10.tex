@@ -1,6 +1,6 @@
 \documentclass{article}
 \usepackage{amsmath}
-\usepackage{zed-csp}
+\usepackage{zed-csp, graphicx}
 \input{handout}
 
 \begin{document}
@@ -16,6 +16,8 @@
 \begin{verbatim}
  P = (a -> a -> END | b -> a -> END).
 \end{verbatim}
+$traces == $
+$ \{ \langle a, a \rangle, \langle b, a \rangle, \langle a \rangle, \langle b \rangle \} $ \\
 
 \item Enumerate the traces for the following process \verb"P":
 \begin{verbatim}
@@ -23,6 +25,9 @@
  P2 = (a -> b -> END | a -> c -> END).
  ||P = (P1 || P2).
 \end{verbatim}
+$traces ==  \{ \langle a, b \rangle, \langle a,c \rangle \} $ \\
+\\
+It is important to mention that P1 seems to always deadlock as it requires 2 $a$ actions to reach the $END$ but P2 can only go through 1 a per run. \\
 \end{enumerate}
 
 \item More Concurrency:
@@ -38,10 +43,29 @@ fail grade---grumbling after any time that he has to give out a failing grade.
 
 \begin{enumerate}
 \item Write an FSP process that characterizes the student and show a diagram that indicates its
-behavior.
+  behavior. \\
+\begin{verbatim}
+STUDENT = (do_hw -> hand_in -> STUDENT_SEND),
+
+STUDENT_SEND = (pass -> cheer -> STUDENT | fail -> curse -> STUDENT).  
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=3in]{STUDENT.png}
+\end{center}
 
 \item Write an FSP process that characterizes the teacher and show a diagram that indicates its
-behavior.
+  behavior. \\
+
+\begin{verbatim}
+TEACHER = (hand_in->grade->TEACHER_GRADE_RESULT),
+
+TEACHER_GRADE_RESULT = (pass -> TEACHER | fail -> grumble -> TEACHER).
+\end{verbatim}
+
+\begin{center}
+\includegraphics[width=3in]{TEACHER.png}
+\end{center}  
 
 \item Produce an LTS graph for \texttt{STUDENT || TEACHER}.
 
