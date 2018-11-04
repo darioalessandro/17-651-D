@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 NOV 2018 01:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  4 NOV 2018 12:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -268,27 +268,116 @@ File: TEACHER.png Graphic file (type png)
 <use TEACHER.png>
 Package pdftex.def Info: TEACHER.png  used on input line 67.
 (pdftex.def)             Requested size: 216.81pt x 100.43942pt.
-[2 <./STUDENT.png> <./TEACHER.png>] (./hw10.aux) ) 
+<TEACHER_STUDENT.png, id=15, 852.18375pt x 450.68375pt>
+File: TEACHER_STUDENT.png Graphic file (type png)
+<use TEACHER_STUDENT.png>
+Package pdftex.def Info: TEACHER_STUDENT.png  used on input line 73.
+(pdftex.def)             Requested size: 361.34999pt x 191.10825pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--79
+
+ []
+
+<DEADLOCK.png, id=16, 381.425pt x 210.7875pt>
+File: DEADLOCK.png Graphic file (type png)
+<use DEADLOCK.png>
+Package pdftex.def Info: DEADLOCK.png  used on input line 83.
+(pdftex.def)             Requested size: 252.94499pt x 139.78596pt.
+[2 <./STUDENT.png> <./TEACHER.png> <./TEACHER_STUDENT.png>]
+<DEADLOCK2.png, id=23, 1248.665pt x 757.83125pt>
+File: DEADLOCK2.png Graphic file (type png)
+<use DEADLOCK2.png>
+Package pdftex.def Info: DEADLOCK2.png  used on input line 87.
+(pdftex.def)             Requested size: 361.34999pt x 219.30289pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 94--97
+
+ []
+
+<student_grumble.png, id=24, 998.73125pt x 312.16624pt>
+File: student_grumble.png Graphic file (type png)
+<use student_grumble.png>
+Package pdftex.def Info: student_grumble.png  used on input line 98.
+(pdftex.def)             Requested size: 433.62pt x 135.534pt.
+
+Overfull \hbox (25.00003pt too wide) in paragraph at lines 98--99
+ [] 
+ []
+
+[3 <./DEADLOCK.png> <./DEADLOCK2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 115--116
+
+ []
+
+<CLIENT_SERVER_N2.png, id=32, 1489.565pt x 758.835pt>
+File: CLIENT_SERVER_N2.png Graphic file (type png)
+<use CLIENT_SERVER_N2.png>
+Package pdftex.def Info: CLIENT_SERVER_N2.png  used on input line 117.
+(pdftex.def)             Requested size: 433.62pt x 220.90178pt.
+
+Overfull \hbox (47.00003pt too wide) in paragraph at lines 117--118
+ [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 119--120
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--125
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 120--125
+
+ []
+
+[4 <./student_grumble.png> <./CLIENT_SERVER_N2.png>]
+<CLIENT_WITH_ERROR_HANDLING.png, id=38, 1167.36125pt x 601.24625pt>
+File: CLIENT_WITH_ERROR_HANDLING.png Graphic file (type png)
+<use CLIENT_WITH_ERROR_HANDLING.png>
+Package pdftex.def Info: CLIENT_WITH_ERROR_HANDLING.png  used on input line 133
+.
+(pdftex.def)             Requested size: 252.94499pt x 130.27458pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
+
+ []
+
+[5 <./CLIENT_WITH_ERROR_HANDLING.png>] (./hw10.aux) ) 
 Here is how much of TeX's memory you used:
- 2601 strings out of 492649
- 32625 string characters out of 6129622
+ 2631 strings out of 492649
+ 33304 string characters out of 6129622
  99540 words of memory out of 5000000
- 6452 multiletter control sequences out of 15000+600000
+ 6476 multiletter control sequences out of 15000+600000
  8111 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,9n,29p,275b,324s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf
--dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on hw10.pdf (2 pages, 98905 bytes).
+ 41i,9n,29p,278b,328s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2018/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on hw10.pdf (5 pages, 370199 bytes).
 PDF statistics:
- 44 PDF objects out of 1000 (max. 8388607)
- 28 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

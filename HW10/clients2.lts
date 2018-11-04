@@ -1,0 +1,10 @@
+SERVER = (request->service->reply->SERVER).
+
+CLIENT = (call->ROBUST_CLIENT),
+
+ROBUST_CLIENT = (wait->continue->CLIENT
+                | timeout->ERROR).
+
+||CLIENTS(N=1) =(forall[i:1..N] s[i]:CLIENT).
+    
+||CLIENT_SERVER = (CLIENTS(1) || SERVER)/{call/request, reply/wait}. 

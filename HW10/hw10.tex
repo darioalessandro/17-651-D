@@ -69,21 +69,71 @@ TEACHER_GRADE_RESULT = (pass -> TEACHER | fail -> grumble -> TEACHER).
 
 \item Produce an LTS graph for \texttt{STUDENT || TEACHER}.
 
+\begin{center}
+\includegraphics[width=5in]{TEACHER_STUDENT.png}
+\end{center}
+
+  
 \item What happens to this process if we augment \texttt{STUDENT}'s alphabet with the \texttt{grumble} event and
-have her grumble before doing her homework? Why does this occur?
+have her grumble before doing her homework? Why does this occur? \\
+
+$TEACHER\_STUDENT$ will deadlock because STUDENT will get stuck in grumble waiting for TEACHER to grumble, but TEACHER will get stuck waiting for the student to hand in the homework. 
+
+\begin{center}
+\includegraphics[width=3.5in]{DEADLOCK.png}
+\end{center}
+LTSA presents a nice warning message when executing the composition: 
+\begin{center}
+\includegraphics[width=5in]{DEADLOCK2.png}
+\end{center}
 
 \item If your answer to the previous question involves deadlock, list
 two ways that you might change the definition to avoid this
 unintended problem. ({\sc Note}: You may not change the order in which events happen. For example, do not move the student's \texttt{grumble} event after her \texttt{hand\_in} event. Preserve the intended behavior of the model.)
-\end{enumerate}
+\end{enumerate} 
+1. Rename STUDENT grumble to $student_grumble$ so that it does not block the TEACHER state machine. \\
+2. Renable TEACHER grumble to $teacher_grumble$ so that it does not block the STUDENT state machine. \\
+This is an example of the graph renaming STUDENT grumble to $student_grumble$: \\
+\begin{center}
+\includegraphics[width=6in]{student_grumble.png}
+\end{center}
 
 \item Exercises Based on MK06
 
 Consider the model of the client--server system described in section~3.1.4 of MK06.
 \begin{enumerate}
-\item Extend the model of the client--server system so that more than one client can use the server. Your model should support an arbitrary number of clients (\texttt{N}).
+\item Extend the model of the client--server system so that more than one client can use the server. Your model should support an arbitrary number of clients (\texttt{N}). \\
+\begin{verbatim}
+CLIENT = (call->wait->continue->CLIENT).
 
-\item Modify your new model of the client--server system so that a client's call may terminate with a \texttt{timeout} action rather than a response from the server. (Do not modify the server process.) What condition results from this modification?
+SERVER = (request->service->reply->SERVER).
+
+||CLIENTS(N=3) =(forall[i:1..N] s[i]:CLIENT).
+    
+||CLIENT_SERVER = (CLIENTS(2) || SERVER).
+\end{verbatim}
+Graph for CLIENTS N = 2 \\
+\begin{center}
+\includegraphics[width=6in]{CLIENT_SERVER_N2.png}
+\end{center}
+I could not figure out how to use labeling to synchronize the two state machines, MK06 does not cover how to do so when the processes are created through a set comprehension. \\
+\item Modify your new model of the client--server system so that a client's call may terminate with a \texttt{timeout} action rather than a response from the server. (Do not modify the server process.) What condition results from this modification? \\
+\\
+My assumption is that if there's a timeout, the client will terminate as opposed to sending another request. \\
+\\
+The condition that results is a more realistic implementation of the client server model by incorporating a primitive error handling. \\
+  
+\begin{verbatim}
+CLIENT = (call->ROBUST_CLIENT),
+
+ROBUST_CLIENT = (wait->continue->CLIENT
+                | timeout->ERROR).
+\end{verbatim}
+\begin{center}
+\includegraphics[width=3.5in]{CLIENT_WITH_ERROR_HANDLING.png}
+\end{center}
+Notice that there are some actions that are not possible, for example, that the server gets the request before the client sends it, I could not find a way to silence or remove those actions using the proper labeling to synchronize the two state machines. \\
+
 \end{enumerate}
 \end{enumerate}
 
