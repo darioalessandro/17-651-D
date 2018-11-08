@@ -1,4 +1,0 @@
-STUDENT = (grumble -> do_hw -> hand_in-> (pass-> cheer -> STUDENT | fail -> curse -> STUDENT)).
-TEACHER = (hand_in->grade->(pass -> TEACHER | fail -> grumble -> TEACHER)).
-
-||TEACHER_STUDENT = (STUDENT || TEACHER).
