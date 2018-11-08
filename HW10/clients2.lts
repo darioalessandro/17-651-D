@@ -1,10 +1,10 @@
-SERVER = (request->service->reply->SERVER).
+const N = 2
 
-CLIENT = (call->ROBUST_CLIENT),
+CLIENT = (call->(wait->continue->CLIENT
+                 | timeout->ERROR)).                                                    
+                                                                                              
+SERVER = (request->service->reply->SERVER).                                                   
 
-ROBUST_CLIENT = (wait->continue->CLIENT
-                | timeout->ERROR).
+||CLIENTS(M = 1) = (forall[i:1..M] s[i]:CLIENT). 
 
-||CLIENTS(N=1) =(forall[i:1..N] s[i]:CLIENT).
-    
-||CLIENT_SERVER = (CLIENTS(1) || SERVER)/{call/request, reply/wait}. 
+||CLIENT_SERVER = (CLIENTS(N) || SERVER)/{{s[1..N]}.call/request, {s[1..N]}.wait/reply}.

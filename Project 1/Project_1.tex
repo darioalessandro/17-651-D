@@ -46,14 +46,44 @@ LTSA simulation capabilities. Once you are familiar with it, answer
 the following questions in your project write-up:
 
 \begin{enumerate}
-    \item What is the alphabet of the state machine?
-    \item List two traces of the pump, each at least 4 actions in length.
-    \item In contrast to the specification of an infusion pump in homework 6, how does this specification model the fact that     the pump might run out of liquid?
-    \item Is it possible to ever dispense medication without setting the rate?  Why or why not? If your answer is yes, provide a trace that justifies your answer.
-    \item Is it ever possible for the flow to become blocked and have the alarm not sound at all?  Why or why not? If your answer is yes, provide a trace that justifies your answer.
-    \item If the pump is locked and dispensing, without unlocking or becoming blocked, will the pump ever stop dispensing? If your answer is yes, provide a trace that justifies your answer.
-    \item If the pump is locked and dispensing, is it possible for the \emph{patient} to alter the medicine he is receiving? If your answer is yes, provide a trace that justifies your answer.
-    \item Does this version have any behavior that you feel is inconsistent with the pump specification? Could it be fixed?
+    \item What is the alphabet of the state machine? \\
+      $\{change\_settings, clear\_rate, confirm\_settings, connect\_set, dispense\_main\_med\_flow, enter\_value,$ \\
+      $erase\_and\_unlock\_line, flow\_blocked, flow\_unblocked, lock\_line, lock\_unit, plug\_in, press\_cancel,$\\
+      $press\_set, purge\_air, set\_rate, silence\_alarm, sound\_alarm, turn\_off, turn\_on, unlock\_unit, unplug \}$
+
+    \item List two traces of the pump, each at least 4 actions in length. \\
+$\langle plug\_in, turn\_on, set\_rate, enter\_value \rangle$ \\
+$\langle plug\_in, turn\_on, turn\_off, un\_plug \rangle$
+    \item In contrast to the specification of an infusion pump in homework 6, how does this specification model the fact that     the pump might run out of liquid? \\
+      \\
+      This specification models the fact that the pump might run out of liquid the same way it models the blocked line. In either case the system will raise the alarm.
+
+    \item Is it possible to ever dispense medication without setting the rate?  Why or why not? If your answer is yes, provide a trace that justifies your answer. \\
+No, it is not possible to dispense medicine without setting the rate. This is because once the user turns on the pump using the action $turn\_on$, they only have the options to either unplug, $turn\_off$ or $set\_rate$. So in order to move ahead and start the infusion, they must set the rate using the action $set\_rate$. \\
+A trace depicting this:\\
+$\langle plug\_in, turn\_on, set\_rate, enter\_value, press\_set, connect\_set, purge\_air, lock\_line, confirm\_settings,$\\ $lock\_unit, dispense\_main\_med\_flow, dispense\_main\_med\_flow, ... \rangle$
+      
+\item Is it ever possible for the flow to become blocked and have the alarm not sound at all?  Why or why not? If your answer is yes, provide a trace that justifies your answer. \\
+No, it is not possible for the flow to become blocked and have the alarm not sound at all. This is because once the flow is blocked using the action $flow\_blocked$, there is only one possible action which is sound alarm. \\
+A trace depicting this:\\
+$\langle plug\_in, turn\_on, set\_rate, enter\_value, press\_set, connect\_set, purge\_air, lock\_line, confirm \_settings,$\\ $lock\_unit, dispense\_main\_med\_flow, flow\_blocked, sound\_alarm \rangle$
+  
+  
+\item If the pump is locked and dispensing, without unlocking or becoming blocked, will the pump ever stop dispensing? If your answer is yes, provide a trace that justifies your answer. \\
+Yes, the infusion could stop dispensing once it is locked and dispensing if it is turned off or unplugged. However, it is not turned off or unplugged, it would could dispensing.\\
+The following is a trace depicting it being turned off:\\
+
+$\langle plug\_in, turn\_on, set\_rate, enter\_value, press\_set, connect\_set, purge\_air, lock\_line, confirm\_settings,$\\ $lock\_unit, turn\_off \rangle$
+  
+\item If the pump is locked and dispensing, is it possible for the \emph{patient} to alter the medicine he is receiving? If your answer is yes, provide a trace that justifies your answer.\\
+The answer is yes. The following is a trace depicting: \\
+$\langle plug\_in, turn\_on, set\_rate, enter\_value, press\_set, connect\_set, purge\_air, lock\_line, confirm\_settings,$\\ $lock\_unit, dispense\_main\_med\_flow, unlock\_unit, change\_settings, confirm\_settings, dispense\_main\_med\_flow \rangle$
+  
+\item Does this version have any behavior that you feel is inconsistent with the pump specification? Could it be fixed? \\  
+One inconsistency could be the fact that the only way to stop the infusion pump is to turn off the pump, which is inconsistent with the intended design of the pump.
+\\
+If we were to add a Hold function that could pause the infusion, and then the pump could move to a Hold state.\\
+
 \end{enumerate}
 
 %___________________________________________________________________________________________________

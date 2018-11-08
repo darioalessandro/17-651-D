@@ -104,35 +104,45 @@ Consider the model of the client--server system described in section~3.1.4 of MK
 \begin{enumerate}
 \item Extend the model of the client--server system so that more than one client can use the server. Your model should support an arbitrary number of clients (\texttt{N}). \\
 \begin{verbatim}
-CLIENT = (call->wait->continue->CLIENT).
+const N = 2
 
-SERVER = (request->service->reply->SERVER).
+CLIENT = (call->wait->continue->CLIENT).                                                      
+                                                                                              
+SERVER = (request->service->reply->SERVER).                                                   
 
-||CLIENTS(N=3) =(forall[i:1..N] s[i]:CLIENT).
-    
-||CLIENT_SERVER = (CLIENTS(2) || SERVER).
+||CLIENTS(M = 1) = (forall[i:1..M] s[i]:CLIENT). 
+
+||CLIENT_SERVER = (CLIENTS(N) || SERVER)/{{s[1..N]}.call/request, {s[1..N]}.wait/reply}.
 \end{verbatim}
 Graph for CLIENTS N = 2 \\
 \begin{center}
 \includegraphics[width=6in]{CLIENT_SERVER_N2.png}
 \end{center}
-I could not figure out how to use labeling to synchronize the two state machines, MK06 does not cover how to do so when the processes are created through a set comprehension. \\
+
 \item Modify your new model of the client--server system so that a client's call may terminate with a \texttt{timeout} action rather than a response from the server. (Do not modify the server process.) What condition results from this modification? \\
 \\
 My assumption is that if there's a timeout, the client will terminate as opposed to sending another request. \\
 \\
-The condition that results is a more realistic implementation of the client server model by incorporating a primitive error handling. \\
+The condition that results is a more realistic implementation of the client server model by incorporating a primitive error scenario. \\
   
 \begin{verbatim}
-CLIENT = (call->ROBUST_CLIENT),
+const N = 1
 
-ROBUST_CLIENT = (wait->continue->CLIENT
-                | timeout->ERROR).
+CLIENT = (call->(wait->continue->CLIENT
+                 | timeout->ERROR)).                                                    
+                                                                                              
+SERVER = (request->service->reply->SERVER).                                                   
+
+||CLIENTS(M = 1) = (forall[i:1..M] s[i]:CLIENT). 
+
+||CLIENT_SERVER = (CLIENTS(N) || SERVER)/{{s[1..N]}.call/request, {s[1..N]}.wait/reply}.
 \end{verbatim}
 \begin{center}
 \includegraphics[width=3.5in]{CLIENT_WITH_ERROR_HANDLING.png}
 \end{center}
-Notice that there are some actions that are not possible, for example, that the server gets the request before the client sends it, I could not find a way to silence or remove those actions using the proper labeling to synchronize the two state machines. \\
+\begin{center}
+\includegraphics[width=3.5in]{CLIENT_WITH_ERROR_HANDLING_2.png}
+\end{center}
 
 \end{enumerate}
 \end{enumerate}

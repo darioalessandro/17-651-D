@@ -6,4 +6,4 @@ SERVER = (request->service->reply->SERVER).
 
 ||CLIENTS(M = 1) = (forall[i:1..M] s[i]:CLIENT). 
 
-||CLIENT_SERVER = (CLIENTS(N) || SERVER)/{{s[1], s[2]}.call/request, {s[1],s[2]}.wait/reply}.
+||CLIENT_SERVER = (CLIENTS(N) || SERVER)/{{s[1..N]}.call/request, {s[1..N]}.wait/reply}.
