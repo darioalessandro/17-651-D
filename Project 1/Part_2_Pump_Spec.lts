@@ -20,7 +20,7 @@ menu UserControlMenu = {
     dispense_main_med_flow, enter_value, erase_and_unlock_line,
     flow_unblocked, sound_alarm, lock_unit, plug_in, press_cancel, 
     press_set, set_rate, silence_alarm, turn_off, unlock_unit, unplug,
-    flow_blocked
+    flow_blocked, check_charge, auto_switch
 }
 
 //======================
@@ -72,7 +72,23 @@ UNPLUGGED =
 
 POWER_OFF = 
 (
-    turn_on -> SETUP[ParamsNotSet][LineUnlocked]
+    turn_on -> PUMP_CHARGE
+
+),
+
+// check_charge checks if pump has enough charge at any point.
+// If there is not enough charge, it turns on backup supply(battery mode)using auto switch
+// If there is enough charge it continues to SETUP
+PUMP_CHARGE=
+(
+	check_charge -> SETUP[ParamsNotSet][LineUnlocked]
+    |
+    check_charge -> BACKUP_SUPPLY
+),
+
+BACKUP_SUPPLY =
+(
+ auto_switch -> POWER_OFF
 ),
 
 //
