@@ -11,6 +11,10 @@
 //   just plugged in.
 //
 
+// The second version of the infusion pump includes the following features:
+// - The 3 types of audio alarms (Insistent, Non-insistent, Continuous alarms)
+// - Using the pump on battery - internal rechargeable battery 
+
 //
 // Set of actions that the user of the LTSA tool can control in an
 // animation of this model.
@@ -20,7 +24,8 @@ menu UserControlMenu = {
     dispense_main_med_flow, enter_value, erase_and_unlock_line,
     flow_unblocked, sound_alarm, lock_unit, plug_in, press_cancel, 
     press_set, set_rate, silence_alarm, turn_off, unlock_unit, unplug,
-    flow_blocked
+    flow_blocked, low_battery, alarm_system_fail, set_ac_power, 
+    set_battery_power, ac_power_fail, recover_ac_power
 }
 
 //======================
@@ -29,11 +34,11 @@ menu UserControlMenu = {
 
 //
 // States of the pump alarm
-//
-const AlarmActivated = 0    // Alarm currently active
-const AlarmSilenced  = 1    // Alarm currently inactive
-
-range AlarmStateT = AlarmActivated .. AlarmSilenced
+// 0 Silenced
+// 1 = Insistent alarm - E.g. flow blocked 
+// 2 = Non-insistent alarm - E.g low battery
+// 3 = Continuous alarm - 
+range AlarmStateT = 0 .. 3
 
 //
 // States of the pump settings
@@ -59,6 +64,11 @@ const UnitLocked   = 7  // the keypad of the pump is locked
 
 range UnitLockStateT = UnitUnlocked .. UnitLocked
 
+const CordConnected    = 8 // the cord of the pump is connected to a suitable AC
+const CordNotConnected = 9 // the cord of the pump is not connected to a suitable AC
+
+range CordConnectedStateT = CordConnected .. CordNotConnected
+
 //=====================
 // Process Definitions
 //=====================
@@ -72,15 +82,26 @@ UNPLUGGED =
 
 POWER_OFF = 
 (
-    turn_on -> SETUP[ParamsNotSet][LineUnlocked]
+    turn_on -> AC_BATTERY_POWER[CordConnected]
+),
+
+AC_BATTERY_POWER[power:CordConnectedStateT] =
+(
+    when(power == CordConnected)
+        set_ac_power -> SETUP[ParamsNotSet][LineUnlocked][power]
+    |
+    when(power == CordNotConnected)
+        set_battery_power -> SETUP[ParamsNotSet][LineUnlocked][power]
 ),
 
 //
 // Pump in setup mode:
 // - Once required pump parameters (just rate in this case) are set,
 //   physical connections can be made and line can be locked
+// - In case of low battery, we call low_battery (example of Non-insistent alarm)°
+// - if the alarm system fails, we call alarm_system_fail (example of continuous alarm)
 //
-SETUP[params:ParamsStateT][lineLock:LineLockStateT] = 
+SETUP[params:ParamsStateT][lineLock:LineLockStateT][power:CordConnectedStateT]  = 
 (
     unplug -> UNPLUGGED
     |
@@ -88,21 +109,31 @@ SETUP[params:ParamsStateT][lineLock:LineLockStateT] =
     |
     when (params == ParamsNotSet && lineLock == LineUnlocked)
         set_rate -> enter_value ->
-            (press_set -> SETUP[ParamsSet][lineLock]
+            (press_set -> SETUP[ParamsSet][lineLock][power]
              |
-             press_cancel -> SETUP[ParamsNotSet][lineLock])
+             press_cancel -> SETUP[ParamsNotSet][lineLock][power])
     |
     when (params == ParamsSet && lineLock == LineUnlocked)
-        clear_rate -> SETUP[ParamsNotSet][lineLock]
+        clear_rate -> SETUP[ParamsNotSet][lineLock][power]
     |
     when (params == ParamsSet && lineLock == LineUnlocked)
-        connect_set -> purge_air -> lock_line -> SETUP[params][LineLocked]
+        connect_set -> purge_air -> lock_line -> SETUP[params][LineLocked][power]
     |
     when (lineLock == LineLocked)
-        confirm_settings -> INFUSION[UnitUnlocked]
+        confirm_settings -> INFUSION[UnitUnlocked][power]
     |
     when (lineLock == LineLocked)
-        erase_and_unlock_line -> SETUP[params][LineUnlocked]
+        erase_and_unlock_line -> SETUP[params][LineUnlocked][power]
+    |
+    when (power == CordConnected)                             // If the cord is connected and the AC power fails, switch to the battery
+        ac_power_fail -> AC_BATTERY_POWER[CordNotConnected]
+    |
+    when (power == CordNotConnected)                          // If the pump is using the battery, we can switch to the AC power
+        recover_ac_power -> AC_BATTERY_POWER[CordConnected]
+    |
+    low_battery -> NON_INSISTENT_ALARM                        // at any time, we can have a non insistent alarm
+    |
+    alarm_system_fail -> CONTINUOUS_ALARM                     // at any time, we can have a continuous alarm
 ),
 
 //
@@ -111,41 +142,69 @@ SETUP[params:ParamsStateT][lineLock:LineLockStateT] =
 // - Allow the user to lock/unlock the unit
 // - Errors could occur with the pump (e.g., line became pinched or plugged)
 //
-INFUSION[unitLock:UnitLockStateT] =
+INFUSION[unitLock:UnitLockStateT][power:CordConnectedStateT] =
 (
     unplug -> UNPLUGGED
     |
     turn_off -> POWER_OFF
     |
     when (unitLock == UnitUnlocked)
-        change_settings -> SETUP[ParamsSet][LineLocked]
+        change_settings -> SETUP[ParamsSet][LineLocked][power]
     |
     when (unitLock == UnitUnlocked)
-        lock_unit -> INFUSION[UnitLocked]
+        lock_unit -> INFUSION[UnitLocked][power]
     |
     when (unitLock == UnitLocked)
-        unlock_unit -> INFUSION[UnitUnlocked]
+        unlock_unit -> INFUSION[UnitUnlocked][power]
     |
-    dispense_main_med_flow -> INFUSION[unitLock]
+    dispense_main_med_flow -> INFUSION[unitLock][power]
     |
-    flow_blocked -> sound_alarm -> INFUSION_BLOCKED[unitLock][AlarmActivated]
+    flow_blocked -> sound_alarm[1] -> INFUSION_BLOCKED[unitLock][1][power]
+    |
+    low_battery -> NON_INSISTENT_ALARM                           // at any time, we can have a non insistent alarm
+    |
+    alarm_system_fail -> CONTINUOUS_ALARM                        // at any time, we can have a continuous alarm
 ),
 
 //
 // Pump stuck (medication flow suspended)
 //
-INFUSION_BLOCKED[unitLock:UnitLockStateT][alarm:AlarmStateT] =
+INFUSION_BLOCKED[unitLock:UnitLockStateT][alarm:AlarmStateT][power:CordConnectedStateT] =
 (
     unplug -> UNPLUGGED
     |
     turn_off -> POWER_OFF
     |
-    when (alarm == AlarmActivated)
-        sound_alarm -> INFUSION_BLOCKED[unitLock][alarm]
+    when (alarm == 1)
+        sound_alarm[alarm] -> INFUSION_BLOCKED[unitLock][alarm][power]
     |
-    when (alarm == AlarmActivated)
-        silence_alarm -> INFUSION_BLOCKED[unitLock][AlarmSilenced]
+    when (alarm == 1)
+        silence_alarm -> INFUSION_BLOCKED[unitLock][0][power]
     |
-    flow_unblocked -> INFUSION[unitLock]
+    //when (alarm == 2)
+     //   sound_alarm[alarm] -> INFUSION_BLOCKED[unitLock][alarm]
+    //|
+    //when (alarm == 2)
+     //   silence_alarm -> INFUSION_BLOCKED[unitLock][0]
+    //|
+    flow_unblocked -> INFUSION[unitLock][power]
+),
+
+NON_INSISTENT_ALARM =
+(
+    sound_alarm[2] -> NON_INSISTENT_ALARM
+    |
+    unplug -> UNPLUGGED
+    |
+    turn_off -> POWER_OFF
+),
+
+CONTINUOUS_ALARM =
+(
+    sound_alarm[3] -> CONTINUOUS_ALARM
+    |
+    unplug -> UNPLUGGED
+    |
+    turn_off -> POWER_OFF
 ).
 
