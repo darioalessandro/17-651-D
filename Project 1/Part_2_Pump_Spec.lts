@@ -38,7 +38,12 @@ menu UserControlMenu = {
 // 1 = Insistent alarm - E.g. flow blocked 
 // 2 = Non-insistent alarm - E.g low battery
 // 3 = Continuous alarm - 
-range AlarmStateT = 0 .. 3
+
+const Silenced = 0
+const InsistentAlarm = 1
+const NonInsistentAlarm = 2
+const ContinuousAlarm = 3
+range AlarmStateT = Silenced .. ContinuousAlarm
 
 //
 // States of the pump settings
@@ -159,7 +164,7 @@ INFUSION[unitLock:UnitLockStateT][power:CordConnectedStateT] =
     |
     dispense_main_med_flow -> INFUSION[unitLock][power]
     |
-    flow_blocked -> sound_alarm[1] -> INFUSION_BLOCKED[unitLock][1][power]
+    flow_blocked -> sound_alarm[InsistentAlarm] -> INFUSION_BLOCKED[unitLock][InsistentAlarm][power]
     |
     low_battery -> NON_INSISTENT_ALARM                           // at any time, we can have a non insistent alarm
     |
@@ -175,24 +180,18 @@ INFUSION_BLOCKED[unitLock:UnitLockStateT][alarm:AlarmStateT][power:CordConnected
     |
     turn_off -> POWER_OFF
     |
-    when (alarm == 1)
+    when (alarm == InsistentAlarm)
         sound_alarm[alarm] -> INFUSION_BLOCKED[unitLock][alarm][power]
     |
-    when (alarm == 1)
-        silence_alarm -> INFUSION_BLOCKED[unitLock][0][power]
+    when (alarm == InsistentAlarm)
+        silence_alarm -> INFUSION_BLOCKED[unitLock][Silenced][power]
     |
-    //when (alarm == 2)
-     //   sound_alarm[alarm] -> INFUSION_BLOCKED[unitLock][alarm]
-    //|
-    //when (alarm == 2)
-     //   silence_alarm -> INFUSION_BLOCKED[unitLock][0]
-    //|
     flow_unblocked -> INFUSION[unitLock][power]
 ),
 
 NON_INSISTENT_ALARM =
 (
-    sound_alarm[2] -> NON_INSISTENT_ALARM
+    sound_alarm[NonInsistentAlarm] -> NON_INSISTENT_ALARM
     |
     unplug -> UNPLUGGED
     |
@@ -201,7 +200,7 @@ NON_INSISTENT_ALARM =
 
 CONTINUOUS_ALARM =
 (
-    sound_alarm[3] -> CONTINUOUS_ALARM
+    sound_alarm[ContinuousAlarm] -> CONTINUOUS_ALARM
     |
     unplug -> UNPLUGGED
     |
