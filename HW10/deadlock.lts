@@ -1,0 +1,10 @@
+STUDENT = (student.grumble -> do_hw -> hand_in -> STUDENT_SEND),
+       
+STUDENT_SEND = (pass -> cheer -> STUDENT | fail -> curse -> STUDENT).
+
+TEACHER = (hand_in->grade->TEACHER_GRADE_RESULT),
+
+TEACHER_GRADE_RESULT = (pass -> TEACHER | fail -> teacher.grumble -> TEACHER).
+
+||RESULT = (STUDENT || TEACHER).
+
