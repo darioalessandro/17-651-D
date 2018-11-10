@@ -73,7 +73,8 @@ $\langle plug\_in, turn\_on, set\_rate, enter\_value, press\_set, connect\_set, 
 Yes, the infusion could stop dispensing once it is locked and dispensing if it is turned off or unplugged. However, it is not turned off or unplugged, it would could dispensing.\\
 The following is a trace depicting it being turned off:\\
 
-$\langle plug\_in, turn\_on, set\_rate, enter\_value, press\_set, connect\_set, purge\_air, lock\_line, confirm\_settings,$\\ $lock\_unit, turn\_off \rangle$
+$\langle plug\_in, turn\_on, set\_rate, enter\_value, press\_set, connect\_set, purge\_air, lock\_line, confirm\_settings,$\\
+$lock\_unit, turn\_off \rangle$
   
 \item If the pump is locked and dispensing, is it possible for the \emph{patient} to alter the medicine he is receiving? If your answer is yes, provide a trace that justifies your answer.\\
 The answer is yes. The following is a trace depicting: \\
@@ -117,7 +118,13 @@ briefly explain why you answered it in the way you did, based on
 explain why. (Note: Reference certain parts of your specification that address features, ambiguities, or errors in each question.)
 
 \begin{enumerate}
-    \item Which aspects of the pump did you choose to model, and which did you choose to leave out?
+\item Which aspects of the pump did you choose to model, and which did you choose to leave out? \\
+  We took the existing fsp model as a start point and added the following features: \\
+  \begin{enumerate}
+  \item Added hold button.
+  \item Added better error handling: in particular, distinguish between blocked line and out of liquid.
+    \item TODO: add more.
+  \end{enumerate}
     \item Were there ambiguities in the English description of the infusion pump that your specification resolves?
     \item State four general properties that your pump guarantees (for example, the alarm will always sound if a line becomes clogged), and say briefly why it is guaranteed.
     \item Does your model say what happens if the power goes out in the middle of operation?
