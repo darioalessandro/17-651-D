@@ -25,7 +25,7 @@ menu UserControlMenu = {
     flow_unblocked, sound_alarm, lock_unit, plug_in, press_cancel, 
     press_set, set_rate, silence_alarm, turn_off, unlock_unit, unplug,
     flow_blocked, low_battery, alarm_system_fail, set_ac_power, 
-    set_battery_power, ac_power_fail, recover_ac_power
+    set_battery_power, ac_power_fail, recover_ac_power, check_power
 }
 
 //======================
@@ -43,6 +43,7 @@ const Silenced = 0
 const InsistentAlarm = 1
 const NonInsistentAlarm = 2
 const ContinuousAlarm = 3
+
 range AlarmStateT = Silenced .. ContinuousAlarm
 
 //
@@ -99,6 +100,15 @@ AC_BATTERY_POWER[power:CordConnectedStateT] =
         set_battery_power -> SETUP[ParamsNotSet][LineUnlocked][power]
 ),
 
+SET_POWER_MODE[power:CordConnectedStateT] =
+(
+    when (power == CordConnected)                             // If the cord is connected and the AC power fails, switch to the battery
+        ac_power_fail -> AC_BATTERY_POWER[CordNotConnected]
+    |
+    when (power == CordNotConnected)                          // If the pump is using the battery, we can switch to the AC power
+        recover_ac_power -> AC_BATTERY_POWER[CordConnected]
+),
+
 //
 // Pump in setup mode:
 // - Once required pump parameters (just rate in this case) are set,
@@ -130,11 +140,7 @@ SETUP[params:ParamsStateT][lineLock:LineLockStateT][power:CordConnectedStateT]  
     when (lineLock == LineLocked)
         erase_and_unlock_line -> SETUP[params][LineUnlocked][power]
     |
-    when (power == CordConnected)                             // If the cord is connected and the AC power fails, switch to the battery
-        ac_power_fail -> AC_BATTERY_POWER[CordNotConnected]
-    |
-    when (power == CordNotConnected)                          // If the pump is using the battery, we can switch to the AC power
-        recover_ac_power -> AC_BATTERY_POWER[CordConnected]
+    check_power -> SET_POWER_MODE[power]
     |
     low_battery -> NON_INSISTENT_ALARM                        // at any time, we can have a non insistent alarm
     |
