@@ -120,14 +120,50 @@ explain why. (Note: Reference certain parts of your specification that address f
 \begin{enumerate}
 \item Which aspects of the pump did you choose to model, and which did you choose to leave out? \\
   We took the existing fsp model as a start point and added the following features: \\
-  \begin{enumerate}
+
+  \vspace{8pt}
+
+  The second FSP version of the infusion pump addresses the following aspects:\\
+
+  \begin{itemize}
   \item Added hold button.
   \item Added better error handling: in particular, distinguish between blocked line and out of liquid.
-    \item TODO: add more.
-  \end{enumerate}
+  \item The 3 types of audio alarms (Insistent, Non-insistent, Continuous alarms)
+  \item Using the pump on battery - internal rechargeable battery
+  \end{itemize}
+
+  \vspace{4pt}
+
+We abstracted away:\\
+\begin{itemize}
+    \item the number of tones for each alarm type.
+    \item the display of battery capacity 
+    \item WHAT ELSE ??
+\end{itemize}
+
+\vspace{8pt}
+
     \item Were there ambiguities in the English description of the infusion pump that your specification resolves?
     \item State four general properties that your pump guarantees (for example, the alarm will always sound if a line becomes clogged), and say briefly why it is guaranteed.
+
+\vspace{8pt}
+
+\begin{itemize}
+    \item The internal battery will always be used if the AC power fails. This is assured by the (FSP) process $SET\_POWER\_MODE$, which is called within the SETUP process. $SET\_POWER\_MODE$ should normally be invoked in parallel to not interrupt the execution of other processes, but we just used it as a $choice$ (using $|$) to address assignment specifications (Your specification should not use parallel composition).
+
+    \item An non-insistent alarm will always sounds in case the pump is running on batteries that are low. This is assured by the process $NON\_INSISTENT\_ALARM$. Again this process should be invoked in parallel.
+\end{itemize}
+
+\vspace{8pt}
+
     \item Does your model say what happens if the power goes out in the middle of operation?
+
+\vspace{8pt}
+
+Yes, the action $check\_power$ calls $SET\_POWER\_MODE$ to check whether or not the AC power fails and switch from and to battery mode.
+
+\vspace{8pt}
+
     \item Referring to the additional documentation about the infusion pump on the general project description section of the web site, consider the errors noted about realistic pumps. Which of these types of errors can be illustrated with your pump? Does your pump exclude some of them from happening?
 
 \end{enumerate}
