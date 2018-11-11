@@ -100,15 +100,6 @@ AC_BATTERY_POWER[power:CordConnectedStateT] =
         set_battery_power -> SETUP[ParamsNotSet][LineUnlocked][power]
 ),
 
-SET_POWER_MODE[power:CordConnectedStateT] =
-(
-    when (power == CordConnected)                             // If the cord is connected and the AC power fails, switch to the battery
-        ac_power_fail -> AC_BATTERY_POWER[CordNotConnected]
-    |
-    when (power == CordNotConnected)                          // If the pump is using the battery, we can switch to the AC power
-        recover_ac_power -> AC_BATTERY_POWER[CordConnected]
-),
-
 //
 // Pump in setup mode:
 // - Once required pump parameters (just rate in this case) are set,
@@ -145,6 +136,15 @@ SETUP[params:ParamsStateT][lineLock:LineLockStateT][power:CordConnectedStateT]  
     low_battery -> NON_INSISTENT_ALARM                        // at any time, we can have a non insistent alarm
     |
     alarm_system_fail -> CONTINUOUS_ALARM                     // at any time, we can have a continuous alarm
+),
+
+SET_POWER_MODE[power:CordConnectedStateT] =
+(
+    when (power == CordConnected)                             // If the cord is connected and the AC power fails, switch to the battery
+        ac_power_fail -> AC_BATTERY_POWER[CordNotConnected]
+    |
+    when (power == CordNotConnected)                          // If the pump is using the battery, we can switch to the AC power
+        recover_ac_power -> AC_BATTERY_POWER[CordConnected]
 ),
 
 //
