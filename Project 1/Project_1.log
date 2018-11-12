@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  8 NOV 2018 04:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  11 NOV 2018 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -73,25 +73,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 72--75
  []
 
 
-Overfull \hbox (47.29515pt too wide) in paragraph at lines 78--81
+Overfull \hbox (47.29515pt too wide) in paragraph at lines 79--82
 \OML/cmm/m/it/10 lock[]unit; dispense[]main[]med[]flow; unlock[]unit; change[]s
 ettings; confirm[]settings; dispense[]main[]med[]flow\OMS/cmsy/m/n/10 i$ 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--86
+Underfull \hbox (badness 10000) in paragraph at lines 83--87
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 100.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 101.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 100.
- [2] [3]
-(./Project_1.aux) ) 
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 101.
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--123
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+
+Overfull \hbox (3.18422pt too wide) in paragraph at lines 134--135
+[]\OT1/ptm/m/n/10 FDA Re-call re-trieved from ($\OML/cmm/m/it/10 https \OT1/cmr
+/m/n/10 : \OML/cmm/m/it/10 ==www:tennesseelawblog:com=fda[]recalls[]medtronic[]
+infusion$\OT1/ptm/m/n/10 )
+ []
+
+
+Overfull \hbox (9.50732pt too wide) in paragraph at lines 135--138
+[]\OT1/ptm/m/n/10 FDA Re-call re-trieved from ($\OML/cmm/m/it/10 https \OT1/cmr
+/m/n/10 : \OML/cmm/m/it/10 ==www:youhavealawyer:com=blog=\OT1/cmr/m/n/10 2008\O
+ML/cmm/m/it/10 =\OT1/cmr/m/n/10 01\OML/cmm/m/it/10 =\OT1/cmr/m/n/10 12\OML/cmm/
+m/it/10 =infusion \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 pump \OMS/cmsy/m/n/10 ^
+^@
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--138
+
+ []
+
+[3] (./Project_1.aux) ) 
 Here is how much of TeX's memory you used:
  302 strings out of 492649
  3834 string characters out of 6129622
@@ -99,17 +129,18 @@ Here is how much of TeX's memory you used:
  4248 multiletter control sequences out of 15000+600000
  14386 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 23i,4n,19p,360b,178s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.
-enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
-fb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pf
-b></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/lo
-cal/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texliv
-e/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Project_1.pdf (3 pages, 67110 bytes).
+ 23i,4n,19p,594b,242s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base
+/8r.enc}</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10
+.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.
+pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/
+local/texlive/2018/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texl
+ive/2018/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Project_1.pdf (3 pages, 79201 bytes).
 PDF statistics:
- 35 PDF objects out of 1000 (max. 8388607)
- 24 compressed objects within 1 object stream
+ 39 PDF objects out of 1000 (max. 8388607)
+ 27 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
