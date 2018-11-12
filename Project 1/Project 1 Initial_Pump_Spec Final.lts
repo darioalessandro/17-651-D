@@ -1,0 +1,204 @@
+//
+// 17-651: FSP model of a simple infusion pump
+//
+// ASSUMPTIONS
+// - The user can choose, in the setup phase, which item of info to enter next.
+// - The simple enter_value action is a simple number pad where the user enters
+//   numeric values.
+// - There exist 'set' and 'cancel' buttons, which are the targets of press_set
+//   and press_cancel.
+// - When the user turns the unit off, the unit will be in a state as if it was
+//   just plugged in.
+//
+
+//
+// Set of actions that the user of the LTSA tool can control in an
+// animation of this model.
+//
+menu UserControlMenu = {
+    autoswitch, change_settings, clear_rate, confirm_settings, connect_set,
+    dispense_main_med_flow, done, enter_value, erase_and_unlock_line,
+    flow_unblocked, sound_alarm, lock_unit, plug_in, press_cancel, press_hold, 
+    press_set, press_resume, set_rate, silence_alarm, self_test, set_fluids, turn_off, unlock_unit, unplug,
+    flow_blocked, check_charge, auto_switch
+}
+
+//======================
+// Constants and Ranges
+//======================
+
+//
+// States of the pump alarm
+//
+const AlarmActivated = 0    // Alarm currently active
+const AlarmSilenced  = 1    // Alarm currently inactive
+
+range AlarmStateT = AlarmActivated .. AlarmSilenced
+
+//
+// States of the pump settings
+//
+const ParamsNotSet = 2    // pump parameters not set yet
+const ParamsSet    = 3    // pump parameters already set
+
+range ParamsStateT = ParamsNotSet .. ParamsSet
+
+//
+// Locked/unlocked states of a line with respect to a pump channel
+//
+const LineUnlocked = 4  // line not locked into a pump channel 
+const LineLocked   = 5  // line locked into a pump channel
+
+range LineLockStateT = LineUnlocked .. LineLocked
+
+//
+// Locked/unlocked states of the pump unit
+//
+const UnitUnlocked = 6  // the keypad of the pump is not locked
+const UnitLocked   = 7  // the keypad of the pump is locked
+
+range UnitLockStateT = UnitUnlocked .. UnitLocked
+
+//
+// Maximum fluid dosage
+//
+
+const MaxFluids = 3 //maximum measurement that can be dispensed/
+range FluidsStateT = 0 .. MaxFluids //range 0 - 10 that can be dispensed. 
+
+
+//=====================
+// Process Definitions
+//=====================
+
+PUMP = UNPLUGGED,
+
+UNPLUGGED =
+(
+    plug_in -> POWER_OFF
+),
+
+POWER_OFF = 
+(
+    turn_on -> SELF_TEST
+),
+
+SELF_TEST = 
+(
+	self_test -> self_test_error -> POWER_OFF
+    |
+   	self_test -> SETUP[ParamsNotSet][LineUnlocked]
+),
+
+// check_charge checks if pump has enough charge at any point.
+// If there is not enough charge, it turns on backup supply(battery mode)using auto switch
+// If there is enough charge it continues to SETUP
+PUMP_CHARGE=
+(
+	charge_sufficient -> SETUP[ParamsNotSet][LineUnlocked]
+    |
+    charge_notsufficient -> BACKUP_SUPPLY
+),
+
+BACKUP_SUPPLY =
+(
+ auto_switch -> SETUP[ParamsNotSet][LineUnlocked]
+),
+
+//
+// Pump in setup mode:
+// - Once required pump parameters (just rate in this case) are set,
+//   physical connections can be made and line can be locked
+//
+SETUP[params:ParamsStateT][lineLock:LineLockStateT] = 
+(
+    unplug -> UNPLUGGED
+    |
+    turn_off -> POWER_OFF
+    |
+    when (params == ParamsNotSet && lineLock == LineUnlocked)
+        set_rate -> enter_value ->
+            (press_set -> SETUP[ParamsSet][lineLock]
+             |
+             press_cancel -> SETUP[ParamsNotSet][lineLock])
+    |
+    when (params == ParamsSet && lineLock == LineUnlocked)
+        clear_rate -> SETUP[ParamsNotSet][lineLock]
+    |
+    when (params == ParamsSet && lineLock == LineUnlocked)
+        connect_set -> purge_air -> lock_line -> SETUP[params][LineLocked]
+    |
+    when (lineLock == LineLocked)
+        set_fluids[fluids:FluidsStateT] -> confirm_settings -> INFUSION[UnitUnlocked][fluids]
+    |
+    when (lineLock == LineLocked)
+        erase_and_unlock_line -> SETUP[params][LineUnlocked]
+ 
+),
+
+//
+// Pump in infusion mode:
+// - Always be able to turn the unit off, even if locked
+// - Allow the user to lock/unlock the unit
+// - Errors could occur with the pump (e.g., line became pinched or plugged)
+//
+INFUSION[unitLock:UnitLockStateT][fluids:FluidsStateT]  =
+(
+    unplug -> UNPLUGGED
+    |
+    when (unitLock == UnitUnlocked)
+        change_settings -> SETUP[ParamsSet][LineLocked]
+    |
+    when (unitLock == UnitUnlocked)
+        lock_unit -> INFUSION[UnitLocked][fluids]
+    |
+    when (unitLock == UnitLocked)
+        unlock_unit -> INFUSION[UnitUnlocked][fluids]
+    |
+    when (fluids == 0)
+		done -> SETUP[ParamsNotSet][LineUnlocked]
+	|
+	when (fluids > 0)
+		dispense_main_med_flow -> INFUSION[UnitUnlocked][fluids-1]
+    |
+    press_hold -> HOLD[unitLock][fluids]
+    |
+    flow_blocked -> sound_alarm -> INFUSION_BLOCKED[unitLock][AlarmActivated][fluids]
+	|
+    check_charge -> charge_sufficient -> INFUSION[unitLock][fluids]
+    |
+    check_charge -> charge_notsufficient -> autoswitch -> INFUSION[unitLock][fluids]
+),
+
+//
+// Pump is in the Hold state. Can only turn off pump from Hold, or resume.
+HOLD[unitLock:UnitLockStateT][fluids:FluidsStateT] =
+(
+    unplug -> UNPLUGGED
+    |
+    turn_off -> POWER_OFF
+    |
+	press_resume -> INFUSION[unitLock][fluids]
+),
+
+
+//
+// Pump stuck (medication flow suspended)
+//
+INFUSION_BLOCKED[unitLock:UnitLockStateT][alarm:AlarmStateT][fluids:FluidsStateT] =
+(
+    unplug -> UNPLUGGED
+    |
+    when (alarm == AlarmActivated)
+        sound_alarm -> INFUSION_BLOCKED[unitLock][alarm][fluids]
+    |
+    when (alarm == AlarmActivated)
+        silence_alarm -> INFUSION_BLOCKED[unitLock][AlarmSilenced][fluids]
+    |
+    flow_unblocked -> INFUSION[unitLock][fluids]
+    |
+    check_charge -> charge_sufficient -> INFUSION[unitLock][fluids]
+    |
+    check_charge -> charge_notsufficient -> autoswitch -> INFUSION[unitLock][fluids]
+).
+
