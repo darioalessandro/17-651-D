@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  19 NOV 2018 21:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  19 NOV 2018 22:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -234,7 +234,19 @@ Overfull \hbox (43.48586pt too wide) in paragraph at lines 87--89
 [] 
  []
 
-[2] [3 <./deadlocks.png>] (./hw12.aux) ) 
+[2]
+Overfull \hbox (38.62633pt too wide) in paragraph at lines 122--122
+ []    \OT1/cmtt/m/n/10 msg_received[i] -> send_ack[i] -> ( // process the curr
+ently expected message[] 
+ []
+
+[3 <./deadlocks.png>]
+Overfull \hbox (43.87628pt too wide) in paragraph at lines 122--122
+ []    \OT1/cmtt/m/n/10 msg_received[j] -> send_ack[j] -> ( // process the prev
+iously expected message[] 
+ []
+
+[4] (./hw12.aux) ) 
 Here is how much of TeX's memory you used:
  2071 strings out of 492649
  26815 string characters out of 6129622
@@ -242,21 +254,21 @@ Here is how much of TeX's memory you used:
  5929 multiletter control sequences out of 15000+600000
  8241 words of font info for 34 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,5n,29p,756b,365s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/font
-s/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/
-public/amsfonts/latxfont/lasy10.pfb>
-Output written on hw12.pdf (3 pages, 170296 bytes).
+ 41i,5n,29p,756b,391s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
+ts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmtt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mtt9.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/latxfo
+nt/lasy10.pfb>
+Output written on hw12.pdf (4 pages, 176468 bytes).
 PDF statistics:
- 53 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 56 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
