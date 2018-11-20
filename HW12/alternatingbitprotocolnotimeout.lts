@@ -1,0 +1,22 @@
+const Max = 1 range Msg = 0..Max
+
+SENDER = SENDER[0], SENDER[i:Msg] = (
+    send_msg[i] -> (
+        msg_received[i] -> (
+            // proceed to send the next message
+            ack_received[i] -> SENDER[(i + 1) % (Max + 1)]
+        )
+    )
+).
+
+RECEIVER = RECEIVER[0][1], RECEIVER[i:Msg][j:Msg] = (
+    msg_received[i] -> send_ack[i] -> ( // process the currently expected message
+        ack_received[i] -> RECEIVER[(i + 1) % (Max + 1)][i]
+    )
+    |
+    msg_received[j] -> send_ack[j] -> ( // process the previously expected message
+        ack_received[j] -> RECEIVER[(j + 1) % (Max + 1)][j]
+    )
+).
+
+||ALTBITPROTOCOL = (SENDER || RECEIVER).
