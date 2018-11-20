@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  13 NOV 2018 02:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  16 NOV 2018 02:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -222,99 +222,116 @@ Overfull \hbox (22.87646pt too wide) in paragraph at lines 57--57
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--79
+Underfull \hbox (badness 10000) in paragraph at lines 75--81
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 75--79
+Underfull \hbox (badness 10000) in paragraph at lines 75--81
 
  []
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 84.
+LaTeX Font Info:    Try loading font information for U+msa on input line 99.
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 84.
+LaTeX Font Info:    Try loading font information for U+msb on input line 99.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 84.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 99.
 
 (/usr/local/texlive/2018/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 85--87
-
- []
-
-
-Overfull \hbox (96.37582pt too wide) in paragraph at lines 91--91
- []  \OT1/cmtt/m/n/10 property RESPECT_OCCUPANCY[p:Passengers] = (when(p < 10) 
-enter -> RESPECT_OCCUPANCY(p + 1)[] 
- []
-
-
-Overfull \hbox (43.87628pt too wide) in paragraph at lines 91--91
- []                                                 \OT1/cmtt/m/n/10 |exit -> R
-ESPECT_OCCUPANCY(p - 1)[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 92--94
+Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
 [2]
-Overfull \hbox (96.37582pt too wide) in paragraph at lines 104--104
+Underfull \hbox (badness 10000) in paragraph at lines 105--106
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 106--108
+
+ []
+
+
+Overfull \hbox (80.62596pt too wide) in paragraph at lines 117--117
+ []\OT1/cmtt/m/n/10 RESPECT_OCCUPANCY_IMP[p:Passengers] = (when(p < 10) enter -
+> RESPECT_OCCUPANCY_IMP[p + 1][] 
+ []
+
+
+Overfull \hbox (7.1266pt too wide) in paragraph at lines 117--117
+ []                                      \OT1/cmtt/m/n/10 |exit -> RESPECT_OCCU
+PANCY_IMP[p - 1][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 118--120
+
+ []
+
+
+Overfull \hbox (96.37582pt too wide) in paragraph at lines 130--130
  []\OT1/cmtt/m/n/10 ||CARPARK = (ARRIVALS||CARPARKCONTROL(MAX_CAPACITY)||DEPART
 URES || RESPECT_MAX_CAPACITY(0)).[] 
  []
 
-<img1.png, id=16, 467.7475pt x 364.36125pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--155
+
+ []
+
+[3]
+<img1.png, id=19, 467.7475pt x 364.36125pt>
 File: img1.png Graphic file (type png)
 <use img1.png>
-Package pdftex.def Info: img1.png  used on input line 128.
+Package pdftex.def Info: img1.png  used on input line 156.
 (pdftex.def)             Requested size: 233.87317pt x 182.18018pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 134--137
+Underfull \hbox (badness 10000) in paragraph at lines 162--168
 
  []
 
-[3 <./img1.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 137--140
+
+Underfull \hbox (badness 10000) in paragraph at lines 168--173
 
  []
 
-[4] (./hw11.aux) ) 
+[4 <./img1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 194--197
+
+ []
+
+[5] (./hw11.aux) ) 
 Here is how much of TeX's memory you used:
- 2049 strings out of 492649
- 26444 string characters out of 6129622
+ 2051 strings out of 492649
+ 26465 string characters out of 6129622
  91875 words of memory out of 5000000
- 5912 multiletter control sequences out of 15000+600000
- 7775 words of font info for 32 fonts, out of 8000000 for 9000
+ 5913 multiletter control sequences out of 15000+600000
+ 8083 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,5n,29p,392b,385s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmti7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-tt10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/latxfo
-nt/lasy10.pfb>
-Output written on hw11.pdf (4 pages, 125158 bytes).
+ts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmcsc10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mti7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+t10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/latxfon
+t/lasy10.pfb>
+Output written on hw11.pdf (5 pages, 138553 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 63 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

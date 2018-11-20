@@ -1,0 +1,16 @@
+const N = 5
+
+PHIL = (butler.requestSitdown->right.get->left.get
+               ->eat->left.put->right.put
+               -> butler.arise->PHIL).
+
+FORK = (get -> put -> FORK).
+
+BUTLER = BUTLER[0],
+BUTLER[n:0..(N-1)] =(when (n<(N-1)) requestSitdown -> BUTLER[n+1]
+|arise -> BUTLER[n-1]).
+
+||DINERS =
+        (forall [i:0..N-1] phil[i]:PHIL || {phil[i:0..(N - 1)]}::butler:BUTLER
+        || forall [i:0..N-1] {phil[i].left,phil[((i-1)+N)%N].right}::FORK
+        ).

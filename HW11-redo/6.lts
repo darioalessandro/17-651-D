@@ -1,0 +1,7 @@
+Alice = (call.bob -> wait.chris -> Alice
+         |  timeout.alice -> wait.chris ->Alice).
+   Bob   = (call.chris -> wait.alice -> Bob
+         |  timeout.bob -> wait.alice ->Bob).
+   Chris = (call.alice -> wait.bob -> Chris
+         |  timeout.chris -> wait.bob ->Chris).
+   ||S = (Alice || Bob || Chris) /{call/wait}.

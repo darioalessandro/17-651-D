@@ -1,0 +1,8 @@
+const MAX_PASSENGERS = 100
+
+range Passengers = 0..MAX_PASSENGERS
+
+property RESPECT_OCCUPANCY(N=0) = RESPECT_OCCUPANCY_IMP[N],
+RESPECT_OCCUPANCY_IMP[p:Passengers] = (when(p < 10) enter -> RESPECT_OCCUPANCY_IMP[p + 1]
+                                      |exit -> RESPECT_OCCUPANCY_IMP[p - 1]
+                                      ).

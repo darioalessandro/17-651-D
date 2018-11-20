@@ -1,0 +1,14 @@
+  const PotCapacity = 5
+  range Int = 0..PotCapacity
+
+  SAVAGE = (getserving -> SAVAGE).
+
+  COOK   = (fillpot -> COOK).
+
+  POT(I=0) = POTIMP[I],
+  POTIMP[n:Int] = (when(n > 0) getserving -> POTIMP[n-1]
+                  |when(n == 0) fillpot -> POTIMP[PotCapacity]
+                  ).
+
+  ||FEAST(N=5) = (forall [i:1..N] savage[i]:SAVAGE || COOK || POT(PotCapacity))
+                 /{{savage[1..N]}.getserving/getserving}.
