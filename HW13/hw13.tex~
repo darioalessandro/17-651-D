@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsfonts,graphicx,verbatim}
+\input{handout}
+\newcommand{\implies}{\Rightarrow}
+\newcommand{\until}{\,\mathcal{U}\,}
+
+\begin{document}
+
+\homework{\hspace*{1.15in}Homework \#13}{26 November 2018}{Petri Nets 1}{}
+
+
+
+\begin{enumerate}
+
+\item Consider a small garden, similar to the one described by Kramer and Magee, that has two entrances, an East entrance and a West entrance. Users may enter or leave either entrance through a small gate that permits only one user to enter or leave at a time. The park can hold up to 10 people. Model this system using a Petri Net. \\
+\includegraphics[scale=0.5]{hw13p1.png}
+
+\item Consider a traffic light that controls traffic on a two-lane road. The light is normally green, allowing cars to pass through. But when a user presses a button, the traffic light should turn yellow, and then red, allowing some number of users to cross the street. It then turns green again, and users are prohibited from crossing.
+    \begin{enumerate}
+    \item Describe this system using a Petri Net.
+    \item Does your net guarantee that the light cannot turn red without first turning yellow? Justify briefly.
+    \item Does your net guarantee that an arriving car will eventually be allowed to pass through the light?
+    \item List three aspects of the real system that are abstracted away by your model.
+    \end{enumerate}
+
+
+\item For the P/V Petri Net shown in Figure 15 of Peterson's article
+(Pet77.pdf, page 234):
+
+\begin{enumerate}
+ \item  Construct the reachability tree, using the tree condensation
+        algorithm shown in class. Assume that the ordering of places in the state vector of the Petri Net shown in Figure 15 is:
+(P1, P2, P3, P4, S).
+
+
+ \item Use this to argue that the design is correct, i.e., that it is
+       not possible for the system to be simultaneously in the
+       critical sections of both processes.
+\end{enumerate}
+
+\end{enumerate}
+\end{document}
