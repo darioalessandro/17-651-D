@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{amsfonts,enumerate}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\input{handout}
+\newcommand{\Until}{\,\mathcal{U}\,}
+\newcommand{\Next}{\bigcirc}
+\begin{document}
+
+\homework{}{30 November 2018}{Homework \#14: Probabilistic Model Checking}{}
+
+
+%% PRISM CODE LISTING *********************************************
+
+\definecolor{prismgreen}{rgb}{0, 0.6, 0}
+
+\lstdefinelanguage{Prism}{ % syntax highlight via font
+        basicstyle=\color{black}\scriptsize\sffamily, % small true type font (like courier)
+        keywords= {bool,C,ceil,const,ctmc,double,dtmc,endinit,endmodule,endrewards,endsystem,F,false,floor,formula,G,global,I,init,int,label,max,mdp,min,module,nondeterministic,P,Pmin,Pmax,prob,probabilistic,R,rate,rewards,Rmin,Rmax,S,stochastic,system,true,U,X, player, endplayer},
+        keywordstyle={\bfseries\color{black}},
+        numberstyle=\tiny\color{black},
+        belowcaptionskip=\baselineskip,
+        comment=[l] {//}, morecomment=[s]{/*}{*/}, % single and multi-line
+        commentstyle= \color{prismgreen}, % dark green
+        tabsize=4, % tab treatment (going to be fixed in Prism)
+        captionpos=b, % put captions at the bottom
+        escapechar=@, % write LaTeX comments escaped by @ symbol
+        belowcaptionskip=0em,
+        belowskip=0em,
+}
+
+
+%\begin{tabular}{cc}
+%\begin{minipage}[l]{0.6\textwidth}
+
+%\end{minipage}
+
+%&
+%\begin{minipage}[t]{0.4\textwidth}
+%\end{minipage}
+
+%\\
+
+%\end{tabular}
+
+\begin{enumerate}
+\item Probabilistic models augment normal state machines by associating probabilities with transitions. List one advantage of having models with this additional level of expressiveness. List one disadvantage.
+
+\item Consider the following probabilistic model, that emulates a 6-sided die with a fair coin. Starting from state 0 ({\tt s=0}), a coin is tossed at every step, and there is a 50\% chance of taking each of the two possible choices. The process finishes when you reach one of the values of the die on the right-hand side (encoded in variable {\tt d} in the PRISM listing):
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{dice}
+\end{figure}
+
+
+For each of the following questions/statements: (a) write a PCTL temporal formula to obtain the answer, (b) write the result obtained by checking the PCTL formula with the PRISM tool, and (c) briefly explain why that result was obtained.
+\begin{enumerate}
+\item What is the probability of rolling a 6? \\
+  \begin{center}
+    P=? [ F d=6 ] \\
+    Result: \\
+    \includegraphics[width=0.5\textwidth]{p6}\\
+    0.16 makes sense as the probability of rolling any side of a die is $\frac{1}{6}$ 
+  \end{center}
+\item Are the probability of rolling a 1 and a 4 the same?
+\item With probability 1, the value of the die will be 0 until state 7 is reached.
+\item What is the probability of eventually reaching state 3?
+  \begin{center}
+    \includegraphics[width=0.5\textwidth]{p2d}\\
+  \end{center}
+\item What is the probability of eventually reaching state 3 and rolling a 2?
+\item What is the probability of eventually reaching state 3 and rolling a 5?
+
+\end{enumerate}
+
+\item Consider the client-server example seen in class. For each of the following questions/statements: (a) write a PCTL temporal formula to obtain the answer, (b) write the result obtained by checking the PCTL formula with the PRISM tool, and (c) briefly explain why that result was obtained.
+
+\begin{enumerate}
+\item What is the probability that the client will acquire the channel in the first attempt, and that the server will fail to reply?
+\item  The server will never attempt to reply (successfully or unsuccessfully) until a request has successfully been sent by the client.
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

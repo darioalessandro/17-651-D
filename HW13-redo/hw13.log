@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  28 NOV 2018 03:48
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  1 DEC 2018 21:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -146,38 +146,28 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-<hw13p1.png, id=1, 376.40625pt x 301.125pt>
+<hw13p1.png, id=1, 812.03375pt x 479.7925pt>
 File: hw13p1.png Graphic file (type png)
 <use hw13p1.png>
 Package pdftex.def Info: hw13p1.png  used on input line 16.
-(pdftex.def)             Requested size: 188.20265pt x 150.56212pt.
+(pdftex.def)             Requested size: 406.01588pt x 239.89565pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--20
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--20
+Underfull \hbox (badness 10000) in paragraph at lines 15--23
 
  []
 
-<hw13p2.png, id=3, 813.0375pt x 520.94624pt>
+<hw13p2.png, id=3, 789.95125pt x 571.13374pt>
 File: hw13p2.png Graphic file (type png)
 <use hw13p2.png>
-Package pdftex.def Info: hw13p2.png  used on input line 28.
-(pdftex.def)             Requested size: 406.51776pt x 260.47249pt.
+Package pdftex.def Info: hw13p2.png  used on input line 29.
+(pdftex.def)             Requested size: 394.97466pt x 285.56618pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--29
-
- []
-
-
-Overfull \hbox (19.8978pt too wide) in paragraph at lines 23--29
+Overfull \hbox (8.35469pt too wide) in paragraph at lines 25--30
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 23--29
+Underfull \hbox (badness 10000) in paragraph at lines 25--30
 
  []
 
@@ -185,26 +175,57 @@ Underfull \hbox (badness 10000) in paragraph at lines 23--29
 
 {/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./hw13p
 1.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 30--32
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 32--34
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 34--36
 
  []
 
-[2 <./hw13p2.png>] (./hw13.aux) ) 
+<HW13P3graph.png, id=12, 216.81pt x 226.8475pt>
+File: HW13P3graph.png Graphic file (type png)
+<use HW13P3graph.png>
+Package pdftex.def Info: HW13P3graph.png  used on input line 46.
+(pdftex.def)             Requested size: 108.40472pt x 113.42346pt.
+[2 <./hw13p2.png>]
+<PetriHW13P3.png, id=17, 333.245pt x 242.9075pt>
+File: PetriHW13P3.png Graphic file (type png)
+<use PetriHW13P3.png>
+Package pdftex.def Info: PetriHW13P3.png  used on input line 47.
+(pdftex.def)             Requested size: 166.62209pt x 121.45345pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--56
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 49--56
+
+ []
+
+[3 <./HW13P3graph.png> <./PetriHW13P3.png>] (./hw13.aux) ) 
 Here is how much of TeX's memory you used:
- 1523 strings out of 492649
- 22071 string characters out of 6129622
+ 1533 strings out of 492649
+ 22259 string characters out of 6129622
  86174 words of memory out of 5000000
- 5412 multiletter control sequences out of 15000+600000
+ 5420 multiletter control sequences out of 15000+600000
  4245 words of font info for 16 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,5n,25p,408b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2018/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmr10.pfb>
-Output written on hw13.pdf (2 pages, 61337 bytes).
+ 41i,5n,25p,356b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2
+018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/20
+18/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+Output written on hw13.pdf (3 pages, 100975 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
- 13 compressed objects within 1 object stream
+ 31 PDF objects out of 1000 (max. 8388607)
+ 15 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

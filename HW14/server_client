@@ -1,0 +1,48 @@
+dtmc
+
+const c_init = 0;
+
+const c_end = 4;
+
+const c_acquired = 1;
+
+const c_send_success = 2;
+
+const c_send = 3;
+
+const success = 5;
+
+const s_init = 0;
+
+const s_end = 10;
+
+const s_reply_success = 1;
+
+const s_received_request = 2;
+
+const s_reply_fail = 3;
+
+
+module client
+
+sc : [c_init..c_end] init c_init;
+
+[](sc=c_init) -> 0.7:(sc'=c_acquired) + 0.3:(sc'=c_init);
+
+[send] (sc=c_acquired) -> 1: (sc'=c_send_success);
+
+[reply] (sc=c_send+success) -> 1:(sc'=c_end);
+	
+endmodule
+
+module server
+
+ss: [s_init..s_end] init s_init;
+
+[send] (ss=s_init)-> 1:(ss'=s_received_request);
+
+[reply] (ss=s_received_request) -> 1:(ss'=s_reply_success);
+
+[] (ss=s_received_request) -> 1:(ss'=s_reply_fail);
+
+endmodule 
